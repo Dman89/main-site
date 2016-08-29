@@ -2,12 +2,16 @@
   "name": "main-site",
   "version": "1.0.0",
   "description": "Main site for freelance webdesign",
-  "main": "webpack.config.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "4.4.4"
+  },
   "devDependencies": {
     "connect-modrewrite": "^0.9.0",
     "json-loader": "^0.5.4",
