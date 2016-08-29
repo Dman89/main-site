@@ -1,0 +1,32 @@
+{
+  "name": "main-site",
+  "version": "1.0.0",
+  "description": "Main site for freelance webdesign",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "connect-modrewrite": "^0.9.0",
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "fs": "0.0.1-security",
+    "http-status": "^0.2.3",
+    "mongoose": "^4.5.10",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "ui-router": "^1.0.0-alpha.3",
+    "underscore": "^1.8.3",
+    "wagner-core": "^0.2.0"
+  }
+}
