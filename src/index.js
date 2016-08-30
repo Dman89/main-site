@@ -1,7 +1,7 @@
 'use strict';
+var express = require('express');
 var app = express();
 var cookieParser = require('cookie-parser');
-var express = require('express');
 var expressSession = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
