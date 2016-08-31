@@ -1,5 +1,5 @@
 {
-  "name": "main-site",
+  "name": "mainSite",
   "version": "1.0.0",
   "description": "Main site for freelance webdesign",
   "main": "src/index.js",

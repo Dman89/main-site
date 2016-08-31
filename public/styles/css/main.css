@@ -1,3 +1,43 @@
+/* BG */
+#backgroundAnimate {
+  background: #212121 url("../../../images/bg.jpg") top left;
+  background-repeat: repeat-x;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0; }
 
+.profileImageMain {
+  display: block;
+  margin: 5vh auto 0;
+  border-radius: 100%;
+  position: relative;
+  border: .35em solid white;
+  height: 300px;
+  width: 300px; }
+  @media screen and (max-width: 1199px), screen and (max-height: 1199px) {
+    .profileImageMain {
+      height: 275px;
+      width: 275px; } }
+  @media screen and (max-width: 991px), screen and (max-height: 991px) {
+    .profileImageMain {
+      height: 250px;
+      width: 250px; } }
+  @media screen and (max-width: 767px), screen and (max-height: 767px) {
+    .profileImageMain {
+      height: 225px;
+      width: 225px; } }
+  @media screen and (max-width: 600px), screen and (max-height: 600px) {
+    .profileImageMain {
+      height: 200px;
+      width: 200px; } }
+  @media screen and (max-width: 480px), screen and (max-height: 480px) {
+    .profileImageMain {
+      height: 150px;
+      width: 150px; } }
+
+.boxShadowLight {
+  box-shadow: 0 3px 5px 0 gray; }
 
 /*# sourceMappingURL=main.css.map */

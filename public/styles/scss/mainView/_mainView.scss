@@ -1,0 +1,29 @@
+.profileImageMain {
+  display: block;
+  margin: 5vh auto 0;
+  border-radius: 100%;
+  position: relative;
+  border: .35em solid white;
+  height: 300px;
+  width: 300px;
+  @media screen and (max-width: 1199px), screen and (max-height: 1199px) {
+    height: 275px;
+    width: 275px;
+  }
+  @media screen and (max-width: 991px), screen and (max-height: 991px) {
+    height: 250px;
+    width: 250px;
+  }
+  @media screen and (max-width: 767px), screen and (max-height: 767px) {
+    height: 225px;
+    width: 225px;
+  }
+  @media screen and (max-width: 600px), screen and (max-height: 600px) {
+    height: 200px;
+    width: 200px;
+  }
+  @media screen and (max-width: 480px), screen and (max-height: 480px) {
+    height: 150px;
+    width: 150px;
+  }
+}
