@@ -9,9 +9,6 @@ webpackJsonp([0],[
 	__webpack_require__(3);
 	//CONTROLLERS
 	__webpack_require__(5);
-	__webpack_require__(6);
-	//Directive
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./scripts/directives/main.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	//SERVICE
 	// require('./scripts/services/timerService.js');
 
@@ -4623,26 +4620,32 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("indexCtrl", function($scope) {
+	.controller("indexCtrl", function($scope, $interval) {
 	  
-	});
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports) {
-
-	'use strict';
-	angular.module("mainSite")
-	.controller("mainCtrl", function($scope) {
-	  var backgroundResize = function() {
-	    console.log("Ran");
-	    var widthForBG = document.documentElement.clientHeight * 1.669133771929825;
-	    document.getElementById("bg").style.backgroundRepeat = "repeat-x";
-	    document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
-	    document.getElementById("bg").style.width = widthForBG + "px";
-	  }
-	  backgroundResize();
+	  // BACKGROUND ANIMATION
+	      var backgroundResize = function() {
+	          // document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+	          var widthForBG = document.documentElement.clientHeight * 1.669133771929825;
+	          document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
+	          document.getElementById("bg").style.width = (widthForBG * 2) + "px";
+	        }
+	        var windowResize = function(object, type, callback) {
+	          if (object == null || typeof(object) == 'undefined') return;
+	          if (object.addEventListener) {
+	              object.addEventListener(type, callback, false);
+	          } else if (object.attachEvent) {
+	              object.attachEvent("on" + type, callback);
+	          } else {
+	              object["on"+type] = callback;
+	          }
+	        };
+	        backgroundResize();
+	        windowResize(window, "resize", backgroundResize);
+	        var readjust = 0;
+	        $interval(function () {
+	          readjust += .1;
+	          document.getElementById("bg").style.backgroundPosition = readjust + "px 0px"
+	        }, 1);
 	});
 
 
