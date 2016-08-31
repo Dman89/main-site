@@ -1,52 +1,11 @@
 /* BG */
 
 	#bg {
-		// -moz-animation: bg 10s linear infinite;
-		// -webkit-animation: bg 10s linear infinite;
-		// -ms-animation: bg 10s linear infinite;
-		// animation: bg 10s linear infinite;
-		// -moz-backface-visibility: hidden;
-		// -webkit-backface-visibility: hidden;
-		// -ms-backface-visibility: hidden;
-		// backface-visibility: hidden;
-		// -moz-transform: translate3d(0,0,0);
-		// -webkit-transform: translate3d(0,0,0);
-		// -ms-transform: translate3d(0,0,0);
-		// transform: translate3d(0,0,0);
-	/* Set your background with this */
-
 		background: #212121 url("../../../images/bg.jpg") top left;
 		background-repeat: repeat-x;
 		height: 100%;
 		left: 0;
 		opacity: 1;
-		position: fixed;
+		position: absolute;
 		top: 0;
-		// background-size: 2250px auto;
-		// width: 6750px;
-
-    // @media screen and (max-width: 1680px) {
-  	// 	background-size: 1500px auto;
-  	// 	width: 4500px;
-    // }
-		//
-  	// @media screen and (max-width: 1280px) {
-  	// 	background-size: 750px auto;
-  	// 	width: 2250px;
-    // }
-		//
-    // @media screen and (max-width: 767px) {
-  	// 	background-size: 412.5px auto;
-  	// 	width: 1237.5px;
-    // }
-		//
-  	// @media screen and (max-width: 480px) {
-		// 	background-size: 1001.480263157895px auto;
-		// 	width: 1001.480263157895px;
-    // }
-		//
-  	// @media (max-height: 480px) and (max-width: 360px) {
-		// 	background-size: 801.184210526316px auto;
-		// 	width: 801.184210526316px;
-    // }
 	}
