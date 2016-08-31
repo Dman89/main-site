@@ -4,11 +4,14 @@ webpackJsonp([0],[
 
 	'use strict';
 	var angular = __webpack_require__(1);
-	angular.module("mainSite");
+	angular.module("mainSite", ['ngAnimate']);
 	//STATE CONFIG
 	__webpack_require__(3);
 	//CONTROLLERS
 	__webpack_require__(5);
+	__webpack_require__(6);
+	//Directive
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./scripts/directives/main.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	//SERVICE
 	// require('./scripts/services/timerService.js');
 
@@ -4621,7 +4624,25 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope) {
-	                                            
+	  
+	});
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module("mainSite")
+	.controller("mainCtrl", function($scope) {
+	  var backgroundResize = function() {
+	    console.log("Ran");
+	    var widthForBG = document.documentElement.clientHeight * 1.669133771929825;
+	    document.getElementById("bg").style.backgroundRepeat = "repeat-x";
+	    document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
+	    document.getElementById("bg").style.width = widthForBG + "px";
+	  }
+	  backgroundResize();
 	});
 
 
