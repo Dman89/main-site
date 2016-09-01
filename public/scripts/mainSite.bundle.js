@@ -4624,9 +4624,11 @@ webpackJsonp([0],[
 
 	  // BACKGROUND ANIMATION
 	      var backgroundResize = function() {
-	          // document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	          var widthForBG = document.documentElement.clientHeight * 1.669133771929825;
-	          document.getElementById("backgroundAnimate").style.backgroundSize = widthForBG + "px auto";
+	        console.log("run");
+	          document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+	          var docElemOrBody = document.documentElement || document.body;
+	          var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
+	          document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
 	        }
 	        var windowResize = function(object, type, callback) {
 	          if (object == null || typeof(object) == 'undefined') return;
@@ -4643,7 +4645,7 @@ webpackJsonp([0],[
 	        var readjust = 0;
 	        $interval(function () {
 	          readjust += .1;
-	          document.getElementById("backgroundAnimate").style.backgroundPosition = readjust + "px 0px";
+	          document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
 	        }, 1);
 	});
 
