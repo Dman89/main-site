@@ -1,16 +1,20 @@
 /* BG */
-#backgroundAnimate {
-  background: #212121 url("../../../images/bg.jpg") top left;
-  background-repeat: repeat-x;
+#bg {
   height: 100%;
+  width: 100%;
   left: 0;
+  top: 0;
   opacity: 1;
-  position: absolute;
-  top: 0; }
+  position: absolute; }
+
+body {
+  background-color: transparent; }
 
 .profileImageMain {
   display: block;
-  margin: 5vh auto 0;
+  margin: -webkit-calc(5vh + 40px) auto 0;
+  margin: -moz-calc(5vh + 40px) auto 0;
+  margin: calc(5vh + 40px) auto 0;
   border-radius: 100%;
   position: relative;
   border: .35em solid white;

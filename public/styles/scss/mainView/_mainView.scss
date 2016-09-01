@@ -1,6 +1,12 @@
+body {
+  background-color: transparent;
+}
+
 .profileImageMain {
   display: block;
-  margin: 5vh auto 0;
+    margin: -webkit-calc(5vh + 40px) auto 0;
+    margin:    -moz-calc(5vh + 40px) auto 0;
+    margin:         calc(5vh + 40px) auto 0;
   border-radius: 100%;
   position: relative;
   border: .35em solid white;
