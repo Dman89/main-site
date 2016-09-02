@@ -1,9 +1,15 @@
+body {
+  background-color: transparent;
+}
+
 .profileImageMain {
   display: block;
-  margin: 5vh auto 0;
+    margin: -webkit-calc(5vh + 40px) auto 0;
+    margin:    -moz-calc(5vh + 40px) auto 0;
+    margin:         calc(5vh + 40px) auto 0;
   border-radius: 100%;
   position: relative;
-  border: .35em solid white;
+  border: .35em solid #212121;
   height: 300px;
   width: 300px;
   @media screen and (max-width: 1199px), screen and (max-height: 1199px) {
@@ -26,4 +32,49 @@
     height: 150px;
     width: 150px;
   }
+}
+
+h3.titleHeadline {
+  text-align: center;
+  white-space: nowrap;
+  margin: auto;
+  margin-top: 5vh;
+  overflow: hidden;
+  width: 0%;
+  animation: type 4s 2s forwards steps(60, end);
+}
+h4.smallHealineMain {
+  text-align: center;
+  white-space: nowrap;
+  margin: auto;
+  overflow: hidden;
+  width: 0%;
+  animation: type 4s 3s forwards steps(60, end);
+  & span {
+    animation: blink 1.5s infinite;
+  }
+}
+
+
+.dividerDiv {
+  width: 0vw;
+  height: 5px;
+  background-color: #4E5D6C;
+  margin: auto;
+  margin-top: 5vh;
+  animation: dividerDiv 1s ease-in-out 4.5s forwards;
+}
+
+.mainTitleLinkDiv {
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 5vh;
+  & a {
+    margin: auto;
+  }
+}
+
+.rowIcons {
+  margin-right: 5vh;
 }
