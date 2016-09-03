@@ -1,6 +1,5 @@
 var webpack = require('webpack'),
        path = require('path');
-
 module.exports = {
     context: __dirname + '/app',
     entry: {

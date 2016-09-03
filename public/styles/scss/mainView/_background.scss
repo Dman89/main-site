@@ -1,4 +1,7 @@
 /* BG */
+body {
+  background-color: transparent;
+}
 
 	#bg {
 		height: 100%;
@@ -8,3 +11,13 @@
 		opacity: 1;
 		position: absolute;
 	}
+
+#PUTBACKGROUNDHERE {
+  background-color: #212121;
+  width: 100%;
+  position: absolute;
+  top: -webkit-calc(100vh);
+  top:    -moz-calc(100vh);
+  top:         calc(100vh);
+  height: 100%;
+}
