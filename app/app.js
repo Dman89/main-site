@@ -5,5 +5,7 @@ angular.module("mainSite", ['ngAnimate']);
 require('./scripts/config/main.js');
 //CONTROLLERS
 require('./scripts/controllers/indexCtrl.js');
+require('./scripts/controllers/menuCtrl.js');
+//Functions
 //SERVICE
 // require('./scripts/services/timerService.js');
