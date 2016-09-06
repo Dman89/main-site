@@ -1,6 +1,7 @@
 /* BG */
 body {
   background-color: transparent;
+  overflow:hidden;
 }
 
 	#bg {
@@ -12,7 +13,7 @@ body {
 		position: absolute;
 	}
 
-#PUTBACKGROUNDHERE {
+#PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
   background-color: #212121;
   width: 100%;
   position: absolute;
@@ -20,4 +21,22 @@ body {
   top:    -moz-calc(100vh);
   top:         calc(100vh);
   height: 100%;
+}
+#PUTBACKGROUNDHERE2 {
+top: -webkit-calc(200vh);
+top:    -moz-calc(200vh);
+top:         calc(200vh);
+  background-color: #333;
+}
+#PUTBACKGROUNDHERE3 {
+top: -webkit-calc(300vh);
+top:    -moz-calc(300vh);
+top:         calc(300vh);
+  background-color: #444;
+}
+#PUTBACKGROUNDHERE4 {
+top: -webkit-calc(400vh);
+top:    -moz-calc(400vh);
+top:         calc(400vh);
+  background-color: #555;
 }
