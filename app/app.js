@@ -8,4 +8,5 @@ require('./scripts/controllers/indexCtrl.js');
 require('./scripts/controllers/menuCtrl.js');
 //Functions
 //SERVICE
-// require('./scripts/services/timerService.js');
+require('./scripts/services/scrollService.js');
+require('./scripts/services/barGraphAnimationService.js');
