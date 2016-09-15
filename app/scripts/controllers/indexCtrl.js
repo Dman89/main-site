@@ -1,9 +1,8 @@
 'use strict';
 angular.module("mainSite")
-.controller("indexCtrl", function($scope, $interval, $timeout) {
+.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService) {
+  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
   var pageReferenceNumber = 0;
-  document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"})
-  var randomSetVarForFalse = "";
   function displaywheel(e){
     var evt=window.event || e //equalize event object
     var delta=evt.detail? evt.detail*(-120) : evt.wheelDelta;
@@ -16,18 +15,14 @@ angular.module("mainSite")
     else {
       delta >= 120 ? pageReferenceNumber = 0 : pageReferenceNumber += 1
     }
-    pageReferenceNumber == 0 ? document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-      pageReferenceNumber == 1 ? document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-      pageReferenceNumber == 2 ? document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-      pageReferenceNumber == 3 ? document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-      pageReferenceNumber == 4 ? document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
+      scrollService.scrollInputToCheck(pageReferenceNumber)
     }
   var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"
 $timeout(function() {
   if (document.attachEvent)
-      {document.attachEvent("on"+mousewheelevt, displaywheel)}
+      {document.attachEvent("on"+mousewheelevt, displaywheel); barGraphAnimationService.runGraphAnimation();}
   else if (document.addEventListener)
-      {document.addEventListener(mousewheelevt, displaywheel, false)}
+      {document.addEventListener(mousewheelevt, displaywheel, false); barGraphAnimationService.runGraphAnimation();}
 }, 8000)
 
 var docElemOrBody = document.documentElement || document.body;

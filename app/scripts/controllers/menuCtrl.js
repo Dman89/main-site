@@ -5,8 +5,17 @@ var scrollPostition = window.pageYOffset;
   $scope.home = function() {
     document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"});
   }
-  $scope.values = function() {
+  $scope.skills = function() {
     document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"});
+  }
+  $scope.values = function() {
+    document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"});
+  }
+  $scope.values = function() {
+    document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"});
+  }
+  $scope.values = function() {
+    document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"});
   }
 
 
