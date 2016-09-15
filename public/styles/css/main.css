@@ -212,6 +212,231 @@ h4.smallHealineMain {
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1; } }
+.hidden-xssm.animateGraphInnerText {
+  animation: graphText2 .5s ease-in-out forwards; }
+  @media (max-width: 480px), (max-height: 480px) {
+    .hidden-xssm.animateGraphInnerText {
+      display: none; } }
+
+.hidden-smxs {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  @media (min-width: 480px) {
+    .hidden-smxs {
+      display: none;
+      margin-top: 0em;
+      margin-bottom: 0em; } }
+
+.animateGraphInnerText {
+  animation: graphText2 .5s ease-in-out forwards; }
+
+.innerBar {
+  transform: rotate(90deg);
+  background-color: transparent;
+  color: white;
+  position: absolute; }
+  .innerBar.animateGraph {
+    animation: graphText 2.5s ease-in-out forwards; }
+
+.graphTextBelow {
+  position: relative;
+  bottom: 5vh;
+  text-align: center; }
+  @media (max-height: 460px) {
+    .graphTextBelow {
+      display: none; } }
+
+.graphTextBelow2 {
+  text-align: center; }
+  @media (min-height: 460px) {
+    .graphTextBelow2 {
+      display: none; } }
+
+.containerOfAnimation {
+  position: relative;
+  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  display: block;
+  background-color: black;
+  color: black;
+  border-radius: 5px;
+  width: 450px;
+  height: 450px; }
+  @media (max-width: 480px), (max-height: 480px) {
+    .containerOfAnimation {
+      width: 250px;
+      height: 250px; } }
+
+p {
+  z-index: 0;
+  width: 100%;
+  height: 5%;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.72);
+  opacity: .5;
+  text-align: center;
+  position: relative;
+  animation: skillLevelAnimation 3s ease-in-out 3; }
+  p.a {
+    top: 10%; }
+    @media (max-width: 480px), (max-height: 480px) {
+      p.a {
+        top: 10%; } }
+  p.b {
+    top: 20%; }
+    @media (max-width: 480px), (max-height: 480px) {
+      p.b {
+        top: 17.5%; } }
+  p.c {
+    top: 30%; }
+    @media (max-width: 480px), (max-height: 480px) {
+      p.c {
+        top: 25%; } }
+  p.d {
+    top: 40%; }
+    @media (max-width: 480px), (max-height: 480px) {
+      p.d {
+        top: 32.5%; } }
+  p.e {
+    top: 50.5%; }
+    @media (max-width: 480px), (max-height: 480px) {
+      p.e {
+        top: 40%; } }
+
+#htmlAnimate {
+  position: absolute;
+  height: 90%;
+  width: 7.5%;
+  background-color: blue;
+  bottom: 0;
+  left: 7.5%; }
+  #htmlAnimate.animateGraph {
+    animation: skillAnimate 2s ease-out; }
+  #htmlAnimate p.innerBar {
+    padding-left: 10px; }
+
+#cssAnimate {
+  position: absolute;
+  height: 85%;
+  width: 7.5%;
+  background-color: red;
+  left: 22.5%;
+  bottom: 0; }
+  #cssAnimate.animateGraph {
+    animation: skillAnimate 1.75s ease-out; }
+  #cssAnimate p.innerBar {
+    padding-left: 12px;
+    padding-bottom: 10px; }
+
+#javaScriptAnimate {
+  position: absolute;
+  height: 80%;
+  width: 7.5%;
+  background-color: seagreen;
+  left: 37.5%;
+  bottom: 0; }
+  #javaScriptAnimate.animateGraph {
+    animation: skillAnimate 1.5s ease-out; }
+  #javaScriptAnimate p.innerBar {
+    padding-left: 15px; }
+
+#uiAnimate {
+  position: absolute;
+  height: 60%;
+  width: 7.5%;
+  background-color: green;
+  left: 67.5%;
+  bottom: 0; }
+  #uiAnimate.animateGraph {
+    animation: skillAnimate 1.25s ease-out; }
+  #uiAnimate p.innerBar {
+    left: 8px;
+    top: 15px; }
+    @media (max-height: 480px), (max-width: 480px) {
+      #uiAnimate p.innerBar {
+        left: 2.5px;
+        top: 10px; } }
+
+#sqlAnimate {
+  position: absolute;
+  height: 30%;
+  width: 7.5%;
+  background-color: teal;
+  left: 82.5%;
+  bottom: 0; }
+  #sqlAnimate.animateGraph {
+    animation: skillAnimate .5s ease-out; }
+  #sqlAnimate p.innerBar {
+    left: 15px;
+    top: 25px; }
+    @media (max-height: 480px), (max-width: 480px) {
+      #sqlAnimate p.innerBar {
+        left: 7px;
+        top: 15px; } }
+
+#wordpressAnimate {
+  position: absolute;
+  height: 70%;
+  width: 7.5%;
+  background-color: purple;
+  left: 52.5%;
+  bottom: 0; }
+  #wordpressAnimate.animateGraph {
+    animation: skillAnimate 1.5s ease-out; }
+  #wordpressAnimate p.innerBar {
+    left: 5px;
+    top: 25px; }
+    @media (max-height: 480px), (max-width: 480px) {
+      #wordpressAnimate p.innerBar {
+        left: 1px;
+        top: 10px; } }
+
+.barGraph {
+  z-index: 1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+  .barGraph p {
+    height: 10%;
+    background-color: inherent;
+    opacity: 1;
+    margin: auto;
+    line-height: 2em; }
+  .barGraph h3 {
+    text-align: center;
+    color: white; }
+
+@keyframes skillAnimate {
+  from {
+    height: 0%; } }
+@keyframes graphBarAnimation {
+  to {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 4px;
+    z-index: 3; } }
+@keyframes graphText {
+  0% {
+    display: none;
+    opacity: 0; }
+  80% {
+    display: block;
+    opacity: 0; }
+  100% {
+    display: block;
+    opacity: 1; } }
+@keyframes graphText2 {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: block;
+    opacity: 0; }
+  100% {
+    display: block;
+    opacity: 1; } }
 * {
   font-size: 11px;
   line-height: 18px; }

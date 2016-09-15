@@ -1,0 +1,244 @@
+.hidden-xssm {
+  &.animateGraphInnerText {
+    animation: graphText2 .5s ease-in-out forwards;
+    @media (max-width: 480px), (max-height: 480px) {
+        display: none;
+    }
+  }
+}
+.hidden-smxs {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  @media (min-width: 480px) {
+    display: none;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+}
+.animateGraphInnerText {
+  animation: graphText2 .5s ease-in-out forwards;
+}
+.innerBar {
+  transform: rotate(90deg);
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  &.animateGraph {
+    animation: graphText 2.5s ease-in-out forwards;
+  }
+}
+.graphTextBelow {
+  position: relative;
+  bottom: 5vh;
+  text-align: center;
+  @media (max-height: 460px) {
+    display: none;
+  }
+}
+.graphTextBelow2 {
+  text-align: center;
+  @media (min-height: 460px) {
+    display: none;
+  }
+}
+.containerOfAnimation {
+  position: relative;
+  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  display: block;
+  background-color: black;
+  color: black;
+  border-radius: 5px;
+    width: 450px;
+    height: 450px;
+  @media (max-width: 480px), (max-height: 480px) {
+    width: 250px;
+    height: 250px;
+  }
+}
+p {
+  z-index: 0;
+  width: 100%;
+  height: 5%;
+  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255, .72);
+  opacity: .5;
+  text-align: center;
+  position: relative;
+  animation: skillLevelAnimation 3s ease-in-out 3;
+  &.a {
+      top: 10%;
+    @media (max-width: 480px), (max-height: 480px) {
+      top: 10%;
+    }
+  }
+  &.b {
+    top: 20%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 17.5%;
+    }
+  }
+  &.c {
+    top: 30%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 25%;
+    }
+  }
+  &.d {
+    top: 40%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 32.5%;
+    }
+  }
+  &.e {
+    top: 50.5%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 40%;
+    }
+  }
+  & span {
+  }
+}
+
+
+#htmlAnimate {
+  position: absolute;
+  height: 90%;
+  width: 7.5%;
+  background-color: blue;
+  bottom: 0;
+  left: 7.5%;
+  &.animateGraph {
+    animation: skillAnimate 2s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 10px;
+  }
+}
+#cssAnimate {
+  position: absolute;
+  height: 85%;
+  width: 7.5%;
+  background-color: red;
+  left: 22.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.75s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 12px;
+    padding-bottom: 10px;
+  }
+}
+#javaScriptAnimate {
+  position: absolute;
+  height: 80%;
+  width: 7.5%;
+  background-color: seagreen;
+  left: 37.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.5s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 15px;
+  }
+}
+#uiAnimate {
+  position: absolute;
+  height: 60%;
+  width: 7.5%;
+  background-color: green;
+  left: 67.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.25s ease-out;
+  }
+  & p.innerBar {
+    left: 8px;
+    top: 15px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 2.5px;
+      top: 10px;
+    }
+  }
+}
+#sqlAnimate {
+  position: absolute;
+  height: 30%;
+  width: 7.5%;
+  background-color: teal;
+  left: 82.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate .5s ease-out;
+  }
+  & p.innerBar {
+    left: 15px;
+    top: 25px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 7px;
+      top: 15px;
+    }
+  }
+}
+
+
+#wordpressAnimate {
+  position: absolute;
+  height: 70%;
+  width: 7.5%;
+  background-color: purple;
+  left: 52.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.5s ease-out;
+  }
+  & p.innerBar {
+    left: 5px;
+    top: 25px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 1px;
+      top: 10px;
+    }
+  }
+}
+
+
+
+
+.barGraph {
+  z-index: 1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  & p {
+    height: 10%;
+    background-color: inherent;
+    opacity: 1;
+    margin: auto;
+    line-height: 2em;
+  }
+  & h3 {
+    text-align: center;
+    color: white;
+  }
+}
+
+@keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
