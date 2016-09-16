@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 angular.module('mainSite')
   .service('scrollService', function() {
     var randomSetVarForFalse = "";

@@ -4,13 +4,12 @@ webpackJsonp([0],[
 
 	'use strict';
 	var angular = __webpack_require__(1);
-	angular.module("mainSite");
+	angular.module("mainSite", []);
 	//STATE CONFIG
 	__webpack_require__(3);
 	//CONTROLLERS
 	__webpack_require__(5);
 	__webpack_require__(6);
-	//Functions
 	//SERVICE
 	__webpack_require__(7);
 	__webpack_require__(8);
@@ -4625,6 +4624,8 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
+	  $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
+	  console.log(servicesForSaleService.newOrOldArr)
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 	  var pageReferenceNumber = 0;
 	  function displaywheel(e){
@@ -4724,7 +4725,7 @@ webpackJsonp([0],[
 /* 7 */
 /***/ function(module, exports) {
 
-	'use strict'
+	'use strict';
 	angular.module('mainSite')
 	  .service('scrollService', function() {
 	    var randomSetVarForFalse = "";
@@ -4868,10 +4869,10 @@ webpackJsonp([0],[
 /* 9 */
 /***/ function(module, exports) {
 
-	'use strict'
+	'use strict';
 	angular.module('mainSite')
 	  .service('servicesForSaleService', function() {
-
+	    this.newOrOldArr = ["New Website", "Minor Changes to Exisiting Website", "Complete Overhaul of an Old Website"];
 
 
 
