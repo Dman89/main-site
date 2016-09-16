@@ -39,11 +39,13 @@
 
 </div>
 
-<div id="PUTBACKGROUNDHERE2">
+<div id="PUTBACKGROUNDHERE2" ng-controller="servicesToSellCtrl">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12">
-
+      <div class="boxForServices" ng-repeat="data in newOrOldArr" ng-click="serviceToSellPageOne(data.click)" ng-hide="hideFirstPanelOfSales">
+        <div class="boxForServicesTitle">
+            {{data.title}}
+        </div>
       </div>
     </div>
   </div>
