@@ -1,0 +1,25 @@
+.boxForServices {
+  height: 21.5vh;
+  margin: 3vh auto;
+  width: 100%;
+  &:first-child {
+    margin-top: -webkit-calc(3vh + 40px);
+    margin-top: -moz-calc(3vh + 40px);
+    margin-top: calc(3vh + 40px);
+  }
+  &:last-child {
+    margin-bottom: -webkit-calc(3vh - 40px);
+    margin-bottom: -moz-calc(3vh - 40px);
+    margin-bottom: calc(3vh - 40px);
+  }
+}
+.boxForServicesTitle {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  border: $highlight 5px solid;
+  background-color: $secondary;
+  border-radius: 5px;
+  margin: auto 10vh;
+  padding: 5vh 0;
+}
