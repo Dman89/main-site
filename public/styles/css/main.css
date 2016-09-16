@@ -1,613 +1,92 @@
-ul.nav {
-  pointer-events: none;
-  cursor: pointer; }
-
-/* BG */
-body {
-  background-color: transparent;
-  overflow: hidden; }
-
-#bg {
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  opacity: 1;
-  position: absolute; }
-
-#PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
-  background-color: #212121;
-  width: 100%;
-  position: absolute;
-  top: -webkit-calc(100vh);
-  top: -moz-calc(100vh);
-  top: calc(100vh);
-  height: 100%; }
-
-#PUTBACKGROUNDHERE2 {
-  top: -webkit-calc(200vh);
-  top: -moz-calc(200vh);
-  top: calc(200vh);
-  background-color: #333; }
-
-#PUTBACKGROUNDHERE3 {
-  top: -webkit-calc(300vh);
-  top: -moz-calc(300vh);
-  top: calc(300vh);
-  background-color: #444; }
-
-#PUTBACKGROUNDHERE4 {
-  top: -webkit-calc(400vh);
-  top: -moz-calc(400vh);
-  top: calc(400vh);
-  background-color: #555; }
-
-.profileImageMain {
-  display: block;
-  margin: -webkit-calc(10vh + 40px) auto 0;
-  margin: -moz-calc(10vh + 40px) auto 0;
-  margin: calc(10vh + 40px) auto 0;
-  border-radius: 100%;
-  position: relative;
-  border: .35em solid #212121;
-  height: 25vh;
-  width: 25vh; }
-
-h3.titleHeadline {
-  text-align: center;
-  white-space: nowrap;
-  margin: 5vh auto 0;
-  overflow: hidden;
-  width: 0%;
-  animation: type 5s 2s forwards steps(60, end); }
-  @media (max-width: 480px) {
-    h3.titleHeadline {
-      animation: type 2s 2s forwards steps(60, end); } }
-  @media (min-width: 481px) and (max-width: 767px) {
-    h3.titleHeadline {
-      animation: type 3.5s 2s forwards steps(60, end); } }
-
-h4.smallHealineMain {
-  text-align: center;
-  white-space: nowrap;
-  margin: auto;
-  overflow: hidden;
-  width: 0%;
-  animation: type 7s 3.5s forwards steps(60, end); }
-  @media (max-width: 480px) {
-    h4.smallHealineMain {
-      animation: type 4s 4s forwards steps(60, end); } }
-  @media (min-width: 481px) and (max-width: 767px) {
-    h4.smallHealineMain {
-      animation: type 4s 3.75s forwards steps(60, end); } }
-  @media (min-width: 768px) and (max-width: 1200px) {
-    h4.smallHealineMain {
-      animation: type 4.25s 3.75s forwards steps(60, end); } }
-  h4.smallHealineMain span {
-    animation: blink 1.5s infinite; }
-
-.dividerDiv {
-  width: 0vw;
-  height: 5px;
-  background-color: #4E5D6C;
-  margin: 5vh auto 0;
-  animation: dividerDiv 1s ease-in-out 4.5s forwards; }
-  @media (max-width: 480px) {
-    .dividerDiv {
-      animation: dividerDiv 1s ease-in-out 5.25s forwards; } }
-  @media (min-width: 481px) and (max-width: 767px) {
-    .dividerDiv {
-      animation: dividerDiv 1s ease-in-out 5s forwards; } }
-  @media (min-width: 768px) and (max-width: 1200px) {
-    .dividerDiv {
-      animation: dividerDiv 1s ease-in-out 4.75s forwards; } }
-
-.mainTitleLinkDiv {
-  color: white;
-  text-align: center;
-  margin: 5vh auto 0; }
-  .mainTitleLinkDiv a {
-    animation: type 1s forwards;
-    margin: auto;
-    margin-right: 10vw;
-    font-size: 50px;
-    top: -1em;
-    opacity: 0; }
-    .mainTitleLinkDiv a:nth-child(3) {
-      -moz-animation: iconLoad 1s 6s forwards;
-      -webkit-animation: iconLoad 1s 6s forwards;
-      -ms-animation: iconLoad 1s 6s forwards;
-      animation: iconLoad 1s 6s forwards; }
-    .mainTitleLinkDiv a:nth-child(2), .mainTitleLinkDiv a:nth-child(4) {
-      -moz-animation: iconLoad 1s 6.5s forwards;
-      -webkit-animation: iconLoad 1s 6.5s forwards;
-      -ms-animation: iconLoad 1s 6.5s forwards;
-      animation: iconLoad 1s 6.5s forwards; }
-    .mainTitleLinkDiv a:nth-child(1), .mainTitleLinkDiv a:nth-child(5) {
-      -moz-animation: iconLoad 1s 7s forwards;
-      -webkit-animation: iconLoad 1s 7s forwards;
-      -ms-animation: iconLoad 1s 7s forwards;
-      animation: iconLoad 1s 7s forwards; }
-    @media (max-width: 480px) {
-      .mainTitleLinkDiv a {
-        font-size: 35px; } }
-    @media (max-width: 340px) {
-      .mainTitleLinkDiv a {
-        font-size: 27.5px; } }
-    @media (max-width: 340px) and (orientation: landscape) {
-      .mainTitleLinkDiv a {
-        font-size: 20px; } }
-  .mainTitleLinkDiv a:nth-last-child(1) {
-    margin: auto; }
-
-.boxShadowLight {
-  box-shadow: 0 3px 5px 0 gray; }
-
-@keyframes blink {
-  to {
-    opacity: .0; } }
-@keyframes type {
-  to {
-    width: 100%; } }
-@keyframes type2 {
-  0% {
-    width: 0; }
-  50% {
-    width: 0; }
-  100% {
-    width: 100%; } }
-@keyframes dividerDiv {
-  to {
-    opacity: 1;
-    width: 75vw; } }
-@-moz-keyframes iconLoad {
-  0% {
-    -moz-transform: translate3d(0, 1em, 0);
-    -webkit-transform: translate3d(0, 1em, 0);
-    -ms-transform: translate3d(0, 1em, 0);
-    transform: translate3d(0, 1em, 0);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    opacity: 1; } }
-@-webkit-keyframes iconLoad {
-  0% {
-    -moz-transform: translate3d(0, 1em, 0);
-    -webkit-transform: translate3d(0, 1em, 0);
-    -ms-transform: translate3d(0, 1em, 0);
-    transform: translate3d(0, 1em, 0);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    opacity: 1; } }
-@-ms-keyframes iconLoad {
-  0% {
-    -moz-transform: translate3d(0, 1em, 0);
-    -webkit-transform: translate3d(0, 1em, 0);
-    -ms-transform: translate3d(0, 1em, 0);
-    transform: translate3d(0, 1em, 0);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    opacity: 1; } }
-@keyframes iconLoad {
-  0% {
-    -moz-transform: translate3d(0, 1em, 0);
-    -webkit-transform: translate3d(0, 1em, 0);
-    -ms-transform: translate3d(0, 1em, 0);
-    transform: translate3d(0, 1em, 0);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    opacity: 1; } }
-.hidden-xssm.animateGraphInnerText {
-  animation: graphText2 .5s ease-in-out forwards; }
-  @media (max-width: 480px), (max-height: 480px) {
-    .hidden-xssm.animateGraphInnerText {
-      display: none; } }
-
-.hidden-smxs {
-  margin-top: 1em;
-  margin-bottom: 1em; }
-  @media (min-width: 480px) {
-    .hidden-smxs {
-      display: none;
-      margin-top: 0em;
-      margin-bottom: 0em; } }
-
-.animateGraphInnerText {
-  animation: graphText2 .5s ease-in-out forwards; }
-
-.innerBar {
-  transform: rotate(90deg);
-  background-color: transparent;
-  color: white;
-  position: absolute; }
-  .innerBar.animateGraph {
-    animation: graphText 2.5s ease-in-out forwards; }
-
-.graphTextBelow {
-  position: relative;
-  bottom: 5vh;
-  text-align: center; }
-  @media (max-height: 460px) {
-    .graphTextBelow {
-      display: none; } }
-
-.graphTextBelow2 {
-  text-align: center; }
-  @media (min-height: 460px) {
-    .graphTextBelow2 {
-      display: none; } }
-
-.containerOfAnimation {
-  position: relative;
-  margin: auto;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  display: block;
-  background-color: black;
-  color: black;
-  border-radius: 5px;
-  width: 450px;
-  height: 450px; }
-  @media (max-width: 480px), (max-height: 480px) {
-    .containerOfAnimation {
-      width: 250px;
-      height: 250px; } }
-
-p {
-  z-index: 0;
-  width: 100%;
-  height: 5%;
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.72);
-  opacity: .5;
-  text-align: center;
-  position: relative;
-  animation: skillLevelAnimation 3s ease-in-out 3; }
-  p.a {
-    top: 10%; }
-    @media (max-width: 480px), (max-height: 480px) {
-      p.a {
-        top: 10%; } }
-  p.b {
-    top: 20%; }
-    @media (max-width: 480px), (max-height: 480px) {
-      p.b {
-        top: 17.5%; } }
-  p.c {
-    top: 30%; }
-    @media (max-width: 480px), (max-height: 480px) {
-      p.c {
-        top: 25%; } }
-  p.d {
-    top: 40%; }
-    @media (max-width: 480px), (max-height: 480px) {
-      p.d {
-        top: 32.5%; } }
-  p.e {
-    top: 50.5%; }
-    @media (max-width: 480px), (max-height: 480px) {
-      p.e {
-        top: 40%; } }
-
-#htmlAnimate {
-  position: absolute;
-  height: 90%;
-  width: 7.5%;
-  background-color: blue;
-  bottom: 0;
-  left: 7.5%; }
-  #htmlAnimate.animateGraph {
-    animation: skillAnimate 2s ease-out; }
-  #htmlAnimate p.innerBar {
-    padding-left: 10px; }
-
-#cssAnimate {
-  position: absolute;
-  height: 85%;
-  width: 7.5%;
-  background-color: red;
-  left: 22.5%;
-  bottom: 0; }
-  #cssAnimate.animateGraph {
-    animation: skillAnimate 1.75s ease-out; }
-  #cssAnimate p.innerBar {
-    padding-left: 12px;
-    padding-bottom: 10px; }
-
-#javaScriptAnimate {
-  position: absolute;
-  height: 80%;
-  width: 7.5%;
-  background-color: seagreen;
-  left: 37.5%;
-  bottom: 0; }
-  #javaScriptAnimate.animateGraph {
-    animation: skillAnimate 1.5s ease-out; }
-  #javaScriptAnimate p.innerBar {
-    padding-left: 15px; }
-
-#uiAnimate {
-  position: absolute;
-  height: 60%;
-  width: 7.5%;
-  background-color: green;
-  left: 67.5%;
-  bottom: 0; }
-  #uiAnimate.animateGraph {
-    animation: skillAnimate 1.25s ease-out; }
-  #uiAnimate p.innerBar {
-    left: 8px;
-    top: 15px; }
-    @media (max-height: 480px), (max-width: 480px) {
-      #uiAnimate p.innerBar {
-        left: 2.5px;
-        top: 10px; } }
-
-#sqlAnimate {
-  position: absolute;
-  height: 30%;
-  width: 7.5%;
-  background-color: teal;
-  left: 82.5%;
-  bottom: 0; }
-  #sqlAnimate.animateGraph {
-    animation: skillAnimate .5s ease-out; }
-  #sqlAnimate p.innerBar {
-    left: 15px;
-    top: 25px; }
-    @media (max-height: 480px), (max-width: 480px) {
-      #sqlAnimate p.innerBar {
-        left: 7px;
-        top: 15px; } }
-
-#wordpressAnimate {
-  position: absolute;
-  height: 70%;
-  width: 7.5%;
-  background-color: purple;
-  left: 52.5%;
-  bottom: 0; }
-  #wordpressAnimate.animateGraph {
-    animation: skillAnimate 1.5s ease-out; }
-  #wordpressAnimate p.innerBar {
-    left: 5px;
-    top: 25px; }
-    @media (max-height: 480px), (max-width: 480px) {
-      #wordpressAnimate p.innerBar {
-        left: 1px;
-        top: 10px; } }
-
-.barGraph {
-  z-index: 1;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px; }
-  .barGraph p {
-    height: 10%;
-    background-color: inherent;
-    opacity: 1;
-    margin: auto;
-    line-height: 2em; }
-  .barGraph h3 {
-    text-align: center;
-    color: white; }
-
-@keyframes skillAnimate {
-  from {
-    height: 0%; } }
-@keyframes graphBarAnimation {
-  to {
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    border-radius: 4px;
-    z-index: 3; } }
-@keyframes graphText {
-  0% {
-    display: none;
-    opacity: 0; }
-  80% {
-    display: block;
-    opacity: 0; }
-  100% {
-    display: block;
-    opacity: 1; } }
-@keyframes graphText2 {
-  0% {
-    display: none;
-    opacity: 0; }
-  1% {
-    display: block;
-    opacity: 0; }
-  100% {
-    display: block;
-    opacity: 1; } }
-* {
-  font-size: 11px;
-  line-height: 18px; }
-
-h1 {
-  font-size: 29px;
-  line-height: 39px; }
-
-h2 {
-  font-size: 26px;
-  line-height: 18px; }
-
-h3 {
-  font-size: 21px;
-  line-height: 18px; }
-
-h4 {
-  font-size: 11px;
-  line-height: 18px; }
-
-h5 {
-  font-size: 9px;
-  line-height: 16px; }
-
-h6 {
-  font-size: 5px;
-  line-height: 14px; }
-
-@media (max-width: 480px) and (min-width: 320px) {
-  *, h4, p, a {
-    font-size: 14px;
-    line-height: 22px; }
-
-  h1 {
-    font-size: 37px;
-    line-height: 50px; }
-
-  h2 {
-    font-size: 23px;
-    line-height: 33px; }
-
-  h3 {
-    font-size: 18px;
-    line-height: 27px; }
-
-  h5 {
-    font-size: 14px;
-    line-height: 22px; }
-
-  h6 {
-    font-size: 11px;
-    line-height: 20px; } }
-@media (max-width: 600px) and (min-width: 480px) {
-  *, h4, p, a {
-    font-size: 15px;
-    line-height: 24px; }
-
-  h1 {
-    font-size: 39px;
-    line-height: 53px; }
-
-  h2 {
-    font-size: 24px;
-    line-height: 34px; }
-
-  h3 {
-    font-size: 19px;
-    line-height: 29px; }
-
-  h5 {
-    font-size: 15px;
-    line-height: 24px; }
-
-  h6 {
-    font-size: 12px;
-    line-height: 22px; } }
-@media (max-width: 767px) and (min-width: 601px), (min-width: 768px) {
-  *, h4, p, a {
-    font-size: 17px;
-    line-height: 28px; }
-
-  h1 {
-    font-size: 45px;
-    line-height: 61px; }
-
-  h2 {
-    font-size: 28px;
-    line-height: 40px; }
-
-  h3 {
-    font-size: 22px;
-    line-height: 33px; }
-
-  h5 {
-    font-size: 17px;
-    line-height: 28px; }
-
-  h6 {
-    font-size: 13px;
-    line-height: 24px; } }
-@media (min-width: 992px) {
-  *, h4, p, a {
-    font-size: 19px;
-    line-height: 68px; }
-
-  h1 {
-    font-size: 50px;
-    line-height: 61px; }
-
-  h2 {
-    font-size: 31px;
-    line-height: 44px; }
-
-  h3 {
-    font-size: 24px;
-    line-height: 36px; }
-
-  h5 {
-    font-size: 19px;
-    line-height: 31px; }
-
-  h6 {
-    font-size: 15px;
-    line-height: 27px; } }
-@media (min-width: 1200px) {
-  *, h4, p, a {
-    font-size: 21px;
-    line-height: 34px; }
-
-  h1 {
-    font-size: 55px;
-    line-height: 75px; }
-
-  h2 {
-    font-size: 34px;
-    line-height: 49px; }
-
-  h3 {
-    font-size: 27px;
-    line-height: 41px; }
-
-  h5 {
-    font-size: 21px;
-    line-height: 34px; }
-
-  h6 {
-    font-size: 17px;
-    line-height: 31px; } }
-@media (min-width: 1600px) {
-  *, h4, p, a {
-    font-size: 25px;
-    line-height: 40px; }
-
-  h1 {
-    font-size: 65px;
-    line-height: 101px; }
-
-  h2 {
-    font-size: 40px;
-    line-height: 57px; }
-
-  h3 {
-    font-size: 32px;
-    line-height: 48px; }
-
-  h5 {
-    font-size: 25px;
-    line-height: 40px; }
-
-  h6 {
-    font-size: 20px;
-    line-height: 36px; } }
-
-/*# sourceMappingURL=main.css.map */
+/*
+Error: Undefined variable: "$black".
+        on line 2 of scss/colorScheme/_schema.scss
+        from line 1 of scss/colorScheme/_index.scss
+        from line 4 of scss/_index.scss
+        from line 1 of scss/main.scss
+
+1: @import "index";
+
+Backtrace:
+scss/colorScheme/_schema.scss:2
+scss/colorScheme/_index.scss:1
+scss/_index.scss:4
+scss/main.scss:1
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:471:in `visit_variable'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block (2 levels) in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block (2 levels) in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block (2 levels) in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block in visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:331:in `block in watch'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$black\".\A         on line 2 of scss/colorScheme/_schema.scss\A         from line 1 of scss/colorScheme/_index.scss\A         from line 4 of scss/_index.scss\A         from line 1 of scss/main.scss\A \A 1: @import \"index\";"; }
