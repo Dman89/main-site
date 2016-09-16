@@ -6,6 +6,7 @@ require('./scripts/config/main.js');
 //CONTROLLERS
 require('./scripts/controllers/indexCtrl.js');
 require('./scripts/controllers/menuCtrl.js');
+require('./scripts/controllers/servicesToSellCtrl.js');
 //SERVICE
 require('./scripts/services/scrollService.js');
 require('./scripts/services/barGraphAnimationService.js');

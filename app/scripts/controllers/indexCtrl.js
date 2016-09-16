@@ -1,9 +1,8 @@
 'use strict';
 angular.module("mainSite")
 .controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
-  $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
-  console.log(servicesForSaleService.newOrOldArr)
-  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
+  // TODO: add Set timout to 1000
+  setTimeout(function() {window.scrollTo(0, 0)}, 0)
   var pageReferenceNumber = 0;
   function displaywheel(e){
     var evt=window.event || e //equalize event object

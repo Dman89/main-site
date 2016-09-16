@@ -10,10 +10,11 @@ webpackJsonp([0],[
 	//CONTROLLERS
 	__webpack_require__(5);
 	__webpack_require__(6);
-	//SERVICE
 	__webpack_require__(7);
+	//SERVICE
 	__webpack_require__(8);
 	__webpack_require__(9);
+	__webpack_require__(10);
 
 
 /***/ },
@@ -4624,9 +4625,8 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
-	  $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
-	  console.log(servicesForSaleService.newOrOldArr)
-	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
+	  // TODO: add Set timout to 1000
+	  setTimeout(function() {window.scrollTo(0, 0)}, 0)
 	  var pageReferenceNumber = 0;
 	  function displaywheel(e){
 	    var evt=window.event || e //equalize event object
@@ -4726,6 +4726,23 @@ webpackJsonp([0],[
 /***/ function(module, exports) {
 
 	'use strict';
+	angular.module("mainSite")
+	.controller("servicesToSellCtrl", function($scope, $interval, $timeout, servicesForSaleService) {
+	  $scope.nextStepNew = false, $scope.nextStepOld = false, $scope.nextStepUpdate = false, $scope.hideFirstPanelOfSales = false;
+	  $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
+	  $scope.serviceToSellPageOne = function(num) {
+	      num == "0" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
+	      num == "2" ? ($scope.nextStepOld = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepOld = false;
+	      num == "1" ? ($scope.nextStepUpdate = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepUpdate = false;
+	  }
+	});
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
 	angular.module('mainSite')
 	  .service('scrollService', function() {
 	    var randomSetVarForFalse = "";
@@ -4754,7 +4771,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -4866,13 +4883,15 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 	'use strict';
 	angular.module('mainSite')
 	  .service('servicesForSaleService', function() {
-	    this.newOrOldArr = ["New Website", "Minor Changes to Exisiting Website", "Complete Overhaul of an Old Website"];
+	    this.newOrOldArr = [{"title": "New Website", "click": 0}, {"title": "Minor Updates", "click": 1}, {"title": "Rebuild Website", "click": 2}];
+
+	    
 
 
 

@@ -1,7 +1,9 @@
 'use strict';
 angular.module('mainSite')
   .service('servicesForSaleService', function() {
-    this.newOrOldArr = ["New Website", "Minor Changes to Exisiting Website", "Complete Overhaul of an Old Website"];
+    this.newOrOldArr = [{"title": "New Website", "click": 0}, {"title": "Minor Updates", "click": 1}, {"title": "Rebuild Website", "click": 2}];
+
+    
 
 
 
