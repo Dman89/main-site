@@ -4712,7 +4712,23 @@ webpackJsonp([0],[
 	    "sixteen": false,
 	    "dynamic": false
 	  };
-
+	  $scope.timeFrame = {
+	    "flexible": false,
+	    "asap": false,
+	    "nextFewDays": false,
+	    "byDate": {
+	      "isTrue": false,
+	      "date": ""
+	    },
+	    "other": {
+	      "isTrue": false,
+	      "other": ""
+	    },
+	    "employement": {
+	      "isTrue": false,
+	      "employement": ""
+	    }
+	  }
 	  $scope.lookingForAWebsite = {
 	    "services": '',
 	    "typeOfSite": {
@@ -4729,7 +4745,23 @@ webpackJsonp([0],[
 	    },
 	    "options": [""],
 	    'pagesTotal': {},
-	    'timeFrame': '',
+	    'timeFrame': {
+	      'flexible': false,
+	      'asap': false,
+	      'nextFewDays': false,
+	      'byDate': {
+	        'isTrue': false,
+	        'date': ""
+	      },
+	      'other': {
+	        'isTrue': false,
+	        'other': ""
+	      },
+	      'employement': {
+	        'isTrue': false,
+	        'employement': ""
+	      }
+	    },
 	    'details': ''
 	  };
 	  $scope.typeOfSite = {'personal': false, 'blog': false, 'social': false, 'eCommerce': false, 'business': false, 'nonProfit': false, 'other': {'isTrue': false, 'content': ''}};
