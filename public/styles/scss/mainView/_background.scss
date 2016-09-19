@@ -1,6 +1,7 @@
 /* BG */
 body {
-  background-color: transparent;
+  background-color: $black;
+  color: $black;
   overflow:hidden;
 }
 
@@ -10,33 +11,34 @@ body {
 		left: 0;
 		top: 0;
 		opacity: 1;
-		position: absolute;
+		position: relative;
+    height: -webkit-calc(100vh);
+    height:    -moz-calc(100vh);
+    height:         calc(100vh);
 	}
-
 #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
-  background-color: #212121;
+  background-color: #fff;
   width: 100%;
-  position: absolute;
-  top: -webkit-calc(100vh);
-  top:    -moz-calc(100vh);
-  top:         calc(100vh);
+  position: relative;
+  min-height: 100%;
+  // min-height: -webkit-calc(100vh);
+  // min-height:    -moz-calc(100vh);
+  // min-height:         calc(100vh);
+  padding: 2.5% 0;
+  background-color: #fff;
+  display: block;
+  @media (min-width: 280px) {
+    padding: 2.5% 5%;
+  }
+}
+#backGroundForViewWelcome {
+  background-color: white;
+  min-height: -webkit-calc(100vh);
+  min-height:    -moz-calc(100vh);
+  min-height:         calc(100vh);
+}
+.wrapper {
   height: 100%;
-}
-#PUTBACKGROUNDHERE2 {
-top: -webkit-calc(200vh);
-top:    -moz-calc(200vh);
-top:         calc(200vh);
-  background-color: #333;
-}
-#PUTBACKGROUNDHERE3 {
-top: -webkit-calc(300vh);
-top:    -moz-calc(300vh);
-top:         calc(300vh);
-  background-color: #444;
-}
-#PUTBACKGROUNDHERE4 {
-top: -webkit-calc(400vh);
-top:    -moz-calc(400vh);
-top:         calc(400vh);
-  background-color: #555;
+  width: 100%;
+  display: block;
 }

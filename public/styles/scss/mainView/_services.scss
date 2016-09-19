@@ -1,0 +1,86 @@
+.boxForServices {
+  position: relative;
+  margin: 3% auto;
+  width: 100%;
+  height: 100%;
+  color: white;
+  & .boxForServicesTitle.opener {
+    cursor: pointer;
+  }
+}
+.boxForServicesTitle {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  border: $highlight 5px solid;
+  background-color: $secondary;
+  border-radius: 5px;
+  margin: 3%;
+  padding: 3% 10%;
+  @media (max-width: 480px) {
+    margin: 5%;
+    padding: 5% 10%;
+  }
+  &.gotsAButton {
+    @media (max-width: 760px) {
+      padding-bottom: -webkit-calc(7.5% + 40px);
+      padding-bottom: -moz-calc(7.5% + 40px);
+      padding-bottom: calc(7.5% + 40px);
+    }
+  }
+  // &:first-child {
+  //   margin-top: -webkit-calc(3vh + 40px);
+  //   margin-top: -moz-calc(3vh + 40px);
+  //   margin-top: calc(3vh + 40px);
+  // }
+  // &:last-child {
+  //   margin-bottom: -webkit-calc(3vh - 40px);
+  //   margin-bottom: -moz-calc(3vh - 40px);
+  //   margin-bottom: calc(3vh - 40px);
+  // }
+}
+.centerBox {
+  margin: auto;
+  text-align: left;
+  margin-bottom: 7.5%;
+}
+.otherInput {
+  display: block;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+.btn-homemadeRight {
+  display: inline;
+  right: 5%;
+  position: absolute;
+}
+.btn-homemadeLeft {
+  display: inline;
+  left: 5%;
+  position: absolute;
+}
+#sizeThisTextBoxForServices {
+  margin: 5%;
+  width: 75%;
+}
+.addOption {
+  position: absolute;
+  right: 5%;
+}
+.removeOption {
+  display: inline-block;
+}
+.optionContainer {
+  position: relative;
+}
+.optionInput {
+  width: 80%;
+  margin-top: 2%;
+  @media (max-width: 480px) {
+  margin-top: 5%;
+  }
+}
+.successTab label {
+  padding-left: 2%;
+}

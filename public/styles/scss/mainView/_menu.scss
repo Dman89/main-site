@@ -1,4 +1,13 @@
-
+#myNav123, #myNavbar, #navbar {
+  color: white;
+  background-color: $black;
+}
+ul#myNav123 a:hover, header nav#navbar div#myNavbar ul#myNav123 li.active a {
+  background-color: $secondary;
+}
+ul#myNav123 a:focus {
+  background-color: $accent
+}
 ul.nav {
   pointer-events: none;
   cursor: pointer;

@@ -1,10 +1,21 @@
+#myNav123, #myNavbar, #navbar {
+  color: white;
+  background-color: #000; }
+
+ul#myNav123 a:hover, header nav#navbar div#myNavbar ul#myNav123 li.active a {
+  background-color: #062F4F; }
+
+ul#myNav123 a:focus {
+  background-color: #813772; }
+
 ul.nav {
   pointer-events: none;
   cursor: pointer; }
 
 /* BG */
 body {
-  background-color: transparent;
+  background-color: #000;
+  color: #000;
   overflow: hidden; }
 
 #bg {
@@ -13,34 +24,33 @@ body {
   left: 0;
   top: 0;
   opacity: 1;
-  position: absolute; }
+  position: relative;
+  height: -webkit-calc(100vh);
+  height: -moz-calc(100vh);
+  height: calc(100vh); }
 
 #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
-  background-color: #212121;
+  background-color: #fff;
   width: 100%;
-  position: absolute;
-  top: -webkit-calc(100vh);
-  top: -moz-calc(100vh);
-  top: calc(100vh);
-  height: 100%; }
+  position: relative;
+  min-height: 100%;
+  padding: 2.5% 0;
+  background-color: #fff;
+  display: block; }
+  @media (min-width: 280px) {
+    #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
+      padding: 2.5% 5%; } }
 
-#PUTBACKGROUNDHERE2 {
-  top: -webkit-calc(200vh);
-  top: -moz-calc(200vh);
-  top: calc(200vh);
-  background-color: #333; }
+#backGroundForViewWelcome {
+  background-color: white;
+  min-height: -webkit-calc(100vh);
+  min-height: -moz-calc(100vh);
+  min-height: calc(100vh); }
 
-#PUTBACKGROUNDHERE3 {
-  top: -webkit-calc(300vh);
-  top: -moz-calc(300vh);
-  top: calc(300vh);
-  background-color: #444; }
-
-#PUTBACKGROUNDHERE4 {
-  top: -webkit-calc(400vh);
-  top: -moz-calc(400vh);
-  top: calc(400vh);
-  background-color: #555; }
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: block; }
 
 .profileImageMain {
   display: block;
@@ -59,6 +69,7 @@ h3.titleHeadline {
   margin: 5vh auto 0;
   overflow: hidden;
   width: 0%;
+  color: white;
   animation: type 5s 2s forwards steps(60, end); }
   @media (max-width: 480px) {
     h3.titleHeadline {
@@ -67,29 +78,30 @@ h3.titleHeadline {
     h3.titleHeadline {
       animation: type 3.5s 2s forwards steps(60, end); } }
 
-h4.smallHealineMain {
+h4.smallHeadlineMain {
   text-align: center;
   white-space: nowrap;
   margin: auto;
   overflow: hidden;
   width: 0%;
+  color: white;
   animation: type 7s 3.5s forwards steps(60, end); }
   @media (max-width: 480px) {
-    h4.smallHealineMain {
+    h4.smallHeadlineMain {
       animation: type 4s 4s forwards steps(60, end); } }
   @media (min-width: 481px) and (max-width: 767px) {
-    h4.smallHealineMain {
+    h4.smallHeadlineMain {
       animation: type 4s 3.75s forwards steps(60, end); } }
   @media (min-width: 768px) and (max-width: 1200px) {
-    h4.smallHealineMain {
+    h4.smallHeadlineMain {
       animation: type 4.25s 3.75s forwards steps(60, end); } }
-  h4.smallHealineMain span {
+  h4.smallHeadlineMain span {
     animation: blink 1.5s infinite; }
 
 .dividerDiv {
   width: 0vw;
   height: 5px;
-  background-color: #4E5D6C;
+  background-color: #000;
   margin: 5vh auto 0;
   animation: dividerDiv 1s ease-in-out 4.5s forwards; }
   @media (max-width: 480px) {
@@ -102,6 +114,10 @@ h4.smallHealineMain {
     .dividerDiv {
       animation: dividerDiv 1s ease-in-out 4.75s forwards; } }
 
+.hover:hover {
+  color: white;
+  transition: .5s linear; }
+
 .mainTitleLinkDiv {
   color: white;
   text-align: center;
@@ -112,7 +128,9 @@ h4.smallHealineMain {
     margin-right: 10vw;
     font-size: 50px;
     top: -1em;
-    opacity: 0; }
+    opacity: 0;
+    color: #B82601;
+    transition: .5s linear; }
     .mainTitleLinkDiv a:nth-child(3) {
       -moz-animation: iconLoad 1s 6s forwards;
       -webkit-animation: iconLoad 1s 6s forwards;
@@ -134,11 +152,84 @@ h4.smallHealineMain {
     @media (max-width: 340px) {
       .mainTitleLinkDiv a {
         font-size: 27.5px; } }
-    @media (max-width: 340px) and (orientation: landscape) {
+    @media (max-width: 340px) and (orientation: portrait) {
       .mainTitleLinkDiv a {
         font-size: 20px; } }
   .mainTitleLinkDiv a:nth-last-child(1) {
     margin: auto; }
+
+.boxForServices {
+  position: relative;
+  margin: 3% auto;
+  width: 100%;
+  height: 100%;
+  color: white; }
+  .boxForServices .boxForServicesTitle.opener {
+    cursor: pointer; }
+
+.boxForServicesTitle {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  border: #B82601 5px solid;
+  background-color: #062F4F;
+  border-radius: 5px;
+  margin: 3%;
+  padding: 3% 10%; }
+  @media (max-width: 480px) {
+    .boxForServicesTitle {
+      margin: 5%;
+      padding: 5% 10%; } }
+  @media (max-width: 760px) {
+    .boxForServicesTitle.gotsAButton {
+      padding-bottom: -webkit-calc(7.5% + 40px);
+      padding-bottom: -moz-calc(7.5% + 40px);
+      padding-bottom: calc(7.5% + 40px); } }
+
+.centerBox {
+  margin: auto;
+  text-align: left;
+  margin-bottom: 7.5%; }
+
+.otherInput {
+  display: block;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 5%; }
+
+.btn-homemadeRight {
+  display: inline;
+  right: 5%;
+  position: absolute; }
+
+.btn-homemadeLeft {
+  display: inline;
+  left: 5%;
+  position: absolute; }
+
+#sizeThisTextBoxForServices {
+  margin: 5%;
+  width: 75%; }
+
+.addOption {
+  position: absolute;
+  right: 5%; }
+
+.removeOption {
+  display: inline-block; }
+
+.optionContainer {
+  position: relative; }
+
+.optionInput {
+  width: 80%;
+  margin-top: 2%; }
+  @media (max-width: 480px) {
+    .optionInput {
+      margin-top: 5%; } }
+
+.successTab label {
+  padding-left: 2%; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }
@@ -228,17 +319,19 @@ h4.smallHealineMain {
       margin-bottom: 0em; } }
 
 .animateGraphInnerText {
+  font-weight: 900;
   animation: graphText2 .5s ease-in-out forwards; }
 
 .innerBar {
   transform: rotate(90deg);
   background-color: transparent;
-  color: white;
+  color: #000;
   position: absolute; }
   .innerBar.animateGraph {
     animation: graphText 2.5s ease-in-out forwards; }
 
 .graphTextBelow {
+  color: #000;
   position: relative;
   bottom: 5vh;
   text-align: center; }
@@ -247,12 +340,14 @@ h4.smallHealineMain {
       display: none; } }
 
 .graphTextBelow2 {
+  color: #000;
   text-align: center; }
   @media (min-height: 460px) {
     .graphTextBelow2 {
       display: none; } }
 
 .containerOfAnimation {
+  border: #062F4F 5px solid;
   position: relative;
   margin: auto;
   margin-top: 10vh;
@@ -263,7 +358,7 @@ h4.smallHealineMain {
   border-radius: 5px;
   width: 450px;
   height: 450px; }
-  @media (max-width: 480px), (max-height: 480px) {
+  @media (max-width: 600px), (max-height: 600px) {
     .containerOfAnimation {
       width: 250px;
       height: 250px; } }
@@ -308,19 +403,44 @@ p {
   position: absolute;
   height: 90%;
   width: 7.5%;
-  background-color: blue;
+  background-color: #B82601;
   bottom: 0;
   left: 7.5%; }
   #htmlAnimate.animateGraph {
     animation: skillAnimate 2s ease-out; }
   #htmlAnimate p.innerBar {
     padding-left: 10px; }
+    @media (max-width: 767px) and (min-height: 601px) {
+      #htmlAnimate p.innerBar {
+        left: -2px;
+        top: 10px; } }
+    @media (min-width: 768px) and (min-height: 601px) {
+      #htmlAnimate p.innerBar {
+        left: -3px;
+        top: 10px; } }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #htmlAnimate p.innerBar {
+        left: -.5px;
+        top: 10px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #htmlAnimate p.innerBar {
+        left: 1.5px;
+        top: 10px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #htmlAnimate p.innerBar {
+        left: 5.5px;
+        top: 15px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #htmlAnimate p.innerBar {
+        font-size: 14px;
+        left: 3.5px;
+        top: 1px; } }
 
 #cssAnimate {
   position: absolute;
   height: 85%;
   width: 7.5%;
-  background-color: red;
+  background-color: #B82601;
   left: 22.5%;
   bottom: 0; }
   #cssAnimate.animateGraph {
@@ -328,24 +448,62 @@ p {
   #cssAnimate p.innerBar {
     padding-left: 12px;
     padding-bottom: 10px; }
+    @media (min-width: 768px) and (min-height: 601px) {
+      #cssAnimate p.innerBar {
+        left: -2px;
+        top: 10px; } }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #cssAnimate p.innerBar {
+        left: 0px;
+        top: 10px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #cssAnimate p.innerBar {
+        left: 2.5px;
+        top: 10px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #cssAnimate p.innerBar {
+        left: 7.5px;
+        top: 15px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #cssAnimate p.innerBar {
+        font-size: 14px;
+        left: 5px;
+        top: 1px; } }
 
 #javaScriptAnimate {
   position: absolute;
   height: 80%;
   width: 7.5%;
-  background-color: seagreen;
+  background-color: #B82601;
   left: 37.5%;
   bottom: 0; }
   #javaScriptAnimate.animateGraph {
     animation: skillAnimate 1.5s ease-out; }
   #javaScriptAnimate p.innerBar {
     padding-left: 15px; }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #javaScriptAnimate p.innerBar {
+        left: 2.5px;
+        top: 10px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #javaScriptAnimate p.innerBar {
+        left: 3.5px;
+        top: 10px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #javaScriptAnimate p.innerBar {
+        left: 9.5px;
+        top: 15px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #javaScriptAnimate p.innerBar {
+        font-size: 14px;
+        left: 4.5px;
+        top: 1px; } }
 
 #uiAnimate {
   position: absolute;
   height: 60%;
   width: 7.5%;
-  background-color: green;
+  background-color: #B82601;
   left: 67.5%;
   bottom: 0; }
   #uiAnimate.animateGraph {
@@ -357,12 +515,37 @@ p {
       #uiAnimate p.innerBar {
         left: 2.5px;
         top: 10px; } }
+    @media (max-width: 767px) and (min-height: 601px) {
+      #uiAnimate p.innerBar {
+        left: 4.5px;
+        top: 15px; } }
+    @media (min-width: 768px) and (min-height: 601px) {
+      #uiAnimate p.innerBar {
+        left: 4px;
+        top: 13px; } }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #uiAnimate p.innerBar {
+        left: 6px;
+        top: 12px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #uiAnimate p.innerBar {
+        left: 8px;
+        top: 15px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #uiAnimate p.innerBar {
+        left: 12px;
+        top: 20px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #uiAnimate p.innerBar {
+        font-size: 14px;
+        left: 6px;
+        top: 10px; } }
 
 #sqlAnimate {
   position: absolute;
   height: 30%;
   width: 7.5%;
-  background-color: teal;
+  background-color: #B82601;
   left: 82.5%;
   bottom: 0; }
   #sqlAnimate.animateGraph {
@@ -374,12 +557,37 @@ p {
       #sqlAnimate p.innerBar {
         left: 7px;
         top: 15px; } }
+    @media (max-width: 767px) and (min-height: 601px) {
+      #sqlAnimate p.innerBar {
+        left: 10px;
+        top: 15px; } }
+    @media (min-width: 768px) and (min-height: 601px) {
+      #sqlAnimate p.innerBar {
+        left: 10px;
+        top: 15px; } }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #sqlAnimate p.innerBar {
+        left: 12.5px;
+        top: 15px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #sqlAnimate p.innerBar {
+        left: 15px;
+        top: 17px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #sqlAnimate p.innerBar {
+        left: 20px;
+        top: 20px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #sqlAnimate p.innerBar {
+        font-size: 14px;
+        left: 10px;
+        top: 10px; } }
 
 #wordpressAnimate {
   position: absolute;
   height: 70%;
   width: 7.5%;
-  background-color: purple;
+  background-color: #B82601;
   left: 52.5%;
   bottom: 0; }
   #wordpressAnimate.animateGraph {
@@ -390,6 +598,31 @@ p {
     @media (max-height: 480px), (max-width: 480px) {
       #wordpressAnimate p.innerBar {
         left: 1px;
+        top: 10px; } }
+    @media (max-width: 767px) and (min-height: 601px) {
+      #wordpressAnimate p.innerBar {
+        left: 3px;
+        top: 12px; } }
+    @media (min-width: 768px) and (min-height: 601px) {
+      #wordpressAnimate p.innerBar {
+        left: 1px;
+        top: 10px; } }
+    @media (min-width: 992px) and (min-height: 601px) {
+      #wordpressAnimate p.innerBar {
+        left: 2.5px;
+        top: 10px; } }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      #wordpressAnimate p.innerBar {
+        left: 5.5px;
+        top: 15px; } }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      #wordpressAnimate p.innerBar {
+        left: 10px;
+        top: 20px; } }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      #wordpressAnimate p.innerBar {
+        font-size: 14px;
+        left: 5px;
         top: 10px; } }
 
 .barGraph {
@@ -404,7 +637,7 @@ p {
     line-height: 2em; }
   .barGraph h3 {
     text-align: center;
-    color: white; }
+    color: #000; }
 
 @keyframes skillAnimate {
   from {

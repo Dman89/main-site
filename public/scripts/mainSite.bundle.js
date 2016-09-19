@@ -4,16 +4,17 @@ webpackJsonp([0],[
 
 	'use strict';
 	var angular = __webpack_require__(1);
-	angular.module("mainSite", ['ngAnimate']);
+	angular.module("mainSite", []);
 	//STATE CONFIG
 	__webpack_require__(3);
 	//CONTROLLERS
 	__webpack_require__(5);
 	__webpack_require__(6);
-	//Functions
-	//SERVICE
 	__webpack_require__(7);
+	//SERVICE
 	__webpack_require__(8);
+	__webpack_require__(9);
+	__webpack_require__(10);
 
 
 /***/ },
@@ -4623,40 +4624,20 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService) {
-	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
-	  var pageReferenceNumber = 0;
-	  function displaywheel(e){
-	    var evt=window.event || e //equalize event object
-	    var delta=evt.detail? evt.detail*(-120) : evt.wheelDelta;
-	    if (pageReferenceNumber == 4) {
-	      delta >= 120 ? pageReferenceNumber = 3 : pageReferenceNumber = 4
-	    }
-	    else if (pageReferenceNumber != 0) {
-	      delta >= 120 ? pageReferenceNumber -= 1 : pageReferenceNumber += 1
-	    }
-	    else {
-	      delta >= 120 ? pageReferenceNumber = 0 : pageReferenceNumber += 1
-	    }
-	      scrollService.scrollInputToCheck(pageReferenceNumber)
-	    }
-	  var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"
-	$timeout(function() {
-	  if (document.attachEvent)
-	      {document.attachEvent("on"+mousewheelevt, displaywheel); barGraphAnimationService.runGraphAnimation();}
-	  else if (document.addEventListener)
-	      {document.addEventListener(mousewheelevt, displaywheel, false); barGraphAnimationService.runGraphAnimation();}
-	}, 8000)
+	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
+	  // TODO: add Set timout to 1000
+	  setTimeout(function() {window.scrollTo(0, 0)}, 0)
+
 
 	var docElemOrBody = document.documentElement || document.body;
 	  // BACKGROUND ANIMATION
 	      var backgroundResize = function() {
-	          document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	          var docElemOrBody = document.documentElement || document.body;
-	          var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
-	          document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
-	        }
-	        var windowResize = function(object, type, callback) {
+	        document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+	        var docElemOrBody = document.documentElement || document.body;
+	        var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
+	        document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
+	      }
+	      var windowResize = function(object, type, callback) {
 	          if (object == null || typeof(object) == 'undefined') return;
 	          if (object.addEventListener) {
 	              object.addEventListener(type, callback, false);
@@ -4665,7 +4646,7 @@ webpackJsonp([0],[
 	          } else {
 	              object["on"+type] = callback;
 	          }
-	        };
+	      };
 	        backgroundResize();
 	        windowResize(window, "resize", backgroundResize);
 	        var readjust = 0;
@@ -4722,36 +4703,202 @@ webpackJsonp([0],[
 /* 7 */
 /***/ function(module, exports) {
 
-	'use strict'
-	angular.module('mainSite')
-	  .service('scrollService', function() {
-	    var randomSetVarForFalse = "";
-	    var runAnimation = true;
-	    this.scrollInputToCheck = function(pageReferenceNumber) {
-	      pageReferenceNumber == 0 ? document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-	        pageReferenceNumber == 1 ? document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-	        pageReferenceNumber == 2 ? document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-	        pageReferenceNumber == 3 ? document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-	        pageReferenceNumber == 4 ? document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"}) : randomSetVarForFalse = "";
-	        if (pageReferenceNumber == 1) {
-	          if (runAnimation == true) {
-	            runAnimation = false
-	            let elem = document.getElementsByClassName('barGraph');
-	            for (var x = 0; x < elem.length; x++){
-	              elem[x].classList.add("animateGraph");
-	            }
-	            let elemInner = document.getElementsByClassName('innerBar');
-	            for (var x = 0; x < elemInner.length; x++){
-	              elemInner[x].classList.add("animateGraph");
-	            }
-	          }
-	        }
+	'use strict';
+	angular.module("mainSite")
+	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService) {
+	  $scope.numOfPagesArr = {
+	    "one": false,
+	    "six": false,
+	    "sixteen": false,
+	    "dynamic": false
+	  };
+	  $scope.timeFrame = {
+	    "flexible": false,
+	    "asap": false,
+	    "nextFewDays": false,
+	    "byDate": {
+	      "isTrue": false,
+	      "date": ""
+	    },
+	    "other": {
+	      "isTrue": false,
+	      "other": ""
+	    },
+	    "employement": {
+	      "isTrue": false,
+	      "employement": ""
 	    }
-	  })
+	  }
+	  $scope.lookingForAWebsite = {
+	    "services": '',
+	    "typeOfSite": {
+	      'personal': false,
+	      'blog': false,
+	      'social': false,
+	      'eCommerce': false,
+	      'business': false,
+	      'nonProfit': false,
+	      'other': {
+	          'isTrue': false,
+	          'content': ''
+	      }
+	    },
+	    "options": [""],
+	    'pagesTotal': {},
+	    'timeFrame': {
+	      'flexible': false,
+	      'asap': false,
+	      'nextFewDays': false,
+	      'byDate': {
+	        'isTrue': false,
+	        'date': ""
+	      },
+	      'other': {
+	        'isTrue': false,
+	        'other': ""
+	      },
+	      'employement': {
+	        'isTrue': false,
+	        'employement': ""
+	      }
+	    },
+	    'details': ['']
+	  };
+	  $scope.typeOfSite = {'personal': false, 'blog': false, 'social': false, 'eCommerce': false, 'business': false, 'nonProfit': false, 'other': {'isTrue': false, 'content': ''}};
+	  $scope.nextStepNew = false, $scope.hideFirstPanelOfSales = false, $scope.stepOne = false, $scope.stepTwo = false, $scope.stepThree = false, $scope.stepFour = false, $scope.stepFive = false, $scope.finishedWalkthrough = false;
+	  $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
+	  $scope.serviceToSellPageOne = function(num) {
+	      num == "0" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
+	      num == "2" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepOld = false;
+	      num == "1" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepUpdate = false;
+	  }
+	  $scope.newNext = function(num, data) {
+	      num == "0" ? ($scope.stepOne = true, $scope.lookingForAWebsite.services = data, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
+	      num == "1" ? ($scope.stepOne = false, $scope.stepTwo = true, $scope.lookingForAWebsite.typeOfSite = data) : $scope.nextStepNew = false;
+	      num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true) : $scope.nextStepNew = false;
+	      num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
+	      num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
+	      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
+	  }
+	  // Options (Step 2)
+	  $scope.addOption = function () {
+	    $scope.lookingForAWebsite.options.push("");
+	  }
+	  $scope.removeOption = function (index) {
+	    $scope.lookingForAWebsite.options.splice(index, 1);
+	  }
+	  $scope.saveOnInput = function(data, index) {
+	    $scope.lookingForAWebsite.options.splice(index, 1, data);
+	  }
+	  // Detail (step 6)
+	  $scope.addOptionDetails = function () {
+	    $scope.lookingForAWebsite.details.push("");
+	  }
+	  $scope.removeOptionDetails = function (index) {
+	    $scope.lookingForAWebsite.details.splice(index, 1);
+	  }
+	  $scope.saveOnInputDetails = function(data, index) {
+	    $scope.lookingForAWebsite.details.splice(index, 1, data);
+	  }
+	});
 
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
+	  .service('scrollService', function() {
+	    var randomSetVarForFalse = "";
+	    var runAnimation = true;
+	    var runAnimation2 = true;
+	    var runAnimation3 = true;
+	    var runAnimation4 = true;
+
+
+	// setTimeout(function() {
+	//   window.onscroll = function() {
+	//     let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	//     if (runAnimation == true) {
+	//       if (window.scrollY >= 10) {
+	//         document.body.style.overflowY = "hidden";
+	//         window.scrollTo(0, tempNum);
+	//       }
+	//       if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
+	//         runAnimation = false
+	//         let elem = document.getElementsByClassName('barGraph');
+	//         for (var x = 0; x < elem.length; x++){
+	//           elem[x].classList.add("animateGraph");
+	//         }
+	//         let elemInner = document.getElementsByClassName('innerBar');
+	//         for (var x = 0; x < elemInner.length; x++){
+	//           elemInner[x].classList.add("animateGraph");
+	//         }
+	//         //Second Slide
+	//         setTimeout(function() {
+	//           document.body.style.overflowY = "scroll";
+	//
+	//               // INCASE I WANT MORE COW BELL
+	//           // window.onscroll = function() {
+	//           //   let checkNum = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	//           //   let tempNum2 = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	//           //   if (runAnimation == false && runAnimation2 == true) {
+	//           //     runAnimation2 = false;
+	//           //     window.scrollTo(0, checkNum);
+	//           //     document.body.style.overflowY = "hidden";
+	//           //     setTimeout(function() {
+	//           //       document.body.style.overflowY = "scroll"
+	//           //     }, 1000)
+	//           //   }
+	//           // }
+	//           // //Third Slide
+	//           // setTimeout(function() {
+	//           // document.body.style.overflowY = "scroll";
+	//           //   window.onscroll = function() {
+	//           //     let checkNum2 = document.getElementById('PUTBACKGROUNDHERE3').offsetTop;
+	//           //     let tempNum3 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	//           //     if (runAnimation == false && runAnimation2 == false && runAnimation3 == true) {
+	//           //       runAnimation3 = false;
+	//           //       window.scrollTo(0, checkNum2);
+	//           //       document.body.style.overflowY = "hidden";
+	//           //       setTimeout(function() {
+	//           //         document.body.style.overflowY = "scroll"
+	//           //       }, 1000)
+	//           //     }
+	//           //   }
+	//           //
+	//           //   //Fourth Slide
+	//           //   setTimeout(function() {
+	//           //   document.body.style.overflowY = "scroll";
+	//           //     window.onscroll = function() {
+	//           //       let checkNum3 = document.getElementById('PUTBACKGROUNDHERE4').offsetTop;
+	//           //       let tempNum4 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	//           //       if (runAnimation3 == false && runAnimation4 == true) {
+	//           //         runAnimation4 = false;
+	//           //         window.scrollTo(0, checkNum3);
+	//           //         document.body.style.overflowY = "hidden";
+	//           //         setTimeout(function() {
+	//           //           document.body.style.overflowY = "scroll"
+	//           //         }, 1000)
+	//           //       }
+	//           //     }
+	//           //   }, 1000)
+	//           // }, 1000)
+	//         }, 2500)
+	//       }
+	//     }
+	//   }
+	// }, 2000)
+
+	      setTimeout(function() {
+	        document.body.style.overflowY = "scroll";
+	      }, 10)
+	  })
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -4768,7 +4915,7 @@ webpackJsonp([0],[
 
 	{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText'>Advance</h3><p class='animateGraphInnerText'>Collaboration</p><p class='animateGraphInnerText'>Leadship</p><p class='animateGraphInnerText'>Angular</p><p class='animateGraphInnerText'>RESTful API / Ajax</p><p class='animateGraphInnerText hidden-xssm'>Google/Facebook/Twitter/Flickr</p><p class='animateGraphInnerText'>Express.JS</p><p class='animateGraphInnerText'>MongoDB</p><p class='animateGraphInnerText'>Wireframing</p>", "barContent": '<p class="innerBar">Advance</p>'},
 
-	{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText'>Advance/Intermediate</h3><p class='animateGraphInnerText'>jQuery</p><p class='animateGraphInnerText'>UI/UE</p><p class='animateGraphInnerText'>Git</p><p class='animateGraphInnerText'>Console</p><p class='animateGraphInnerText'>Semantically Best Practice</p><p class='animateGraphInnerText'>NodeJS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
+	{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText'>Advance/Intermediate</h3><p class='animateGraphInnerText'>jQuery</p><p class='animateGraphInnerText'>UI/UE</p><p class='animateGraphInnerText'>Git</p><p class='animateGraphInnerText'>Console</p><p class='animateGraphInnerText'>Semantically Best Practice</p><p class='animateGraphInnerText'>NodeJS</p><p class='animateGraphInnerText'>SCSS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
 
 	{"div":"uiAnimate", "height": 60, "left": 67.5, "content": "<h3 class='animateGraphInnerText'>Intermediate</h3><p class='animateGraphInnerText'>Agile</p><p class='animateGraphInnerText'>Wordpress</p>", "barContent": '<p class="innerBar">Intermediate</p>'},
 
@@ -4859,6 +5006,35 @@ webpackJsonp([0],[
 	    }
 	  }
 	}
+	  })
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
+	  .service('servicesForSaleService', function() {
+	    this.newOrOldArr = [{"title": "New Website", "click": 0}, {"title": "Minor Updates", "click": 1}, {"title": "Rebuild Website", "click": 2}];
+
+	    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	  })
 
 
