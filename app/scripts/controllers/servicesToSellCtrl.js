@@ -57,10 +57,10 @@ angular.module("mainSite")
         'employement': ""
       }
     },
-    'details': ''
+    'details': ['']
   };
   $scope.typeOfSite = {'personal': false, 'blog': false, 'social': false, 'eCommerce': false, 'business': false, 'nonProfit': false, 'other': {'isTrue': false, 'content': ''}};
-  $scope.nextStepNew = false, $scope.hideFirstPanelOfSales = false, $scope.stepOne = false, $scope.stepTwo = false, $scope.stepThree = false, $scope.stepFour = false, $scope.stepFive = false;
+  $scope.nextStepNew = false, $scope.hideFirstPanelOfSales = false, $scope.stepOne = false, $scope.stepTwo = false, $scope.stepThree = false, $scope.stepFour = false, $scope.stepFive = false, $scope.finishedWalkthrough = false;
   $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
   $scope.serviceToSellPageOne = function(num) {
       num == "0" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
@@ -73,8 +73,9 @@ angular.module("mainSite")
       num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true) : $scope.nextStepNew = false;
       num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
       num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
-      num == "5" ? ($scope.stepFive = false, $scope.success = true, $scope.lookingForAWebsite.details = data) : $scope.nextStepNew = false;
+      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
   }
+  // Options (Step 2)
   $scope.addOption = function () {
     $scope.lookingForAWebsite.options.push("");
   }
@@ -83,5 +84,15 @@ angular.module("mainSite")
   }
   $scope.saveOnInput = function(data, index) {
     $scope.lookingForAWebsite.options.splice(index, 1, data);
+  }
+  // Detail (step 6)
+  $scope.addOptionDetails = function () {
+    $scope.lookingForAWebsite.details.push("");
+  }
+  $scope.removeOptionDetails = function (index) {
+    $scope.lookingForAWebsite.details.splice(index, 1);
+  }
+  $scope.saveOnInputDetails = function(data, index) {
+    $scope.lookingForAWebsite.details.splice(index, 1, data);
   }
 });

@@ -228,6 +228,9 @@ h4.smallHeadlineMain {
     .optionInput {
       margin-top: 5%; } }
 
+.successTab label {
+  padding-left: 2%; }
+
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }
 
