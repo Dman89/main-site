@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="boxForServices" ng-repeat="data in newOrOldArr" ng-hide="hideFirstPanelOfSales">
-      <div class="boxForServicesTitle"  ng-click="newNext(0, data.title)">
+      <div class="boxForServicesTitle opener"  ng-click="newNext(0, data.title)">
           {{data.title}}
       </div>
     </div>
     <div class="boxForServices">
-      <div class="boxForServicesTitle" ng-show="stepOne">
+      <div class="boxForServicesTitle gotsAButton" ng-show="stepOne">
         <div class="centerBox">
           <h3><input type="checkbox" ng-model="typeOfSite.personal">
           Personal Website</h3>
@@ -21,11 +21,11 @@
           <h3><input type="checkbox" ng-model="typeOfSite.nonProfit">
           Non-Profit</h3>
           <h3><input type="checkbox" ng-model="typeOfSite.other.isTrue">
-          Other: <input type="text" ng-model="typeOfSite.other.content"></h3>
+          Other: <input type="text" ng-model="typeOfSite.other.content" class="optionInput"></h3>
           <button type="button" class="btn btn-homemadeRight" ng-click="newNext(1, typeOfSite)">Next</button>
         </div>
       </div>
-      <div class="boxForServicesTitle" ng-show="stepTwo">
+      <div class="boxForServicesTitle gotsAButton" ng-show="stepTwo">
         <div class="centerBox">
           <button class="addOption" ng-click="addOption()">+</button>
           <h3>Options:</h3>
@@ -33,7 +33,7 @@
             <input type="text" id="sizeThisTextBoxForServices" ng-model="option"/>
               <button class="removeOption" ng-click="removeOption($index)">-</button>
           </div>
-          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2, options)">Next</button>
+          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2, options)">Back</button>
           <button type="button" class="btn btn-homemadeRight" ng-click="newNext(2, options)">Next</button>
         </div>
       </div>

@@ -33,12 +33,10 @@ body {
   background-color: #fff;
   width: 100%;
   position: relative;
-  height: 100%;
+  min-height: 100%;
   padding: 2.5% 0;
   background-color: #fff;
-  display: block;
-  float: left;
-  clear: both; }
+  display: block; }
   @media (min-width: 280px) {
     #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
       padding: 2.5% 5%; } }
@@ -162,30 +160,31 @@ h4.smallHeadlineMain {
 
 .boxForServices {
   position: relative;
-  height: 21.5vh;
-  margin: 3vh auto;
+  margin: 3% auto;
   width: 100%;
   height: 100%;
   color: white; }
-  .boxForServices:first-child {
-    margin-top: -webkit-calc(3vh + 40px);
-    margin-top: -moz-calc(3vh + 40px);
-    margin-top: calc(3vh + 40px); }
-  .boxForServices:last-child {
-    margin-bottom: -webkit-calc(3vh - 40px);
-    margin-bottom: -moz-calc(3vh - 40px);
-    margin-bottom: calc(3vh - 40px); }
+  .boxForServices .boxForServicesTitle.opener {
+    cursor: pointer; }
 
 .boxForServicesTitle {
-  cursor: pointer;
   position: relative;
   text-align: center;
   top: 50%;
   border: #B82601 5px solid;
   background-color: #062F4F;
   border-radius: 5px;
-  margin: auto 5vh;
-  padding: 5vh 10%; }
+  margin: 3%;
+  padding: 3% 10%; }
+  @media (max-width: 480px) {
+    .boxForServicesTitle {
+      margin: 5%;
+      padding: 5% 10%; } }
+  @media (max-width: 760px) {
+    .boxForServicesTitle.gotsAButton {
+      padding-bottom: -webkit-calc(5% + 40px);
+      padding-bottom: -moz-calc(5% + 40px);
+      padding-bottom: calc(5% + 40px); } }
 
 .centerBox {
   margin: auto;
@@ -195,26 +194,40 @@ h4.smallHeadlineMain {
 .otherInput {
   display: block;
   width: 100%;
+  margin-top: 2%;
   margin-bottom: 5%; }
 
 .btn-homemadeRight {
-  position: absolute;
-  bottom: 5%;
-  right: 5%; }
+  display: inline;
+  right: 5%;
+  position: absolute; }
 
 .btn-homemadeLeft {
-  position: absolute;
-  bottom: 5%;
-  left: 5%; }
+  display: inline;
+  left: 5%;
+  position: absolute; }
 
 #sizeThisTextBoxForServices {
-  margin: 5% 10%;
-  width: 80%; }
+  margin: 5%;
+  margin-bottom: 10%;
+  width: 50%; }
+
+.addOption {
+  position: absolute;
+  right: 5%; }
 
 .removeOption {
-  position: absolute;
-  top: 0;
-  right: 5%; }
+  display: inline-block; }
+
+.optionContainer {
+  position: relative; }
+
+.optionInput {
+  width: 80%;
+  margin-top: 2%; }
+  @media (max-width: 480px) {
+    .optionInput {
+      margin-top: 5%; } }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }
