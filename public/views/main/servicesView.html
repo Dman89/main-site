@@ -1,10 +1,12 @@
 <div class="container-fluid">
   <div class="row">
+    <!-- Step 1 -->
     <div class="boxForServices" ng-repeat="data in newOrOldArr" ng-hide="hideFirstPanelOfSales">
       <div class="boxForServicesTitle opener"  ng-click="newNext(0, data.title)">
           {{data.title}}
       </div>
     </div>
+    <!-- Step 2 -->
     <div class="boxForServices">
       <div class="boxForServicesTitle gotsAButton" ng-show="stepOne">
         <div class="centerBox">
@@ -25,16 +27,49 @@
           <button type="button" class="btn btn-homemadeRight" ng-click="newNext(1, typeOfSite)">Next</button>
         </div>
       </div>
+      <!-- Step 3 -->
       <div class="boxForServicesTitle gotsAButton" ng-show="stepTwo">
         <div class="centerBox">
           <button class="addOption" ng-click="addOption()">+</button>
-          <h3>Options:</h3>
+          <h2>Options:</h2>
           <div ng-repeat="option in lookingForAWebsite.options track by $index" class="optionContainer">
-            <input type="text" id="sizeThisTextBoxForServices" ng-model="option"/>
+            <input type="text" id="sizeThisTextBoxForServices" ng-model="option" ng-change="saveOnInput(option, $index)"/>
               <button class="removeOption" ng-click="removeOption($index)">-</button>
           </div>
-          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2, options)">Back</button>
-          <button type="button" class="btn btn-homemadeRight" ng-click="newNext(2, options)">Next</button>
+          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2, option)">Back</button>
+          <button type="button" class="btn btn-homemadeRight" ng-click="newNext(2)">Next</button>
+        </div>
+      </div>
+      <!-- STEP 4 -->
+      <div class="boxForServicesTitle gotsAButton" ng-show="stepThree">
+        <div class="centerBox">
+            <h2>Number of Pages</h2>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.one">
+            1-5</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.six">
+            6-15</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.sixteen">
+            16+</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.dynamic">
+            Dynamic</h3>
+          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2, numOfPages)">Back</button>
+          <button type="button" class="btn btn-homemadeRight" ng-click="newNext(3, numOfPagesArr)">Next</button>
+        </div>
+      </div>
+      <!-- STEP 5 -->
+      <div class="boxForServicesTitle gotsAButton" ng-show="stepFour">
+        <div class="centerBox">
+            <h2>Number of Pages</h2>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.one">
+            1-5</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.six">
+            6-15</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.sixteen">
+            16+</h3>
+            <h3><input type="checkbox" ng-model="numOfPagesArr.dynamic">
+            Dynamic</h3>
+          <button type="button" class="btn btn-homemadeLeft" ng-click="newBack(2)">Back</button>
+          <button type="button" class="btn btn-homemadeRight" ng-click="newNext(4, numOfPagesArr)">Next</button>
         </div>
       </div>
     </div>

@@ -182,9 +182,9 @@ h4.smallHeadlineMain {
       padding: 5% 10%; } }
   @media (max-width: 760px) {
     .boxForServicesTitle.gotsAButton {
-      padding-bottom: -webkit-calc(5% + 40px);
-      padding-bottom: -moz-calc(5% + 40px);
-      padding-bottom: calc(5% + 40px); } }
+      padding-bottom: -webkit-calc(7.5% + 40px);
+      padding-bottom: -moz-calc(7.5% + 40px);
+      padding-bottom: calc(7.5% + 40px); } }
 
 .centerBox {
   margin: auto;
@@ -209,8 +209,7 @@ h4.smallHeadlineMain {
 
 #sizeThisTextBoxForServices {
   margin: 5%;
-  margin-bottom: 10%;
-  width: 50%; }
+  width: 75%; }
 
 .addOption {
   position: absolute;

@@ -1,6 +1,13 @@
 'use strict';
 angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService) {
+  $scope.numOfPagesArr = {
+    "one": false,
+    "six": false,
+    "sixteen": false,
+    "dynamic": false
+  };
+
   $scope.lookingForAWebsite = {
     "services": '',
     "typeOfSite": {
@@ -16,7 +23,7 @@ angular.module("mainSite")
       }
     },
     "options": [""],
-    'pagesTotal': '',
+    'pagesTotal': {},
     'timeFrame': '',
     'details': ''
   };
@@ -31,7 +38,7 @@ angular.module("mainSite")
   $scope.newNext = function(num, data) {
       num == "0" ? ($scope.stepOne = true, $scope.lookingForAWebsite.services = data, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
       num == "1" ? ($scope.stepOne = false, $scope.stepTwo = true, $scope.lookingForAWebsite.typeOfSite = data) : $scope.nextStepNew = false;
-      num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true, $scope.lookingForAWebsite.options = data) : $scope.nextStepNew = false;
+      num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true) : $scope.nextStepNew = false;
       num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
       num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = false, $scope.success = true, $scope.lookingForAWebsite.details = data) : $scope.nextStepNew = false;
@@ -41,5 +48,8 @@ angular.module("mainSite")
   }
   $scope.removeOption = function (index) {
     $scope.lookingForAWebsite.options.splice(index, 1);
+  }
+  $scope.saveOnInput = function(data, index) {
+    $scope.lookingForAWebsite.options.splice(index, 1, data);
   }
 });

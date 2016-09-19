@@ -23,9 +23,9 @@
   }
   &.gotsAButton {
     @media (max-width: 760px) {
-      padding-bottom: -webkit-calc(5% + 40px);
-      padding-bottom: -moz-calc(5% + 40px);
-      padding-bottom: calc(5% + 40px);
+      padding-bottom: -webkit-calc(7.5% + 40px);
+      padding-bottom: -moz-calc(7.5% + 40px);
+      padding-bottom: calc(7.5% + 40px);
     }
   }
   // &:first-child {
@@ -62,8 +62,7 @@
 }
 #sizeThisTextBoxForServices {
   margin: 5%;
-  margin-bottom: 10%;
-  width: 50%;
+  width: 75%;
 }
 .addOption {
   position: absolute;
