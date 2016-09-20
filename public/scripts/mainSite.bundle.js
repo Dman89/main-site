@@ -4941,12 +4941,13 @@ webpackJsonp([0],[
 	    let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
 	    if (runAnimation == true) {
 	      if (window.scrollY == tempNum) {
-	        document.body.style.overflowY = "hidden";
 	      }
 	      if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
+	        document.body.style.overflowY = "hidden";
 	        runAnimation = false
 	        let elem = document.getElementsByClassName('barGraph');
 	        for (var x = 0; x < elem.length; x++){
+	          elem[x].style.opacity = 1;
 	          elem[x].classList.add("animateGraph");
 	        }
 	        let elemInner = document.getElementsByClassName('innerBar');

@@ -81,6 +81,9 @@ h4.smallHeadlineMain {
   color: white;
   text-align: center;
   margin: 5vh auto 0;
+  @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
+  margin: auto;
+  }
   & a {
     animation: type 1s forwards;
     margin: auto;
@@ -114,7 +117,7 @@ h4.smallHeadlineMain {
     @media (max-width: 340px) {
       font-size: 27.5px;
     }
-    @media (max-width: 340px) and (orientation: portrait) {
+    @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
       font-size: 20px;
     }
   }
