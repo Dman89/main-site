@@ -8,5 +8,10 @@ mainSite.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProv
       templateUrl: 'views/main/index.html',
       controller: 'indexCtrl'
     })
+    .state('contact', {
+      url: '/contact',
+      templateUrl: 'views/main/servicesView.html',
+      controller: 'servicesToSellCtrl'
+    })
 }])
 mainSite.run(['$state', function($state){}]);
