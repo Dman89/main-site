@@ -16,7 +16,8 @@ ul.nav {
 body {
   background-color: #000;
   color: #000;
-  overflow: hidden; }
+  overflow: hidden;
+  overflow-y: hidden; }
 
 #bg {
   height: 100%;
@@ -62,6 +63,9 @@ body {
   border: .35em solid #212121;
   height: 25vh;
   width: 25vh; }
+  @media (max-height: 480px) {
+    .profileImageMain {
+      margin: 40px auto 0; } }
 
 h3.titleHeadline {
   text-align: center;
@@ -73,6 +77,7 @@ h3.titleHeadline {
   animation: type 5s 2s forwards steps(60, end); }
   @media (max-width: 480px) {
     h3.titleHeadline {
+      margin: 1vh auto 0;
       animation: type 2s 2s forwards steps(60, end); } }
   @media (min-width: 481px) and (max-width: 767px) {
     h3.titleHeadline {
@@ -230,6 +235,17 @@ h4.smallHeadlineMain {
 
 .successTab label {
   padding-left: 2%; }
+
+.imgPortfolio {
+  max-width: 500px;
+  max-height: 500px; }
+  @media (max-width: 480px), (max-height: 480px) {
+    .imgPortfolio {
+      max-width: 500px;
+      max-height: 500px; } }
+
+.bioProfile span {
+  color: #B82601; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }

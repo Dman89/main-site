@@ -89,10 +89,10 @@ this.runGraphAnimation = function() {
             element.style.width = percentageRewind+"%";
             element.style.bottom = 0;
             element.style.left = leftRewind+"%";
-            element.style.zIndex = 1;
             left = OrigLeft;
           }
           else {
+            element.style.zIndex = 1;
             clearInterval(refreshInterval2)
             setTimeout(function() {
               element.innerHTML = barContent;

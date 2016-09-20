@@ -1,0 +1,11 @@
+.imgPortfolio {
+  max-width: 500px;
+  max-height: 500px;
+  @media (max-width: 480px), (max-height: 480px) {
+      max-width: 500px;
+      max-height: 500px;
+  }
+}
+.bioProfile span {
+  color: $highlight;
+}

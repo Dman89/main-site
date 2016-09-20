@@ -9,6 +9,9 @@
   border: .35em solid #212121;
   height: 25vh;
   width: 25vh;
+  @media (max-height: 480px) {
+    margin: 40px auto 0;
+  }
 }
 
 h3.titleHeadline {
@@ -20,6 +23,7 @@ h3.titleHeadline {
   color: white;
   animation: type 5s 2s forwards steps(60, end);
   @media (max-width: 480px) {
+    margin: 1vh auto 0;
     animation: type 2s 2s forwards steps(60, end);
   }
   @media (min-width: 481px) and (max-width: 767px) {

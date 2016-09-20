@@ -4630,17 +4630,25 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
-	  // TODO: add Set timout to 1000
-	  setTimeout(function() {window.scrollTo(0, 0)}, 0)
+
+	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
 
 	var docElemOrBody = document.documentElement || document.body;
 	  // BACKGROUND ANIMATION
 	      var backgroundResize = function() {
 	        document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+
+
 	        var docElemOrBody = document.documentElement || document.body;
+
+
 	        var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
+
+
 	        document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
+
+
 	      }
 	      var windowResize = function(object, type, callback) {
 	          if (object == null || typeof(object) == 'undefined') return;
@@ -4659,6 +4667,111 @@ webpackJsonp([0],[
 	          readjust += .1;
 	          document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
 	        }, 1);
+
+	        $scope.portfolio = [
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          },
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          },
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          },
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          },
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          },
+	          {
+	            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	            "title": "Project",
+	            "github": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "codepen": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "heroku": {
+	              "isTrue": true,
+	              "url": "url"
+	            },
+	            "description": "blah blah blah"
+	          }
+	        ]
 	});
 
 
@@ -4814,7 +4927,7 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
-	  .service('scrollService', function() {
+	  .service('scrollService', function(barGraphAnimationService) {
 	    var randomSetVarForFalse = "";
 	    var runAnimation = true;
 	    var runAnimation2 = true;
@@ -4822,83 +4935,83 @@ webpackJsonp([0],[
 	    var runAnimation4 = true;
 
 
-	// setTimeout(function() {
-	//   window.onscroll = function() {
-	//     let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
-	//     if (runAnimation == true) {
-	//       if (window.scrollY >= 10) {
-	//         document.body.style.overflowY = "hidden";
-	//         window.scrollTo(0, tempNum);
-	//       }
-	//       if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
-	//         runAnimation = false
-	//         let elem = document.getElementsByClassName('barGraph');
-	//         for (var x = 0; x < elem.length; x++){
-	//           elem[x].classList.add("animateGraph");
-	//         }
-	//         let elemInner = document.getElementsByClassName('innerBar');
-	//         for (var x = 0; x < elemInner.length; x++){
-	//           elemInner[x].classList.add("animateGraph");
-	//         }
-	//         //Second Slide
-	//         setTimeout(function() {
-	//           document.body.style.overflowY = "scroll";
-	//
-	//               // INCASE I WANT MORE COW BELL
-	//           // window.onscroll = function() {
-	//           //   let checkNum = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
-	//           //   let tempNum2 = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
-	//           //   if (runAnimation == false && runAnimation2 == true) {
-	//           //     runAnimation2 = false;
-	//           //     window.scrollTo(0, checkNum);
-	//           //     document.body.style.overflowY = "hidden";
-	//           //     setTimeout(function() {
-	//           //       document.body.style.overflowY = "scroll"
-	//           //     }, 1000)
-	//           //   }
-	//           // }
-	//           // //Third Slide
-	//           // setTimeout(function() {
-	//           // document.body.style.overflowY = "scroll";
-	//           //   window.onscroll = function() {
-	//           //     let checkNum2 = document.getElementById('PUTBACKGROUNDHERE3').offsetTop;
-	//           //     let tempNum3 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
-	//           //     if (runAnimation == false && runAnimation2 == false && runAnimation3 == true) {
-	//           //       runAnimation3 = false;
-	//           //       window.scrollTo(0, checkNum2);
-	//           //       document.body.style.overflowY = "hidden";
-	//           //       setTimeout(function() {
-	//           //         document.body.style.overflowY = "scroll"
-	//           //       }, 1000)
-	//           //     }
-	//           //   }
-	//           //
-	//           //   //Fourth Slide
-	//           //   setTimeout(function() {
-	//           //   document.body.style.overflowY = "scroll";
-	//           //     window.onscroll = function() {
-	//           //       let checkNum3 = document.getElementById('PUTBACKGROUNDHERE4').offsetTop;
-	//           //       let tempNum4 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
-	//           //       if (runAnimation3 == false && runAnimation4 == true) {
-	//           //         runAnimation4 = false;
-	//           //         window.scrollTo(0, checkNum3);
-	//           //         document.body.style.overflowY = "hidden";
-	//           //         setTimeout(function() {
-	//           //           document.body.style.overflowY = "scroll"
-	//           //         }, 1000)
-	//           //       }
-	//           //     }
-	//           //   }, 1000)
-	//           // }, 1000)
-	//         }, 2500)
-	//       }
-	//     }
-	//   }
-	// }, 2000)
+	setTimeout(function() {
+	  //Scroll From Section 1 to Section 2
+	  window.onscroll = function() {
+	    let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	    if (runAnimation == true) {
+	      if (window.scrollY >= 10) {
+	        document.body.style.overflowY = "hidden";
+	        window.scrollTo(0, tempNum);
+	      }
+	      if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
+	        runAnimation = false
+	        let elem = document.getElementsByClassName('barGraph');
+	        for (var x = 0; x < elem.length; x++){
+	          elem[x].classList.add("animateGraph");
+	        }
+	        let elemInner = document.getElementsByClassName('innerBar');
+	        for (var x = 0; x < elemInner.length; x++){
+	          elemInner[x].classList.add("animateGraph");
+	        }
+	        barGraphAnimationService.runGraphAnimation();
+	        //Second Slide
+	        setTimeout(function() {
+	          document.body.style.overflowY = "scroll";
+	        //   window.onscroll = function() {
+	        //     let checkNum = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	        //     let tempNum2 = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	        //     if (runAnimation == false && runAnimation2 == true) {
+	        //       runAnimation2 = false;
+	        //       window.scrollTo(0, checkNum);
+	        //       document.body.style.overflowY = "hidden";
+	        //       setTimeout(function() {
+	        //         document.body.style.overflowY = "scroll"
+	        //       }, 1000)
+	        //     }
+	        //   }
+	          //Third Slide
+	          // setTimeout(function() {
+	          // document.body.style.overflowY = "scroll";
+	          //   window.onscroll = function() {
+	          //     let checkNum2 = document.getElementById('PUTBACKGROUNDHERE3').offsetTop;
+	          //     let tempNum3 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	          //     if (runAnimation == false && runAnimation2 == false && runAnimation3 == true) {
+	          //       runAnimation3 = false;
+	          //       window.scrollTo(0, checkNum2);
+	          //       document.body.style.overflowY = "hidden";
+	          //       setTimeout(function() {
+	          //         document.body.style.overflowY = "scroll"
+	          //       }, 1000)
+	          //     }
+	          //   }
+	          //
+	          //   //Fourth Slide
+	          //   setTimeout(function() {
+	          //   document.body.style.overflowY = "scroll";
+	          //     window.onscroll = function() {
+	          //       let checkNum3 = document.getElementById('PUTBACKGROUNDHERE4').offsetTop;
+	          //       let tempNum4 = document.getElementById('PUTBACKGROUNDHERE2').offsetTop;
+	          //       if (runAnimation3 == false && runAnimation4 == true) {
+	          //         runAnimation4 = false;
+	          //         window.scrollTo(0, checkNum3);
+	          //         document.body.style.overflowY = "hidden";
+	          //         setTimeout(function() {
+	          //           document.body.style.overflowY = "scroll"
+	          //         }, 1000)
+	          //       }
+	          //     }
+	          //   }, 1000)
+	          // }, 1000)
+	        }, 2500)
+	      }
+	    }
+	  }
+	}, 2000)
 
 	      setTimeout(function() {
 	        document.body.style.overflowY = "scroll";
-	      }, 10)
+	      }, 8000)
 	  })
 
 
@@ -4997,10 +5110,10 @@ webpackJsonp([0],[
 	            element.style.width = percentageRewind+"%";
 	            element.style.bottom = 0;
 	            element.style.left = leftRewind+"%";
-	            element.style.zIndex = 1;
 	            left = OrigLeft;
 	          }
 	          else {
+	            element.style.zIndex = 1;
 	            clearInterval(refreshInterval2)
 	            setTimeout(function() {
 	              element.innerHTML = barContent;
