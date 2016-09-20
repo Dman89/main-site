@@ -1,6 +1,6 @@
 'use strict';
 angular.module("mainSite")
-.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
+.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService, portfolioService) {
 
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
   setTimeout(function() {window.scrollTo(0, 0)}, 1500)
@@ -40,108 +40,5 @@ var docElemOrBody = document.documentElement || document.body;
           document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
         }, 1);
 
-        $scope.portfolio = [
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          },
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          },
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          },
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          },
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          },
-          {
-            "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-            "title": "Project",
-            "github": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "codepen": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "heroku": {
-              "isTrue": true,
-              "url": "url"
-            },
-            "description": "blah blah blah"
-          }
-        ]
+        $scope.portfolio = portfolioService.portfolio;
 });

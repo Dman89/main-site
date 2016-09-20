@@ -11,3 +11,4 @@ require('./scripts/controllers/servicesToSellCtrl.js');
 require('./scripts/services/scrollService.js');
 require('./scripts/services/barGraphAnimationService.js');
 require('./scripts/services/servicesForSaleService.js');
+require('./scripts/services/portfolioService.js');
