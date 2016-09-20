@@ -1,8 +1,8 @@
 // Regular Convert
-$black: #000;
-$blue: #062F4F;
-$purple: #813772;
-$red: #B82601;
+$black: rgb(50,57,103);
+$blue: rgb(101,116,173);
+$gold: rgb(207,167,87);
+$red: rgb(207,167,87);
 
 
 
@@ -17,5 +17,5 @@ $red: #B82601;
 // Named Variables for Easy Recall
 $primary: $black;
 $secondary: $blue;
-$accent: $purple;
+$accent: $gold;
 $highlight: $red;

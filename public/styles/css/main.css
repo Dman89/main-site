@@ -1,12 +1,16 @@
 #myNav123, #myNavbar, #navbar {
-  color: white;
-  background-color: #000; }
+  background-color: #323967;
+  background-image: linear-gradient(to right, #141402 0%, #242537 15%, #2f3342 40%, #2f3342 60%, #242537 85%, #141402 100%);
+  color: white; }
+
+#navbar {
+  border-bottom: #141402 3px solid; }
 
 ul#myNav123 a:hover, header nav#navbar div#myNavbar ul#myNav123 li.active a {
-  background-color: #062F4F; }
+  background-color: #6574ad; }
 
 ul#myNav123 a:focus {
-  background-color: #813772; }
+  background-color: #cfa757; }
 
 ul.nav {
   pointer-events: none;
@@ -14,8 +18,8 @@ ul.nav {
 
 /* BG */
 body {
-  background-color: #000;
-  color: #000;
+  background-color: #323967;
+  color: #323967;
   overflow: hidden;
   overflow-y: hidden; }
 
@@ -35,12 +39,15 @@ body {
   width: 100%;
   position: relative;
   min-height: 100vh;
-  padding: 2.5% 0;
+  padding: 5% 0;
   background-color: #fff;
   display: block; }
-  @media (min-width: 280px) {
+  @media (min-width: 280px) and (max-width: 600px) {
     #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
       padding: 2.5% 5%; } }
+
+#PUTBACKGROUNDHERE2 {
+  height: 100%; }
 
 #backGroundForViewWelcome {
   background-color: white;
@@ -53,19 +60,24 @@ body {
   width: 100%;
   display: block; }
 
+.spacerBG {
+  background-color: #e2e0d5;
+  width: 100%;
+  height: 5px; }
+
 .profileImageMain {
   display: block;
-  margin: -webkit-calc(10vh + 40px) auto 0;
-  margin: -moz-calc(10vh + 40px) auto 0;
-  margin: calc(10vh + 40px) auto 0;
+  margin: -webkit-calc(10vh + 43px) auto 0;
+  margin: -moz-calc(10vh + 43px) auto 0;
+  margin: calc(10vh + 43px) auto 0;
   border-radius: 100%;
   position: relative;
-  border: .35em solid #212121;
+  border: 0.35em solid #6574ad;
   height: 25vh;
   width: 25vh; }
   @media (max-height: 480px) {
     .profileImageMain {
-      margin: 40px auto 0; } }
+      margin: 43px auto 0; } }
 
 h3.titleHeadline {
   text-align: center;
@@ -106,8 +118,9 @@ h4.smallHeadlineMain {
 .dividerDiv {
   width: 0vw;
   height: 5px;
-  background-color: #000;
+  background-color: #323967;
   margin: 5vh auto 0;
+  border-radius: 10px;
   animation: dividerDiv 1s ease-in-out 4.5s forwards; }
   @media (max-width: 480px) {
     .dividerDiv {
@@ -127,7 +140,7 @@ h4.smallHeadlineMain {
   color: white;
   text-align: center;
   margin: 5vh auto 0; }
-  @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
+  @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
     .mainTitleLinkDiv {
       margin: auto; } }
   .mainTitleLinkDiv a {
@@ -137,7 +150,7 @@ h4.smallHeadlineMain {
     font-size: 50px;
     top: -1em;
     opacity: 0;
-    color: #B82601;
+    color: #cfa757;
     transition: .5s linear; }
     .mainTitleLinkDiv a:nth-child(3) {
       -moz-animation: iconLoad 1s 6s forwards;
@@ -157,10 +170,10 @@ h4.smallHeadlineMain {
     @media (max-width: 480px) {
       .mainTitleLinkDiv a {
         font-size: 35px; } }
-    @media (max-width: 340px) {
+    @media (max-width: 343px) {
       .mainTitleLinkDiv a {
         font-size: 27.5px; } }
-    @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
+    @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
       .mainTitleLinkDiv a {
         font-size: 20px; } }
   .mainTitleLinkDiv a:nth-last-child(1) {
@@ -179,8 +192,8 @@ h4.smallHeadlineMain {
   position: relative;
   text-align: center;
   top: 50%;
-  border: #B82601 5px solid;
-  background-color: #062F4F;
+  border: #cfa757 5px solid;
+  background-color: #6574ad;
   border-radius: 5px;
   margin: 3%;
   padding: 3% 10%; }
@@ -190,9 +203,9 @@ h4.smallHeadlineMain {
       padding: 5% 10%; } }
   @media (max-width: 760px) {
     .boxForServicesTitle.gotsAButton {
-      padding-bottom: -webkit-calc(7.5% + 40px);
-      padding-bottom: -moz-calc(7.5% + 40px);
-      padding-bottom: calc(7.5% + 40px); } }
+      padding-bottom: -webkit-calc(7.5% + 43px);
+      padding-bottom: -moz-calc(7.5% + 43px);
+      padding-bottom: calc(7.5% + 43px); } }
 
 .centerBox {
   margin: auto;
@@ -240,15 +253,27 @@ h4.smallHeadlineMain {
   padding-left: 2%; }
 
 .imgPortfolio {
+  border-radius: 5px;
   max-width: 500px;
-  max-height: 500px; }
+  max-height: 500px;
+  border: 0.35em solid #6574ad; }
+  @media (max-width: 992px), (max-height: 992px) {
+    .imgPortfolio {
+      max-width: 400px;
+      max-height: 700px;
+      margin: auto; } }
+  @media (max-width: 767px), (max-height: 767px) {
+    .imgPortfolio {
+      max-width: 300px;
+      max-height: 500px;
+      margin: auto; } }
   @media (max-width: 480px), (max-height: 480px) {
     .imgPortfolio {
-      max-width: 500px;
-      max-height: 500px; } }
+      max-width: 275px;
+      max-height: 275px; } }
 
 .bioProfile span {
-  color: #B82601; }
+  color: #cfa757; }
 
 .imgResponsivePortfolio {
   height: 300px;
@@ -262,6 +287,12 @@ h4.smallHeadlineMain {
 
 .containerForPortfolio {
   margin: 5% auto; }
+
+.goldenkey {
+  color: #cfa757; }
+
+#KEYS h2 {
+  color: #cfa757; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }
@@ -357,13 +388,13 @@ h4.smallHeadlineMain {
 .innerBar {
   transform: rotate(90deg);
   background-color: transparent;
-  color: #000;
+  color: #323967;
   position: absolute; }
   .innerBar.animateGraph {
     animation: graphText 2.5s ease-in-out forwards; }
 
 .graphTextBelow {
-  color: #000;
+  color: #323967;
   position: relative;
   bottom: 5vh;
   text-align: center; }
@@ -372,14 +403,14 @@ h4.smallHeadlineMain {
       display: none; } }
 
 .graphTextBelow2 {
-  color: #000;
+  color: #323967;
   text-align: center; }
   @media (min-height: 460px) {
     .graphTextBelow2 {
       display: none; } }
 
 .containerOfAnimation {
-  border: #062F4F 5px solid;
+  border: #6574ad 5px solid;
   position: relative;
   margin: auto;
   margin-top: 10vh;
@@ -435,7 +466,7 @@ p {
   position: absolute;
   height: 90%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   bottom: 0;
   left: 7.5%; }
   #htmlAnimate.animateGraph {
@@ -472,7 +503,7 @@ p {
   position: absolute;
   height: 85%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   left: 22.5%;
   bottom: 0; }
   #cssAnimate.animateGraph {
@@ -506,7 +537,7 @@ p {
   position: absolute;
   height: 80%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   left: 37.5%;
   bottom: 0; }
   #javaScriptAnimate.animateGraph {
@@ -535,7 +566,7 @@ p {
   position: absolute;
   height: 60%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   left: 67.5%;
   bottom: 0; }
   #uiAnimate.animateGraph {
@@ -577,7 +608,7 @@ p {
   position: absolute;
   height: 30%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   left: 82.5%;
   bottom: 0; }
   #sqlAnimate.animateGraph {
@@ -619,7 +650,7 @@ p {
   position: absolute;
   height: 70%;
   width: 7.5%;
-  background-color: #B82601;
+  background-color: #cfa757;
   left: 52.5%;
   bottom: 0; }
   #wordpressAnimate.animateGraph {
@@ -670,7 +701,7 @@ p {
     line-height: 2em; }
   .barGraph h3 {
     text-align: center;
-    color: #000; }
+    color: #323967; }
 
 @media (max-height: 600px) {
   .innerTextOfDialog {
@@ -812,7 +843,7 @@ h6 {
 @media (min-width: 992px) {
   *, h4, p, a {
     font-size: 19px;
-    line-height: 68px; }
+    line-height: 31px; }
 
   h1 {
     font-size: 50px;

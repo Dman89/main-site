@@ -23,20 +23,20 @@
   }
   &.gotsAButton {
     @media (max-width: 760px) {
-      padding-bottom: -webkit-calc(7.5% + 40px);
-      padding-bottom: -moz-calc(7.5% + 40px);
-      padding-bottom: calc(7.5% + 40px);
+      padding-bottom: -webkit-calc(7.5% + 43px);
+      padding-bottom: -moz-calc(7.5% + 43px);
+      padding-bottom: calc(7.5% + 43px);
     }
   }
   // &:first-child {
-  //   margin-top: -webkit-calc(3vh + 40px);
-  //   margin-top: -moz-calc(3vh + 40px);
-  //   margin-top: calc(3vh + 40px);
+  //   margin-top: -webkit-calc(3vh + 43px);
+  //   margin-top: -moz-calc(3vh + 43px);
+  //   margin-top: calc(3vh + 43px);
   // }
   // &:last-child {
-  //   margin-bottom: -webkit-calc(3vh - 40px);
-  //   margin-bottom: -moz-calc(3vh - 40px);
-  //   margin-bottom: calc(3vh - 40px);
+  //   margin-bottom: -webkit-calc(3vh - 43px);
+  //   margin-bottom: -moz-calc(3vh - 43px);
+  //   margin-bottom: calc(3vh - 43px);
   // }
 }
 .centerBox {

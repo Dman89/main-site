@@ -1,16 +1,16 @@
 
 .profileImageMain {
   display: block;
-  margin: -webkit-calc(10vh + 40px) auto 0;
-  margin:    -moz-calc(10vh + 40px) auto 0;
-  margin:         calc(10vh + 40px) auto 0;
+  margin: -webkit-calc(10vh + 43px) auto 0;
+  margin:    -moz-calc(10vh + 43px) auto 0;
+  margin:         calc(10vh + 43px) auto 0;
   border-radius: 100%;
   position: relative;
-  border: .35em solid #212121;
+  border: .35em solid $secondary;
   height: 25vh;
   width: 25vh;
   @media (max-height: 480px) {
-    margin: 40px auto 0;
+    margin: 43px auto 0;
   }
 }
 
@@ -58,6 +58,7 @@ h4.smallHeadlineMain {
   height: 5px;
   background-color: $black;
   margin: 5vh auto 0;
+  border-radius: 10px;
   animation: dividerDiv 1s ease-in-out 4.5s forwards;
   @media (max-width: 480px) {
   animation: dividerDiv 1s ease-in-out 5.25s forwards;
@@ -81,7 +82,7 @@ h4.smallHeadlineMain {
   color: white;
   text-align: center;
   margin: 5vh auto 0;
-  @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
+  @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
   margin: auto;
   }
   & a {
@@ -114,10 +115,10 @@ h4.smallHeadlineMain {
     @media (max-width: 480px) {
       font-size: 35px;
     }
-    @media (max-width: 340px) {
+    @media (max-width: 343px) {
       font-size: 27.5px;
     }
-    @media (max-width: 340px) and (orientation: portrait), (max-height: 360px) {
+    @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
       font-size: 20px;
     }
   }
