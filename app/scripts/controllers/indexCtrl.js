@@ -5,7 +5,6 @@ angular.module("mainSite")
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
   setTimeout(function() {window.scrollTo(0, 0)}, 1500)
 
-
 var docElemOrBody = document.documentElement || document.body;
   // BACKGROUND ANIMATION
       var backgroundResize = function() {

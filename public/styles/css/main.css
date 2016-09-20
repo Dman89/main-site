@@ -253,8 +253,15 @@ h4.smallHeadlineMain {
 .imgResponsivePortfolio {
   height: 300px;
   width: 300px;
-  margin: 5% auto;
+  margin: auto;
   text-align: center; }
+  @media (max-width: 480px), (max-height: 480px) {
+    .imgResponsivePortfolio {
+      height: 150px;
+      width: 150px; } }
+
+.containerForPortfolio {
+  margin: 5% auto; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }

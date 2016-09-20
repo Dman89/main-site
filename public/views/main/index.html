@@ -62,9 +62,13 @@ Contributing to DC Design values:<br/>
 <div id="PUTBACKGROUNDHERE3">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-4 text-center" ng-repeat="item in portfolio">
+      <div class="col-xs-12 col-md-6 col-lg-4 text-center containerForPortfolio" ng-repeat="item in portfolio">
         <img ng-src="{{item.image}}" alt="" class="imgResponsivePortfolio">
-        
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <div ng-show="item.github.isTrue" class="col-xs-4 col-lg-12"><a ng-href="{{item.github.url}}"><i class="fa fa-github"></i> GitHub</a></div>
+        <div ng-show="item.codepen.isTrue" class="col-xs-4 col-lg-12"><a ng-href="{{item.codepen.url}}"><i class="fa fa-codepen"></i> Codepen</a></div>
+        <div ng-show="item.heroku.isTrue" class="col-xs-4 col-lg-12"><a ng-href="{{item.heroku.url}}"><i class="fa fa-desktop"></i> Heroku</a></div>
       </div>
     </div>
   </div>
