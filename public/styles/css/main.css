@@ -34,7 +34,7 @@ body {
   background-color: #fff;
   width: 100%;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 2.5% 0;
   background-color: #fff;
   display: block; }
@@ -246,6 +246,12 @@ h4.smallHeadlineMain {
 
 .bioProfile span {
   color: #B82601; }
+
+.imgResponsivePortfolio {
+  height: 300px;
+  width: 300px;
+  margin: 5% auto;
+  text-align: center; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }

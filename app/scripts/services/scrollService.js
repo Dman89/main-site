@@ -13,9 +13,8 @@ setTimeout(function() {
   window.onscroll = function() {
     let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
     if (runAnimation == true) {
-      if (window.scrollY >= 10) {
+      if (window.scrollY == tempNum) {
         document.body.style.overflowY = "hidden";
-        window.scrollTo(0, tempNum);
       }
       if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
         runAnimation = false

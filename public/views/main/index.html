@@ -1,5 +1,6 @@
+<header ng-include="'views/main/menu.html'" ng-controller="menuCtrl"></header>
 
-<div id="bg"><
+<div id="bg">
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
@@ -62,7 +63,7 @@ Contributing to DC Design values:<br/>
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-lg-4" ng-repeat="item in portfolio">
-        <img ng-src="{{item.image}}" alt="">
+        <img ng-src="{{item.image}}" alt="" class="imgResponsivePortfolio">
       </div>
     </div>
   </div>
