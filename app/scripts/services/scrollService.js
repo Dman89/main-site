@@ -13,9 +13,7 @@ setTimeout(function() {
   window.onscroll = function() {
     let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
     if (runAnimation == true) {
-      if (window.scrollY == tempNum) {
-      }
-      if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop ) {
+      if ( window.scrollY >= document.getElementById('PUTBACKGROUNDHERE').offsetTop - 50 ) {
         document.body.style.overflowY = "hidden";
         runAnimation = false
         let elem = document.getElementsByClassName('barGraph');

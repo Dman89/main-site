@@ -3,6 +3,7 @@ angular.module("mainSite")
 .controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService) {
 
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
+  setTimeout(function() {window.scrollTo(0, 0)}, 1500)
 
 
 var docElemOrBody = document.documentElement || document.body;

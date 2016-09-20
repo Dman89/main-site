@@ -651,6 +651,7 @@ p {
         top: 10px; } }
 
 .barGraph {
+  opacity: 0;
   z-index: 1;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px; }
@@ -663,6 +664,12 @@ p {
   .barGraph h3 {
     text-align: center;
     color: #000; }
+
+@media (max-height: 600px) {
+  .innerTextOfDialog {
+    height: 10%;
+    line-height: 1em;
+    font-size: .7em; } }
 
 @keyframes skillAnimate {
   from {
