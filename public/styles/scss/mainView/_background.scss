@@ -5,6 +5,9 @@ body {
   overflow: hidden;
   overflow-y: hidden;
 }
+p {
+  color: #000;
+}
 
 	#bg {
 		height: 100%;
@@ -13,7 +16,7 @@ body {
 		top: 0;
 		opacity: 1;
 		position: relative;
-    height: -webkit-calc(100vh);
+    height: -webkit-calc(100vh + 43px);
     height:    -moz-calc(100vh);
     height:         calc(100vh);
 	}

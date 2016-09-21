@@ -14,7 +14,7 @@ this.runGraphAnimation = function() {
 
 {"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
 
-{"div":"uiAnimate", "height": 60, "left": 67.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>Agile</p><p class='animateGraphInnerText innerTextOfDialog'>Wordpress</p>", "barContent": '<p class="innerBar">Intermediate</p>'},
+{"div":"uiAnimate", "height": 60, "left": 67.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>Linux</p><p class='animateGraphInnerText innerTextOfDialog'>Agile</p><p class='animateGraphInnerText innerTextOfDialog'>Wordpress</p>", "barContent": '<p class="innerBar">Intermediate</p>'},
 
 {"div":"sqlAnimate", "height": 30, "left": 82.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Beginner</h3><p class='animateGraphInnerText innerTextOfDialog'>SQL</p><p class='animateGraphInnerText innerTextOfDialog'>PHP</p>", "barContent": '<p class="innerBar">Beginner</p>'}
 ];
