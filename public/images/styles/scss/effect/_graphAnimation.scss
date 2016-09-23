@@ -1,0 +1,394 @@
+.hidden-xssm {
+  &.animateGraphInnerText {
+    animation: graphText2 .5s ease-in-out forwards;
+    @media (max-width: 480px), (max-height: 480px) {
+        display: none;
+    }
+  }
+}
+.hidden-smxs {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  @media (min-width: 480px) {
+    display: none;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+}
+.animateGraphInnerText {
+  font-weight: 900;
+  animation: graphText2 .5s ease-in-out forwards;
+}
+.innerBar {
+  transform: rotate(90deg);
+  background-color: transparent;
+  color: $black;
+  position: absolute;
+  &.animateGraph {
+    animation: graphText 2.5s ease-in-out forwards;
+  }
+}
+.graphTextBelow {
+  color: $black;
+  position: relative;
+  bottom: 5vh;
+  text-align: center;
+  @media (max-height: 460px) {
+    display: none;
+  }
+}
+.graphTextBelow2 {
+  color: $black;
+  text-align: center;
+  @media (min-height: 460px) {
+    display: none;
+  }
+}
+.containerOfAnimation {
+  border: $secondary 5px solid;
+  position: relative;
+  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  display: block;
+  background-color: black;
+  color: black;
+  border-radius: 5px;
+    width: 450px;
+    height: 450px;
+  @media (max-width: 600px), (max-height: 600px) {
+    width: 250px;
+    height: 250px;
+  }
+}
+p {
+  z-index: 0;
+  width: 100%;
+  height: 5%;
+  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255, .72);
+  opacity: .5;
+  text-align: center;
+  position: relative;
+  animation: skillLevelAnimation 3s ease-in-out 3;
+  &.a {
+      top: 10%;
+    @media (max-width: 480px), (max-height: 480px) {
+      top: 10%;
+    }
+  }
+  &.b {
+    top: 20%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 17.5%;
+    }
+  }
+  &.c {
+    top: 30%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 25%;
+    }
+  }
+  &.d {
+    top: 40%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 32.5%;
+    }
+  }
+  &.e {
+    top: 50.5%;
+    @media (max-width: 480px), (max-height: 480px) {
+    top: 40%;
+    }
+  }
+  & span {
+  }
+}
+
+
+#htmlAnimate {
+  position: absolute;
+  height: 90%;
+  width: 7.5%;
+  background-color: $highlight;
+  bottom: 0;
+  left: 7.5%;
+  &.animateGraph {
+    animation: skillAnimate 2s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 10px;
+    @media (max-width: 767px) and (min-height: 601px) {
+      left: -2px;
+      top: 10px;
+    }
+    @media (min-width: 768px) and (min-height: 601px) {
+      left: -3px;
+      top: 10px;
+    }
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: -.5px;
+      top: 10px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 1.5px;
+      top: 10px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 5.5px;
+      top: 15px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 3.5px;
+      top: 1px;
+    }
+  }
+}
+#cssAnimate {
+  position: absolute;
+  height: 85%;
+  width: 7.5%;
+  background-color: $highlight;
+  left: 22.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.75s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 12px;
+    padding-bottom: 10px;
+    @media (min-width: 768px) and (min-height: 601px) {
+      left: -2px;
+      top: 10px;
+    }
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: 0px;
+      top: 10px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 2.5px;
+      top: 10px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 7.5px;
+      top: 15px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 5px;
+      top: 1px;
+    }
+  }
+}
+#javaScriptAnimate {
+  position: absolute;
+  height: 80%;
+  width: 7.5%;
+  background-color: $highlight;
+  left: 37.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.5s ease-out;
+  }
+  & p.innerBar {
+    padding-left: 15px;
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: 2.5px;
+      top: 10px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 3.5px;
+      top: 10px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 9.5px;
+      top: 15px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 4.5px;
+      top: 1px;
+    }
+  }
+}
+#uiAnimate {
+  position: absolute;
+  height: 60%;
+  width: 7.5%;
+  background-color: $highlight;
+  left: 67.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.25s ease-out;
+  }
+  & p.innerBar {
+    left: 8px;
+    top: 15px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 2.5px;
+      top: 10px;
+    }
+    @media (max-width: 767px) and (min-height: 601px) {
+      left: 4.5px;
+      top: 15px;
+    }
+    @media (min-width: 768px) and (min-height: 601px) {
+      left: 4px;
+      top: 13px;
+    }
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: 6px;
+      top: 12px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 8px;
+      top: 15px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 12px;
+      top: 20px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 6px;
+      top: 10px;
+    }
+  }
+}
+#sqlAnimate {
+  position: absolute;
+  height: 30%;
+  width: 7.5%;
+  background-color: $highlight;
+  left: 82.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate .5s ease-out;
+  }
+  & p.innerBar {
+    left: 15px;
+    top: 25px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 7px;
+      top: 15px;
+    }
+    @media (max-width: 767px) and (min-height: 601px) {
+      left: 10px;
+      top: 15px;
+    }
+    @media (min-width: 768px) and (min-height: 601px) {
+      left: 10px;
+      top: 15px;
+    }
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: 12.5px;
+      top: 15px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 15px;
+      top: 17px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 20px;
+      top: 20px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 10px;
+      top: 10px;
+    }
+  }
+}
+
+
+#wordpressAnimate {
+  position: absolute;
+  height: 70%;
+  width: 7.5%;
+  background-color: $highlight;
+  left: 52.5%;
+  bottom: 0;
+  &.animateGraph {
+    animation: skillAnimate 1.5s ease-out;
+  }
+  & p.innerBar {
+    left: 5px;
+    top: 25px;
+    @media (max-height: 480px), (max-width: 480px) {
+      left: 1px;
+      top: 10px;
+    }
+    @media (max-width: 767px) and (min-height: 601px) {
+      left: 3px;
+      top: 12px;
+    }
+    @media (min-width: 768px) and (min-height: 601px) {
+      left: 1px;
+      top: 10px;
+    }
+    @media (min-width: 992px) and (min-height: 601px) {
+      left: 2.5px;
+      top: 10px;
+    }
+    @media (min-width: 1201px) and (min-height: 601px) {
+      left: 5.5px;
+      top: 15px;
+    }
+    @media (min-width: 1600px) and (min-height: 601px) {
+      left: 10px;
+      top: 20px;
+    }
+    @media (max-height: 600px), (max-width: 600px), (min-height: 600px) and (max-width: 600px) {
+      font-size: 14px;
+      left: 5px;
+      top: 10px;
+    }
+  }
+}
+
+
+
+
+.barGraph {
+  opacity: 0;
+  z-index: 1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  & p {
+    height: 10%;
+    background-color: inherent;
+    opacity: 1;
+    margin: auto;
+    line-height: 2em;
+  }
+  & h3 {
+    text-align: center;
+    color: $black;
+  }
+}
+.innerTextOfDialog {
+  @media (max-height: 600px) {
+      height: 10%;
+      line-height: 1em;
+      font-size: .7em;
+  }
+}
+
+@keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}

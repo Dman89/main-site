@@ -1,0 +1,14 @@
+
+.imgResponsivePortfolio {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  @media (max-width: 480px), (max-height: 480px) {
+    height: 150px;
+    width: 150px;
+  }
+}
+.containerForPortfolio {
+  margin: 5% auto;
+}
