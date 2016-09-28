@@ -12,4 +12,5 @@ require('./scripts/services/scrollService.js');
 require('./scripts/services/barGraphAnimationService.js');
 require('./scripts/services/servicesForSaleService.js');
 require('./scripts/services/menuService.js');
+require('./scripts/services/menuCollapseService.js');
 require('./scripts/services/portfolioService.js');

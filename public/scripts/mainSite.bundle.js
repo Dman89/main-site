@@ -16,6 +16,7 @@ webpackJsonp([0],[
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
+	__webpack_require__(13);
 	__webpack_require__(12);
 
 
@@ -4672,7 +4673,7 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("menuCtrl", function($scope, $interval, $timeout, menuService) {
+	.controller("menuCtrl", function($scope, $interval, $timeout, menuService, menuCollapseService) {
 
 	  $timeout(function () {
 	    window.addEventListener('scroll', function() {
@@ -4686,28 +4687,33 @@ webpackJsonp([0],[
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
 	  $scope.home = function() {
-	    document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"});
+	    window.scrollTo(0,0);
 	    menuService.removeOtherActivesOnClick("bg");
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.skills = function() {
 	    document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"});
 	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.bio = function() {
 	    document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"});
 	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.port = function() {
 	    document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"});
 	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.contact = function() {
 	    document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"});
 	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
+	    menuCollapseService.collapseMenu();
 	  }
 
 	  $timeout(function() {
-	    document.getElementById("myNav123").style.pointerEvents = "auto";
+	    document.getElementById("navbar").style.pointerEvents = "auto";
 	  }, 8000)
 	});
 
@@ -5251,6 +5257,24 @@ webpackJsonp([0],[
 
 
 
+	  })
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
+	  .service('menuCollapseService', function() {
+	    this.collapseMenu = function() {
+	      let elem = document.getElementById('myNavbar');
+	      let element = elem.className;
+	      let check = (element.indexOf('in') > -1)
+	      if (check == true) {
+	        elem.classList.remove('in');
+	      }
+	    }
 	  })
 
 
