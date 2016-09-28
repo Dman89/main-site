@@ -4,13 +4,7 @@ angular.module("mainSite")
   let docElemOrBody = document.documentElement || document.body;
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
   setTimeout(function() {window.scrollTo(0, 0)}, 1500)
-  // BACKGROUND ANIMATION
-      // var backgroundResize = function() {
-      //   document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-      //   var docElemOrBody = document.documentElement || document.body;
-      //   var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
-      //   document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
-      // }
+
       var backgroundResize = function() {
         document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
         let elem = document.getElementById("bg");
@@ -30,7 +24,6 @@ angular.module("mainSite")
         backgroundResize();
         windowResize(window, "resize", backgroundResize);
         let readjust = 0;
-        console.log(docElemOrBody.clientWidth, docElemOrBody.clientHeight);
         if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
           $interval(function () {
             readjust += .1;

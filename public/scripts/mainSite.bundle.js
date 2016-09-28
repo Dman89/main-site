@@ -16,6 +16,7 @@ webpackJsonp([0],[
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
+	__webpack_require__(12);
 
 
 /***/ },
@@ -4634,13 +4635,7 @@ webpackJsonp([0],[
 	  let docElemOrBody = document.documentElement || document.body;
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1500)
-	  // BACKGROUND ANIMATION
-	      // var backgroundResize = function() {
-	      //   document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	      //   var docElemOrBody = document.documentElement || document.body;
-	      //   var widthForBG = docElemOrBody.clientHeight * 1.669133771929825;
-	      //   document.getElementById("bg").style.backgroundSize = widthForBG + "px auto";
-	      // }
+
 	      var backgroundResize = function() {
 	        document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
 	        let elem = document.getElementById("bg");
@@ -4660,7 +4655,6 @@ webpackJsonp([0],[
 	        backgroundResize();
 	        windowResize(window, "resize", backgroundResize);
 	        let readjust = 0;
-	        console.log(docElemOrBody.clientWidth, docElemOrBody.clientHeight);
 	        if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
 	          $interval(function () {
 	            readjust += .1;
@@ -4678,39 +4672,43 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("menuCtrl", function($scope, $interval, $timeout) {var docElemOrBody = document.documentElement || document.body;
-	var scrollPostition = window.pageYOffset;
+	.controller("menuCtrl", function($scope, $interval, $timeout, menuService) {
+
+	  $timeout(function () {
+	    window.addEventListener('scroll', function() {
+	      let currentScrollPosition = window.pageYOffset;
+	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {
+
+	      });
+	    });
+
+	  }, 2000)
+	  var docElemOrBody = document.documentElement || document.body;
+	  var scrollPostition = window.pageYOffset;
 	  $scope.home = function() {
 	    document.getElementById("bg").scrollIntoView({block: "end", behavior: "smooth"});
+	    menuService.removeOtherActivesOnClick("bg");
 	  }
 	  $scope.skills = function() {
 	    document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"});
+	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
 	  }
-	  $scope.values = function() {
+	  $scope.bio = function() {
 	    document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"});
+	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
 	  }
-	  $scope.values = function() {
+	  $scope.port = function() {
 	    document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"});
+	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
 	  }
-	  $scope.values = function() {
+	  $scope.contact = function() {
 	    document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"});
+	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
 	  }
-
-
 
 	  $timeout(function() {
 	    document.getElementById("myNav123").style.pointerEvents = "auto";
 	  }, 8000)
-	      // window.onscroll = function() {
-	      //   console.log(scrollPostition, document.getElementById("PUTBACKGROUNDHERE").offsetTop, document.getElementById("bg").offsetTop);
-	      //   if (scrollPostition == 0) {
-	      //       document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"});
-	      //   }
-	      //   else if (scrollPostition == document.getElementById("PUTBACKGROUNDHERE").offsetTop) {
-	      //       document.getElementById("bg").scrollIntoView({block: "start", behavior: "smooth"});
-	      //   }
-	      // }
-
 	});
 
 
@@ -5011,6 +5009,122 @@ webpackJsonp([0],[
 
 /***/ },
 /* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
+	  .service('menuService', function() {
+	    // Clears Active Classes on Click
+	    let idArray = ['bg', 'PUTBACKGROUNDHERE', 'PUTBACKGROUNDHERE2', 'PUTBACKGROUNDHERE3', 'PUTBACKGROUNDHERE4'];
+	    this.removeOtherActivesOnClick = function(id) {
+	      let ids = idArray;
+	      let len = idArray.length;
+	      for (var x = 0; x < len; x++) {
+	        if (ids[x] != id) {
+	          clearActive(ids[x]);
+	        }
+	      }
+	      ids = idArray;
+	    }
+	    // CHECKS for active class
+	    var gotActive = function(id2) {
+	      let id = id2 + 'menu';
+	      let element = document.getElementById(id);
+	      let check = (" "+element.className+" ").indexOf(' active ');
+	      if (check > -1) {
+	        return true;
+	      }
+	      else {
+	        return false;
+	      }
+	    }
+	    // Clears Active Class
+	    var clearActive = function(id2) {
+	      let id = id2 + 'menu';
+	      document.getElementById(id).classList.remove('active');
+	    }
+	    // Checks for Element Position and Compares to ScrollY Position of Window (Return Boolean)
+	    var checkOffsetTopElement = function(id, nextId, lastId, cb) {
+	      let position = document.getElementById(id).offsetTop;
+	      let nextPosition;
+	      if (nextId != 'none') {
+	        nextPosition = document.getElementById(nextId).offsetTop;
+	      }
+	      else {
+	        nextPosition = document.getElementById(lastId).offsetTop;
+	        let scrollPostition = window.pageYOffset;
+	        if (scrollPostition > nextPosition) {
+	          cb(true);
+	        }
+	      }
+	      let scrollPostition = window.pageYOffset;
+	      if (scrollPostition < nextPosition) {
+	        cb(true);
+	      }
+	      else {
+	        cb(false);
+	      }
+	    }
+	    // Sets the Active Class for the Menu Buttons
+	    var setActiveClass = function(menuBtn, next, last, res) {
+	      let idToUse = menuBtn + 'menu';
+	      let active = 'active';
+	      let div = document.getElementById(idToUse);
+	      if (res == true) {
+	        let checkForClassActive = gotActive(menuBtn);
+	        if (checkForClassActive != true) {
+	          div.className += 'active';
+	        }
+	        checkForClass(next, last, active);
+	      }
+	    }
+	    // Searches Element for Active Class
+	    var checkForClass = function(next, last, clss) {
+	      let nextId = next + 'menu';
+	      let lastId = last + 'menu';
+	      let elementOne = document.getElementById(nextId);
+	      let elementTwo = document.getElementById(lastId);
+	      if (elementOne != "nonemenu" && elementOne != null) {
+	        let check = (elementOne.className).indexOf(clss);
+	        if (check > -1) {
+	          clearActive(next);
+	        }
+	      }
+	      if (elementTwo != "nonemenu" && elementTwo != null) {
+	        let check = (elementTwo.className).indexOf(clss);
+	        if (check > -1) {
+	          clearActive(last);
+	        }
+	      }
+	    }
+	    // Uses Position to Find Current Elements (In View, Above and Below)
+	    var elementInView = function(scrollPostition, cb) {
+	      let id, nextId, lastId, nothing;
+	      let one = (document.getElementById('bg').offsetTop * .90);
+	      let two = (document.getElementById('PUTBACKGROUNDHERE').offsetTop * .90);
+	      let three = (document.getElementById('PUTBACKGROUNDHERE2').offsetTop * .90);
+	      let four = (document.getElementById('PUTBACKGROUNDHERE3').offsetTop * .90);
+	      let five = (document.getElementById('PUTBACKGROUNDHERE4').offsetTop * .90);
+	      scrollPostition < two ? (id = "bg", nextId = "PUTBACKGROUNDHERE", lastId = "none") : nothing = 'nada';
+	      scrollPostition >= two ? (id = "PUTBACKGROUNDHERE", nextId = "PUTBACKGROUNDHERE2", lastId = "bg") : nothing = 'nada';
+	      scrollPostition >= three ? (id = "PUTBACKGROUNDHERE2", nextId = "PUTBACKGROUNDHERE3", lastId = "PUTBACKGROUNDHERE") : nothing = 'nada';
+	      scrollPostition >= four ? (id = "PUTBACKGROUNDHERE3", nextId = "PUTBACKGROUNDHERE4", lastId = "PUTBACKGROUNDHERE2") : nothing = 'nada';
+	      scrollPostition >= five ? (id = "PUTBACKGROUNDHERE4", nextId = "none", lastId = "PUTBACKGROUNDHERE3") : nothing = 'nada';
+	      cb(id, nextId, lastId)
+	    }
+	    // Allows the Controller to Call the Function
+	    this.checkScrollPosition = function(scrollPostition, cb) {
+	      elementInView(scrollPostition, function (id, nextId, lastId) {
+	        checkOffsetTopElement(id, nextId, lastId, function(res) {
+	          setActiveClass(id, nextId, lastId, res);
+	        })
+	      })
+	    }
+	  })
+
+
+/***/ },
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
