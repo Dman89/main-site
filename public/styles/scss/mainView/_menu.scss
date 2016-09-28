@@ -12,7 +12,7 @@ ul#myNav123 a:hover, header nav#navbar div#myNavbar ul#myNav123 li.active a {
 ul#myNav123 a:focus {
   background-color: $accent
 }
-ul.nav {
+#navbar {
   pointer-events: none;
   cursor: pointer;
 }

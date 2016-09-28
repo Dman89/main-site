@@ -12,7 +12,7 @@ ul#myNav123 a:hover, header nav#navbar div#myNavbar ul#myNav123 li.active a {
 ul#myNav123 a:focus {
   background-color: #cfa757; }
 
-ul.nav {
+#navbar {
   pointer-events: none;
   cursor: pointer; }
 
@@ -57,9 +57,9 @@ p {
       padding: 2.5% 5%; } }
 
 #PUTBACKGROUNDHERE2 {
-  height: -webkit-calc(100vh + 43px);
-  height: -moz-calc(100vh + 43px);
-  height: calc(100vh + 43px);
+  min-height: -webkit-calc(100vh + 43px);
+  min-height: -moz-calc(100vh + 43px);
+  min-height: calc(100vh + 43px);
   padding-top: 5%; }
 
 #PUTBACKGROUNDHERE4 {
@@ -162,6 +162,9 @@ h4.smallHeadlineMain {
   @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
     .mainTitleLinkDiv {
       margin: auto; } }
+  @media (max-width: 343px) and (min-height: 260px) {
+    .mainTitleLinkDiv {
+      margin-top: 5%; } }
   .mainTitleLinkDiv a {
     animation: type 1s forwards;
     margin: auto;
@@ -306,6 +309,9 @@ h4.smallHeadlineMain {
 
 .containerForPortfolio {
   margin: 5% auto; }
+
+.imgPortfolio {
+  margin-bottom: 5%; }
 
 .goldenkey {
   color: #cfa757; }

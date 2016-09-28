@@ -40,9 +40,9 @@ p {
   }
 }
 #PUTBACKGROUNDHERE2{
-height: -webkit-calc(100vh + 43px);
-height:    -moz-calc(100vh + 43px);
-height:         calc(100vh + 43px);
+min-height: -webkit-calc(100vh + 43px);
+min-height:    -moz-calc(100vh + 43px);
+min-height:         calc(100vh + 43px);
 padding-top: 5%;
 }
 #PUTBACKGROUNDHERE4{

@@ -85,6 +85,9 @@ h4.smallHeadlineMain {
   @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
   margin: auto;
   }
+  @media (max-width: 343px) and (min-height: 260px) {
+    margin-top: 5%;
+  }
   & a {
     animation: type 1s forwards;
     margin: auto;
