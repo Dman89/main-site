@@ -4631,11 +4631,9 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService, portfolioService) {
-
+	  let docElemOrBody = document.documentElement || document.body;
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1500)
-
-	var docElemOrBody = document.documentElement || document.body;
 	  // BACKGROUND ANIMATION
 	      // var backgroundResize = function() {
 	      //   document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
@@ -4662,10 +4660,13 @@ webpackJsonp([0],[
 	        backgroundResize();
 	        windowResize(window, "resize", backgroundResize);
 	        let readjust = 0;
-	        $interval(function () {
-	          readjust += .1;
-	          document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
-	        }, 1);
+	        console.log(docElemOrBody.clientWidth, docElemOrBody.clientHeight);
+	        if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
+	          $interval(function () {
+	            readjust += .1;
+	            document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
+	          }, 1);
+	        }
 
 	        $scope.portfolio = portfolioService.portfolio;
 	});
@@ -5018,105 +5019,105 @@ webpackJsonp([0],[
 	    this.portfolio = [
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Product Display",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/ProductDisplay"
 	        },
 	        "codepen": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://productdisplay.danielcudney.com"
 	        },
 	        "heroku": {
-	          "isTrue": true,
+	          "isTrue": false,
 	          "url": "url"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Presentation is one of the keys to success in an online store. Checkout this simple animation for a product display."
 	      },
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Quote Generator",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/quoteMachine"
 	        },
 	        "codepen": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://quotemachine.danielcudney.com"
 	        },
 	        "heroku": {
-	          "isTrue": true,
+	          "isTrue": false,
 	          "url": "url"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Need Inspiration? Generate a quote and photo for motivation. Why not post it to Twitter too?"
 	      },
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Encrptytion",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/SimpleEncryption"
 	        },
 	        "codepen": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://encryption.danielcudney.com"
 	        },
 	        "heroku": {
-	          "isTrue": true,
+	          "isTrue": false,
 	          "url": "url"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Got a message you want to keep secret? Use this simple encrption app to keep your top secret message private."
 	      },
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Current Weather",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/weatherApp"
 	        },
 	        "codepen": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://weather.danielcudney.com"
 	        },
 	        "heroku": {
-	          "isTrue": true,
+	          "isTrue": false,
 	          "url": "url"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Get the current weather report for you IP or at a click of a button, the report for your current location via latitude and longitude."
 	      },
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Store / Blog",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/Store-Front-Api-Project"
 	        },
 	        "codepen": {
-	          "isTrue": true,
-	          "url": "url"
+	          "isTrue": false,
+	          "url": "http://linktochange.danielcudney.com"
 	        },
 	        "heroku": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://caleapi.herokuapp.com/"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Need a website to sell your products and a blog to reach customers? Look no further with this beautiful site package. Add/edit/delete products, blog posts and portfolio pieces with this backend."
 	      },
 	      {
 	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
-	        "title": "Project",
+	        "title": "Watchmen: Dr. Time",
 	        "github": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "https://github.com/Dman89/WatchMenDrTime"
 	        },
 	        "codepen": {
-	          "isTrue": true,
-	          "url": "url"
+	          "isTrue": false,
+	          "url": "http://drtime.danielcudney.com"
 	        },
 	        "heroku": {
 	          "isTrue": true,
-	          "url": "url"
+	          "url": "http://drtime.herokuapp.com/"
 	        },
-	        "description": "blah blah blah"
+	        "description": "Working in an AGILE environment? Here is a timer that uploads to google calendar as you complete tasks to be reviewed later. Dr. Time's features include a sprint mode and the storing of activities for projects."
 	      }
 	    ]
 
