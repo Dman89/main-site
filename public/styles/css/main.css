@@ -38,6 +38,7 @@ p {
   height: -moz-calc(100vh - 43px);
   height: calc(100vh - 43px);
   overflow: hidden;
+  background: #212121 url("../../../images/bg.jpg") repeat-x 0 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
