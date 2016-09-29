@@ -3,7 +3,7 @@ angular.module('mainSite')
   .service('portfolioService', function() {
     this.portfolio = [
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/product/fin.png",
         "title": "Product Display",
         "github": {
           "isTrue": true,
@@ -20,7 +20,7 @@ angular.module('mainSite')
         "description": "Presentation is one of the keys to success in an online store. Checkout this simple animation for a product display."
       },
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/quote/fin.png",
         "title": "Quote Generator",
         "github": {
           "isTrue": true,
@@ -37,7 +37,7 @@ angular.module('mainSite')
         "description": "Need Inspiration? Generate a quote and photo for motivation. Why not post it to Twitter too?"
       },
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/encryption/fin.png",
         "title": "Encrptytion",
         "github": {
           "isTrue": true,
@@ -54,7 +54,7 @@ angular.module('mainSite')
         "description": "Got a message you want to keep secret? Use this simple encrption app to keep your top secret message private."
       },
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/weather/fin.png",
         "title": "Current Weather",
         "github": {
           "isTrue": true,
@@ -71,7 +71,7 @@ angular.module('mainSite')
         "description": "Get the current weather report for you IP or at a click of a button, the report for your current location via latitude and longitude."
       },
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/store/fin.png",
         "title": "Store / Blog",
         "github": {
           "isTrue": true,
@@ -88,7 +88,7 @@ angular.module('mainSite')
         "description": "Need a website to sell your products and a blog to reach customers? Look no further with this beautiful site package. Add/edit/delete products, blog posts and portfolio pieces with this backend."
       },
       {
-        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+        "image": "images/portfolio/time/fin.png",
         "title": "Watchmen: Dr. Time",
         "github": {
           "isTrue": true,

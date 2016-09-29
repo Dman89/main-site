@@ -1,6 +1,6 @@
 'use strict';
 angular.module("mainSite")
-.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService) {
+.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
   $scope.numOfPagesArr = {
     "one": false,
     "six": false,

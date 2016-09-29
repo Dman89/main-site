@@ -1,6 +1,6 @@
 'use strict';
 angular.module('mainSite')
-  .service('scrollService', function(barGraphAnimationService) {
+  .service('scrollService', function(barGraphAnimationService, $location) {
     var randomSetVarForFalse = "";
     var runAnimation = true;
     var runAnimation2 = true;
@@ -10,7 +10,8 @@ angular.module('mainSite')
 
 setTimeout(function() {
   //Scroll From Section 1 to Section 2
-  window.onscroll = function() {
+  window.addEventListener('scroll', function scrolling() {
+    if ($location.path() == '/') {
     let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
     let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
     if (runAnimation == true) {
@@ -36,6 +37,7 @@ setTimeout(function() {
       }
     }
   }
+  })
 }, 2000)
 
       setTimeout(function() {
