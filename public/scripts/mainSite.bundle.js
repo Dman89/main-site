@@ -16,8 +16,9 @@ webpackJsonp([0],[
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
-	__webpack_require__(13);
 	__webpack_require__(12);
+	__webpack_require__(14);
+	__webpack_require__(13);
 
 
 /***/ },
@@ -4632,16 +4633,30 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("indexCtrl", function($scope, $interval, $timeout, scrollService, barGraphAnimationService, servicesForSaleService, portfolioService) {
+	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
 	  let docElemOrBody = document.documentElement || document.body;
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
-	  setTimeout(function() {window.scrollTo(0, 0)}, 1500)
+
+	  setTimeout(function() {
+	    window.scrollTo(0, 0);
+	    unlockService.runEventListener();
+	    let lockButton = document.getElementById('lockButton');
+	    let lockButton2 = document.getElementById('lockButton2');
+	    lockButton.addEventListener('click', function() {
+	      window.removeEventListener('resize', backgroundResize, true);
+	    });
+	    lockButton2.addEventListener('click', function() {
+	      window.removeEventListener('resize', backgroundResize, true);
+	    });
+	  }, 1500);
 
 	      var backgroundResize = function() {
-	        document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	        let elem = document.getElementById("bg");
-	        let widthForBG = elem.offsetHeight * 1.669133771929825;
-	        document.getElementById("bg").style.backgroundSize = "cover";
+	        if ($location.path() === '/') {
+	          document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+	          let elem = document.getElementById("bg");
+	          let widthForBG = elem.offsetHeight * 1.669133771929825;
+	          document.getElementById("bg").style.backgroundSize = "cover";
+	        }
 	      }
 	      var windowResize = function(object, type, callback) {
 	          if (object == null || typeof(object) == 'undefined') return;
@@ -4654,7 +4669,8 @@ webpackJsonp([0],[
 	          }
 	      };
 	        backgroundResize();
-	        windowResize(window, "resize", backgroundResize);
+	        window.addEventListener('resize', backgroundResize);
+	        // windowResize(window, "resize", backgroundResize);
 	        let readjust = 0;
 	        if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
 	          $interval(function () {
@@ -4662,7 +4678,6 @@ webpackJsonp([0],[
 	            document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
 	          }, 1);
 	        }
-
 	        $scope.portfolio = portfolioService.portfolio;
 	});
 
@@ -4724,7 +4739,7 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService) {
+	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
 	  $scope.numOfPagesArr = {
 	    "one": false,
 	    "six": false,
@@ -4828,7 +4843,7 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
-	  .service('scrollService', function(barGraphAnimationService) {
+	  .service('scrollService', function(barGraphAnimationService, $location) {
 	    var randomSetVarForFalse = "";
 	    var runAnimation = true;
 	    var runAnimation2 = true;
@@ -4838,7 +4853,8 @@ webpackJsonp([0],[
 
 	setTimeout(function() {
 	  //Scroll From Section 1 to Section 2
-	  window.onscroll = function() {
+	  window.addEventListener('scroll', function scrolling() {
+	    if ($location.path() == '/') {
 	    let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
 	    let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
 	    if (runAnimation == true) {
@@ -4864,6 +4880,7 @@ webpackJsonp([0],[
 	      }
 	    }
 	  }
+	  })
 	}, 2000)
 
 	      setTimeout(function() {
@@ -4886,9 +4903,9 @@ webpackJsonp([0],[
 	  var idArray = [
 	{"div":"htmlAnimate", "height": 90, "left": 7.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert</h3><p class='animateGraphInnerText innerTextOfDialog'>HTML</p><p class='animateGraphInnerText innerTextOfDialog'>Responsive Web Design</p><p class='animateGraphInnerText innerTextOfDialog'>Webpack</p><p class='animateGraphInnerText innerTextOfDialog'>NPM</p><p class='animateGraphInnerText innerTextOfDialog'>Bootstrap</p>", "barContent": '<p class="innerBar">Expert</p>'},
 
-	{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advance</p>'},
+	{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advance</p>'},
 
-	{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>Google/Facebook/Twitter/Flickr</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advance</p>'},
+	{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>(Google/Facebook/Twitter/Flickr)</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advance</p>'},
 
 	{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
 
@@ -5135,10 +5152,28 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
+	  .service('menuCollapseService', function() {
+	    this.collapseMenu = function() {
+	      let elem = document.getElementById('myNavbar');
+	      let element = elem.className;
+	      let check = (element.indexOf('in') > -1)
+	      if (check == true) {
+	        elem.classList.remove('in');
+	      }
+	    }
+	  })
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
 	  .service('portfolioService', function() {
 	    this.portfolio = [
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/product/fin.png",
 	        "title": "Product Display",
 	        "github": {
 	          "isTrue": true,
@@ -5155,7 +5190,7 @@ webpackJsonp([0],[
 	        "description": "Presentation is one of the keys to success in an online store. Checkout this simple animation for a product display."
 	      },
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/quote/fin.png",
 	        "title": "Quote Generator",
 	        "github": {
 	          "isTrue": true,
@@ -5172,7 +5207,7 @@ webpackJsonp([0],[
 	        "description": "Need Inspiration? Generate a quote and photo for motivation. Why not post it to Twitter too?"
 	      },
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/encryption/fin.png",
 	        "title": "Encrptytion",
 	        "github": {
 	          "isTrue": true,
@@ -5189,7 +5224,7 @@ webpackJsonp([0],[
 	        "description": "Got a message you want to keep secret? Use this simple encrption app to keep your top secret message private."
 	      },
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/weather/fin.png",
 	        "title": "Current Weather",
 	        "github": {
 	          "isTrue": true,
@@ -5206,7 +5241,7 @@ webpackJsonp([0],[
 	        "description": "Get the current weather report for you IP or at a click of a button, the report for your current location via latitude and longitude."
 	      },
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/store/fin.png",
 	        "title": "Store / Blog",
 	        "github": {
 	          "isTrue": true,
@@ -5223,7 +5258,7 @@ webpackJsonp([0],[
 	        "description": "Need a website to sell your products and a blog to reach customers? Look no further with this beautiful site package. Add/edit/delete products, blog posts and portfolio pieces with this backend."
 	      },
 	      {
-	        "image": "http://www.skillsacademy.co.za/wp-content/uploads/2013/01/Program-Project-Management.jpg",
+	        "image": "images/portfolio/time/fin.png",
 	        "title": "Watchmen: Dr. Time",
 	        "github": {
 	          "isTrue": true,
@@ -5261,20 +5296,48 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
 	angular.module('mainSite')
-	  .service('menuCollapseService', function() {
-	    this.collapseMenu = function() {
-	      let elem = document.getElementById('myNavbar');
+	  .service('unlockService', function() {
+	    this.runEventListener = function(funcPassed) {
+	      let lockElem = document.getElementById('lock');
+	      let lockElem2 = document.getElementById('lock2');
+	      let lockButton = document.getElementById('lockButton');
+	      let lockButton2 = document.getElementById('lockButton2');
+	      lockButton.addEventListener('mouseover', function() {
+	        unlockButton(lockElem);
+	      });
+	      lockButton2.addEventListener('mouseover', function() {
+	        unlockButton(lockElem2);
+	      });
+	      lockButton.addEventListener('mouseout', function() {
+	        unlockButton(lockElem);
+	      });
+	      lockButton2.addEventListener('mouseout', function() {
+	        unlockButton(lockElem2);
+	      });
+
+	    }
+	    var unlockButton = function(elem) {
+	      checkLock(elem);
+	    }
+	    var checkLock = function(elem) {
 	      let element = elem.className;
-	      let check = (element.indexOf('in') > -1)
-	      if (check == true) {
-	        elem.classList.remove('in');
+	      let checkLock = (element.indexOf('fa-lock') > -1);
+	      let checkUnlock = (element.indexOf('fa-unlock') > -1);
+	      if (checkLock) {
+	        elem.classList.remove('fa-lock');
+	        elem.classList.add('fa-unlock');
+	      }
+	      else if (checkUnlock) {
+	        elem.classList.add('fa-lock');
+	        elem.classList.remove('fa-unlock');
 	      }
 	    }
+
 	  })
 
 
