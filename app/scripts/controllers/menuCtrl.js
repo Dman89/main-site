@@ -10,23 +10,27 @@ angular.module("mainSite")
     menuService.removeOtherActivesOnClick("bg");
     menuCollapseService.collapseMenu();
   }
+  var scrollToFun = function(elem) {
+    let yCord = elem.offsetTop;
+    window.scrollTo(0, yCord);
+  }
   $scope.skills = function() {
-    document.getElementById("PUTBACKGROUNDHERE").scrollIntoView({block: "end", behavior: "smooth"});
+    scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
     menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
     menuCollapseService.collapseMenu();
   }
   $scope.bio = function() {
-    document.getElementById("PUTBACKGROUNDHERE2").scrollIntoView({block: "end", behavior: "smooth"});
+    scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
     menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
     menuCollapseService.collapseMenu();
   }
   $scope.port = function() {
-    document.getElementById("PUTBACKGROUNDHERE3").scrollIntoView({block: "end", behavior: "smooth"});
+    scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
     menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
     menuCollapseService.collapseMenu();
   }
   $scope.contact = function() {
-    document.getElementById("PUTBACKGROUNDHERE4").scrollIntoView({block: "end", behavior: "smooth"});
+    scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
     menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
     menuCollapseService.collapseMenu();
   }
