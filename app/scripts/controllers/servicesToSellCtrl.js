@@ -1,6 +1,9 @@
 'use strict';
 angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
+  let mainBody = document.documentElement || document.body;
+  mainBody.style.overflow = "visble";
+  mainBody.style.overflowY = "visble";
   $scope.numOfPagesArr = {
     "one": false,
     "six": false,
@@ -74,6 +77,7 @@ angular.module("mainSite")
       num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
       num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
+      num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
   }
   // Options (Step 2)
   $scope.addOption = function () {

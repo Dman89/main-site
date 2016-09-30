@@ -2,15 +2,7 @@
 angular.module("mainSite")
 .controller("menuCtrl", function($scope, $interval, $timeout, menuService, menuCollapseService) {
 
-  $timeout(function () {
-    window.addEventListener('scroll', function() {
-      let currentScrollPosition = window.pageYOffset;
-      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {
 
-      });
-    });
-
-  }, 2000)
   var docElemOrBody = document.documentElement || document.body;
   var scrollPostition = window.pageYOffset;
   $scope.home = function() {

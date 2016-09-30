@@ -1,131 +1,133 @@
-<header ng-include="'views/main/menu.html'" ng-controller="menuCtrl"></header>
 
-<div id="bg">
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
-      <img class="profileImageMain" src="images/profileImage.jpg" alt="">
-        <h3 class="titleHeadline">Freelance Webdesigner</h3><h4 class="smallHeadlineMain">JavaScript Monk<span>|</span></h4>
-        <div class="dividerDiv"></div>
-        <div class="mainTitleLinkDiv">
-          <a href="" class="hover"><i class="fa fa-github"></i></a>
-          <a href="" class="hover"><i class="fa fa-linkedin-square"></i></a>
-          <a href="" class="hover"><i class="fa fa-file-pdf-o"></i></a>
-          <a href="" class="hover"><i class="fa fa-twitter"></i></a>
-          <a href="" class="hover"><i class="fa fa-envelope-o"></i></a>
-        </div>
-      </div>
-  </div>
-</div>
-</div>
-<div class="spacerBG"></div>
-<div id="PUTBACKGROUNDHERE">
-  <div class="containerOfAnimation">
-  <p class="a"></p>
-    <p class="b"></p>
-    <p class="c"></p>
-    <p class="d"></p>
-    <p class="e"></p>
-    <div id="htmlAnimate" class="barGraph">
-      <p class="innerBar">Expert</p>
-    </div>
-    <div id="cssAnimate" class="barGraph"><p class="innerBar">Expert/Advance</p></div>
-    <div id="javaScriptAnimate" class="barGraph"><p class="innerBar">Advance</p></div>
-    <div id="wordpressAnimate" class="barGraph"><p class="innerBar">Advance/Intermediate</p></div>
-    <div id="uiAnimate" class="barGraph"><p class="innerBar">Intermediate</p></div>
-    <div id="sqlAnimate" class="barGraph"><p class="innerBar">Beginner</p></div>
+  <header ng-include="'views/main/menu.html'" ng-controller="menuCtrl"></header>
+  <div id="scrollEvent">
 
-  </div>
-
-  <h2 class="graphTextBelow">Click a Bar <p class="hidden-smxs"/>on the <p class="hidden-smxs"/>Graph to <p class="hidden-smxs"/>See My <p class="hidden-smxs"/>Mad Skillz</h2>
-  <h2 class="graphTextBelow2">Click a Bar</h2>
-
-</div>
-<div id="PUTBACKGROUNDHERE2">
-  <div class="container-fluid">
-    <div class="row text-center">
-        <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
-          <img class="imgPortfolio" src="https://scontent.xx.fbcdn.net/v/t1.0-9/6884_1028100597228487_5054053722041985316_n.jpg?oh=0756969e05528f772c851b129f5fe5c7&oe=583BC10E" alt=""></div>
-        <div class="col-xs-12 col-sm-6 col-lg-5 bioProfile">
-          I've worked as a caregiver, plumber, and massage therapist before following my calling into web design. I learned valuable lesson in each occupation.
-          <p/>
-Caregiving taught small things often mean the most to people.
-Plumbing introduced the idea of a solid infrastructure creates a stable project.
-Massage Therapy hinged on making theoretical knowledge practical.<p/>
-Contributing to DC Design values:<br/><br/>
-<span>Quality</span>. <span>Simple</span> and <span>Solid</span>.
-        </div>
-    </div>
-  </div>
-</div>
-<div id="PUTBACKGROUNDHERE3">
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-lg-4 text-center containerForPortfolio" ng-repeat="item in portfolio">
-      <img ng-src="{{item.image}}" alt="" class="imgResponsivePortfolio">
-      <h3>{{item.title}}</h3>
-      <p>{{item.description}}</p>
-      <div ng-show="item.github.isTrue" class="col-xs-12"><a ng-href="{{item.github.url}}"><i class="fa fa-github"></i> GitHub</a></div>
-      <div ng-show="item.codepen.isTrue" class="col-xs-12"><a ng-href="{{item.codepen.url}}"><i class="fa fa-desktop"></i> Website</a></div>
-      <div ng-show="item.heroku.isTrue" class="col-xs-12"><a ng-href="{{item.heroku.url}}"><i class="fa fa-desktop"></i> Heroku</a></div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div id="PUTBACKGROUNDHERE4">
+  <div id="bg">
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12">
-        <img src="images/portfolio/responsive.png" class="contactImg" alt=""/>
+        <img class="profileImageMain" src="images/profileImage.jpg" alt="">
+          <h3 class="titleHeadline">Freelance Webdesigner</h3><h4 class="smallHeadlineMain">JavaScript Monk<span>|</span></h4>
+          <div class="dividerDiv"></div>
+          <div class="mainTitleLinkDiv">
+            <a href="" class="hover"><i class="fa fa-github"></i></a>
+            <a href="" class="hover"><i class="fa fa-linkedin-square"></i></a>
+            <a href="" class="hover"><i class="fa fa-file-pdf-o"></i></a>
+            <a href="" class="hover"><i class="fa fa-twitter"></i></a>
+            <a href="" class="hover"><i class="fa fa-envelope-o"></i></a>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="spacerBG"></div>
+  <div id="PUTBACKGROUNDHERE">
+    <div class="containerOfAnimation">
+    <p class="a"></p>
+      <p class="b"></p>
+      <p class="c"></p>
+      <p class="d"></p>
+      <p class="e"></p>
+      <div id="htmlAnimate" class="barGraph">
+        <p class="innerBar">Expert</p>
       </div>
-      <div class="col-xs-12 text-center" id="KEYS">
-               <div class="row" id="">
-                  <div class="col-xs-3 col-lg-1 col-md-1">
-                     <h1><i class="fa fa-key goldenkey"></i></h1>
-                  </div>
-                  <div class="col-xs-9 col-lg-3 col-md-3">
-                     <div class="row">
-                        <div class="col-xs-10 col-lg-12">
-                           <h2>Quality</h2>
-                        </div>
-                        <div class="col-xs-10 col-lg-12">
-                           <p>Keeping the end user and the user expereince in mind at all times, during the creation process.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xs-3 col-lg-1 col-md-1">
-                     <h1><i class="fa fa-key goldenkey"></i></h1>
-                  </div>
-                  <div class="col-xs-9 col-lg-3 col-md-3">
-                     <div class="row">
-                        <div class="col-xs-10 col-lg-12">
-                           <h2>Simple</h2>
-                        </div>
-                        <div class="col-xs-10 col-lg-12">
-                           <p>Keep the user interface to what is nessecary. Simple designs leads to more user interaction overall and tends to look better to the eye.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xs-3 col-lg-1 col-md-1">
-                     <h1><i class="fa fa-key goldenkey"></i></h1>
-                  </div>
-                  <div class="col-xs-9 col-lg-3 col-md-3">
-                     <div class="row">
-                        <div class="col-xs-10 col-lg-12">
-                           <h2>Solid</h2>
-                        </div>
-                        <div class="col-xs-10 col-lg-12">
-                           <p>Well writen code is the cornor stone of any great foundation and makes the interactions stable.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xs-12 text-center">
-              <button class="btn btn-success btn-block xs-only" id="lockButton" ui-sref="contact">Unlock Your Potential <i class="fa fa-lock" id="lock"></i></button>
-              <button class="btn btn-success hidden-xs" id="lockButton2" ui-sref="contact">Unlock Your Potential <i class="fa fa-lock" id="lock2"></i></button>
-            </div>
+      <div id="cssAnimate" class="barGraph"><p class="innerBar">Expert/Advance</p></div>
+      <div id="javaScriptAnimate" class="barGraph"><p class="innerBar">Advance</p></div>
+      <div id="wordpressAnimate" class="barGraph"><p class="innerBar">Advance/Intermediate</p></div>
+      <div id="uiAnimate" class="barGraph"><p class="innerBar">Intermediate</p></div>
+      <div id="sqlAnimate" class="barGraph"><p class="innerBar">Beginner</p></div>
+
+    </div>
+
+    <h2 class="graphTextBelow">Click a Bar <p class="hidden-smxs"/>on the <p class="hidden-smxs"/>Graph to <p class="hidden-smxs"/>See My <p class="hidden-smxs"/>Mad Skillz</h2>
+    <h2 class="graphTextBelow2">Click a Bar</h2>
+
+  </div>
+  <div id="PUTBACKGROUNDHERE2">
+    <div class="container-fluid">
+      <div class="row text-center">
+          <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
+            <img class="imgPortfolio" src="https://scontent.xx.fbcdn.net/v/t1.0-9/6884_1028100597228487_5054053722041985316_n.jpg?oh=0756969e05528f772c851b129f5fe5c7&oe=583BC10E" alt=""></div>
+          <div class="col-xs-12 col-sm-6 col-lg-5 bioProfile">
+            I've worked as a caregiver, plumber, and massage therapist before following my calling into web design. I learned valuable lesson in each occupation.
+            <p/>
+  Caregiving taught small things often mean the most to people.
+  Plumbing introduced the idea of a solid infrastructure creates a stable project.
+  Massage Therapy hinged on making theoretical knowledge practical.<p/>
+  Contributing to DC Design values:<br/><br/>
+  <span>Quality</span>. <span>Simple</span> and <span>Solid</span>.
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="PUTBACKGROUNDHERE3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-4 text-center containerForPortfolio" ng-repeat="item in portfolio">
+        <img ng-src="{{item.image}}" alt="" class="imgResponsivePortfolio">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <div ng-show="item.github.isTrue" class="col-xs-12"><a ng-href="{{item.github.url}}"><i class="fa fa-github"></i> GitHub</a></div>
+        <div ng-show="item.codepen.isTrue" class="col-xs-12"><a ng-href="{{item.codepen.url}}"><i class="fa fa-desktop"></i> Website</a></div>
+        <div ng-show="item.heroku.isTrue" class="col-xs-12"><a ng-href="{{item.heroku.url}}"><i class="fa fa-desktop"></i> Heroku</a></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="PUTBACKGROUNDHERE4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <img src="images/portfolio/responsive.png" class="contactImg" alt=""/>
+        </div>
+        <div class="col-xs-12 text-center" id="KEYS">
+                 <div class="row" id="">
+                    <div class="col-xs-12 col-lg-1 col-md-1">
+                       <h1><i class="fa fa-key goldenkey"></i></h1>
+                    </div>
+                    <div class="col-xs-12 col-lg-3 col-md-3">
+                       <div class="row">
+                          <div class="col-xs-12 col-lg-12">
+                             <h2>Quality</h2>
+                          </div>
+                          <div class="col-xs-12 col-lg-12">
+                             <p>Keeping the end user and the user expereince in mind at all times, during the creation process.</p>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-1 col-md-1">
+                       <h1><i class="fa fa-key goldenkey"></i></h1>
+                    </div>
+                    <div class="col-xs-12 col-lg-3 col-md-3">
+                       <div class="row">
+                          <div class="col-xs-12 col-lg-12">
+                             <h2>Simple</h2>
+                          </div>
+                          <div class="col-xs-12 col-lg-12">
+                             <p>Keep the user interface to what is nessecary. Simple designs leads to more user interaction overall and tends to look better to the eye.</p>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-1 col-md-1">
+                       <h1><i class="fa fa-key goldenkey"></i></h1>
+                    </div>
+                    <div class="col-xs-12 col-lg-3 col-md-3">
+                       <div class="row">
+                          <div class="col-xs-12 col-lg-12">
+                             <h2>Solid</h2>
+                          </div>
+                          <div class="col-xs-12 col-lg-12">
+                             <p>Well writen code is the cornor stone of any great foundation and makes the interactions stable.</p>
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-xs-12 text-center btnBlockOfLock">
+                <button class="btn btn-success btn-block xs-only" id="lockButton">Unlock Your Potential <i class="fa fa-lock" id="lock"></i></button>
+                <button class="btn btn-success hidden-xs" id="lockButton2">Unlock Your Potential <i class="fa fa-lock" id="lock2"></i></button>
+              </div>
+      </div>
     </div>
   </div>
 </div>

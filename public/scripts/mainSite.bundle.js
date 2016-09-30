@@ -17,8 +17,8 @@ webpackJsonp([0],[
 	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
-	__webpack_require__(14);
 	__webpack_require__(13);
+	__webpack_require__(14);
 
 
 /***/ },
@@ -4633,51 +4633,57 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
+	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
 	  let docElemOrBody = document.documentElement || document.body;
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
 	  setTimeout(function() {
 	    window.scrollTo(0, 0);
 	    unlockService.runEventListener();
-	    let lockButton = document.getElementById('lockButton');
-	    let lockButton2 = document.getElementById('lockButton2');
-	    lockButton.addEventListener('click', function() {
-	      window.removeEventListener('resize', backgroundResize, true);
-	    });
-	    lockButton2.addEventListener('click', function() {
-	      window.removeEventListener('resize', backgroundResize, true);
-	    });
+	    removeEventsAndGo('lockButton');
+	    removeEventsAndGo('lockButton2');
+	    window.addEventListener('scroll', scrollService.scrolling)
 	  }, 1500);
-
-	      var backgroundResize = function() {
-	        if ($location.path() === '/') {
-	          document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	          let elem = document.getElementById("bg");
-	          let widthForBG = elem.offsetHeight * 1.669133771929825;
-	          document.getElementById("bg").style.backgroundSize = "cover";
-	        }
+	  var locationChangeContact = function() {
+	    $state.go('contact');
+	  }
+	  var removeEventsAndGo = function(elem) {
+	    let element = document.getElementById(elem);
+	    element.addEventListener('click', function() {
+	      window.removeEventListener('resize', backgroundResize, true);
+	      clearInterval(movingBG);
+	      window.removeEventListener('scroll', scrollService.scrolling)
+	      locationChangeContact();
+	    });
+	  }
+	  let readjust = 0;
+	  var moveBackground = function () {
+	    readjust += .1;
+	    document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
+	  }
+	  var backgroundResize = function() {
+	    if ($location.path() === '/') {
+	      document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
+	      let elem = document.getElementById("bg");
+	      let widthForBG = elem.offsetHeight * 1.669133771929825;
+	      document.getElementById("bg").style.backgroundSize = "cover";
+	    }
+	  }
+	  var windowResize = function(object, type, callback) {
+	      if (object == null || typeof(object) == 'undefined') return;
+	      if (object.addEventListener) {
+	          object.addEventListener(type, callback, false);
+	      } else if (object.attachEvent) {
+	          object.attachEvent("on" + type, callback);
+	      } else {
+	          object["on"+type] = callback;
 	      }
-	      var windowResize = function(object, type, callback) {
-	          if (object == null || typeof(object) == 'undefined') return;
-	          if (object.addEventListener) {
-	              object.addEventListener(type, callback, false);
-	          } else if (object.attachEvent) {
-	              object.attachEvent("on" + type, callback);
-	          } else {
-	              object["on"+type] = callback;
-	          }
-	      };
-	        backgroundResize();
-	        window.addEventListener('resize', backgroundResize);
-	        // windowResize(window, "resize", backgroundResize);
-	        let readjust = 0;
-	        if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
-	          $interval(function () {
-	            readjust += .1;
-	            document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
-	          }, 1);
-	        }
+	  };
+	  backgroundResize();
+	  windowResize(window, "resize", backgroundResize);
+	  if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
+	    var movingBG = setInterval(moveBackground, 1);
+	  }
 	        $scope.portfolio = portfolioService.portfolio;
 	});
 
@@ -4690,15 +4696,7 @@ webpackJsonp([0],[
 	angular.module("mainSite")
 	.controller("menuCtrl", function($scope, $interval, $timeout, menuService, menuCollapseService) {
 
-	  $timeout(function () {
-	    window.addEventListener('scroll', function() {
-	      let currentScrollPosition = window.pageYOffset;
-	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {
 
-	      });
-	    });
-
-	  }, 2000)
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
 	  $scope.home = function() {
@@ -4740,6 +4738,9 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
+	  let mainBody = document.documentElement || document.body;
+	  mainBody.style.overflow = "visble";
+	  mainBody.style.overflowY = "visble";
 	  $scope.numOfPagesArr = {
 	    "one": false,
 	    "six": false,
@@ -4813,6 +4814,7 @@ webpackJsonp([0],[
 	      num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
 	      num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
 	      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
+	      num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
 	  }
 	  // Options (Step 2)
 	  $scope.addOption = function () {
@@ -4843,45 +4845,44 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
-	  .service('scrollService', function(barGraphAnimationService, $location) {
+	  .service('scrollService', function(barGraphAnimationService, $location, menuService) {
 	    var randomSetVarForFalse = "";
 	    var runAnimation = true;
 	    var runAnimation2 = true;
 	    var runAnimation3 = true;
 	    var runAnimation4 = true;
 
-
-	setTimeout(function() {
-	  //Scroll From Section 1 to Section 2
-	  window.addEventListener('scroll', function scrolling() {
-	    if ($location.path() == '/') {
-	    let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
-	    let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
-	    if (runAnimation == true) {
-	      if ( window.scrollY >= yRangeToCheck ) {
-	        window.scrollTo(0, tempNum);
-	        document.body.style.overflowY = "hidden";
-	        runAnimation = false
-	        let elem = document.getElementsByClassName('barGraph');
-	        for (var x = 0; x < elem.length; x++){
-	          elem[x].style.opacity = 1;
-	          elem[x].classList.add("animateGraph");
+	      //Scroll From Section 1 to Section 2
+	    this.scrolling = function() {
+	      let currentScrollPosition = window.pageYOffset;
+	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {});
+	      if ($location.path() == '/') {
+	        let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
+	        let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	        if (runAnimation == true) {
+	          if ( window.scrollY >= yRangeToCheck ) {
+	            window.scrollTo(0, tempNum);
+	            document.body.style.overflowY = "hidden";
+	            runAnimation = false
+	            let elem = document.getElementsByClassName('barGraph');
+	            for (var x = 0; x < elem.length; x++){
+	              elem[x].style.opacity = 1;
+	              elem[x].classList.add("animateGraph");
+	            }
+	            let elemInner = document.getElementsByClassName('innerBar');
+	            for (var x = 0; x < elemInner.length; x++){
+	              elemInner[x].classList.add("animateGraph");
+	            }
+	            barGraphAnimationService.runGraphAnimation();
+	            //Second Slide
+	            setTimeout(function() {
+	              document.body.style.overflowY = "scroll";
+	            }, 2500)
+	          }
 	        }
-	        let elemInner = document.getElementsByClassName('innerBar');
-	        for (var x = 0; x < elemInner.length; x++){
-	          elemInner[x].classList.add("animateGraph");
-	        }
-	        barGraphAnimationService.runGraphAnimation();
-	        //Second Slide
-	        setTimeout(function() {
-	          document.body.style.overflowY = "scroll";
-	        // Old Scroll Patter Went Here (Label: A1Scroll)
-	        }, 2500)
 	      }
 	    }
-	  }
-	  })
-	}, 2000)
+
 
 	      setTimeout(function() {
 	        document.body.style.overflowY = "scroll";
@@ -5170,6 +5171,52 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
+	  .service('unlockService', function() {
+	    this.runEventListener = function(funcPassed) {
+	      let lockElem = document.getElementById('lock');
+	      let lockElem2 = document.getElementById('lock2');
+	      let lockButton = document.getElementById('lockButton');
+	      let lockButton2 = document.getElementById('lockButton2');
+	      lockButton.addEventListener('mouseover', function() {
+	        unlockButton(lockElem);
+	      });
+	      lockButton2.addEventListener('mouseover', function() {
+	        unlockButton(lockElem2);
+	      });
+	      lockButton.addEventListener('mouseout', function() {
+	        unlockButton(lockElem);
+	      });
+	      lockButton2.addEventListener('mouseout', function() {
+	        unlockButton(lockElem2);
+	      });
+
+	    }
+	    var unlockButton = function(elem) {
+	      checkLock(elem);
+	    }
+	    var checkLock = function(elem) {
+	      let element = elem.className;
+	      let checkLock = (element.indexOf('fa-lock') > -1);
+	      let checkUnlock = (element.indexOf('fa-unlock') > -1);
+	      if (checkLock) {
+	        elem.classList.remove('fa-lock');
+	        elem.classList.add('fa-unlock');
+	      }
+	      else if (checkUnlock) {
+	        elem.classList.add('fa-lock');
+	        elem.classList.remove('fa-unlock');
+	      }
+	    }
+
+	  })
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
 	  .service('portfolioService', function() {
 	    this.portfolio = [
 	      {
@@ -5291,52 +5338,6 @@ webpackJsonp([0],[
 
 
 
-
-	  })
-
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	'use strict';
-	angular.module('mainSite')
-	  .service('unlockService', function() {
-	    this.runEventListener = function(funcPassed) {
-	      let lockElem = document.getElementById('lock');
-	      let lockElem2 = document.getElementById('lock2');
-	      let lockButton = document.getElementById('lockButton');
-	      let lockButton2 = document.getElementById('lockButton2');
-	      lockButton.addEventListener('mouseover', function() {
-	        unlockButton(lockElem);
-	      });
-	      lockButton2.addEventListener('mouseover', function() {
-	        unlockButton(lockElem2);
-	      });
-	      lockButton.addEventListener('mouseout', function() {
-	        unlockButton(lockElem);
-	      });
-	      lockButton2.addEventListener('mouseout', function() {
-	        unlockButton(lockElem2);
-	      });
-
-	    }
-	    var unlockButton = function(elem) {
-	      checkLock(elem);
-	    }
-	    var checkLock = function(elem) {
-	      let element = elem.className;
-	      let checkLock = (element.indexOf('fa-lock') > -1);
-	      let checkUnlock = (element.indexOf('fa-unlock') > -1);
-	      if (checkLock) {
-	        elem.classList.remove('fa-lock');
-	        elem.classList.add('fa-unlock');
-	      }
-	      else if (checkUnlock) {
-	        elem.classList.add('fa-lock');
-	        elem.classList.remove('fa-unlock');
-	      }
-	    }
 
 	  })
 
