@@ -79,9 +79,22 @@ angular.module("mainSite")
       num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
       num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
   }
+  $scope.newBack = function(num, data) {
+      num == "0" ? ($scope.stepOne = false, $scope.lookingForAWebsite.typeOfSite = data, $scope.hideFirstPanelOfSales = false) : $scope.nextStepNew = false;
+      num == "1" ? ($scope.stepOne = true, $scope.stepTwo = false) : $scope.nextStepNew = false;
+      num == "2" ? ($scope.stepTwo = true, $scope.stepThree = false, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
+      num == "3" ? ($scope.stepThree = true, $scope.stepFour = false) : $scope.nextStepNew = false;
+      num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
+      num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
+      num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+  }
   // Options (Step 2)
+  var num = 0;
+  var num2 = 0;
   $scope.addOption = function () {
-    $scope.lookingForAWebsite.options.push("");
+    num++;
+    let opt = "New Option " + num;
+    $scope.lookingForAWebsite.options.push(opt);
   }
   $scope.removeOption = function (index) {
     $scope.lookingForAWebsite.options.splice(index, 1);
@@ -91,7 +104,9 @@ angular.module("mainSite")
   }
   // Detail (step 6)
   $scope.addOptionDetails = function () {
-    $scope.lookingForAWebsite.details.push("");
+    num++;
+    let opt = "New Detail " + num;
+    $scope.lookingForAWebsite.details.push(opt);
   }
   $scope.removeOptionDetails = function (index) {
     $scope.lookingForAWebsite.details.splice(index, 1);

@@ -4661,8 +4661,12 @@ webpackJsonp([0],[
 	    readjust += .1;
 	    document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
 	  }
+	  var movingBG;
 	  var backgroundResize = function() {
 	    if ($location.path() === '/') {
+	      if (docElemOrBody.clientWidth >= 700 && docElemOrBody.clientHeight >= 700) {
+	        movingBG = setInterval(moveBackground, 1);
+	      }
 	      document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
 	      let elem = document.getElementById("bg");
 	      let widthForBG = elem.offsetHeight * 1.669133771929825;
@@ -4681,9 +4685,6 @@ webpackJsonp([0],[
 	  };
 	  backgroundResize();
 	  windowResize(window, "resize", backgroundResize);
-	  if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
-	    var movingBG = setInterval(moveBackground, 1);
-	  }
 	        $scope.portfolio = portfolioService.portfolio;
 	});
 
@@ -4820,9 +4821,22 @@ webpackJsonp([0],[
 	      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
 	      num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
 	  }
+	  $scope.newBack = function(num, data) {
+	      num == "0" ? ($scope.stepOne = false, $scope.lookingForAWebsite.typeOfSite = data, $scope.hideFirstPanelOfSales = false) : $scope.nextStepNew = false;
+	      num == "1" ? ($scope.stepOne = true, $scope.stepTwo = false) : $scope.nextStepNew = false;
+	      num == "2" ? ($scope.stepTwo = true, $scope.stepThree = false, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
+	      num == "3" ? ($scope.stepThree = true, $scope.stepFour = false) : $scope.nextStepNew = false;
+	      num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
+	      num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
+	      num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+	  }
 	  // Options (Step 2)
+	  var num = 0;
+	  var num2 = 0;
 	  $scope.addOption = function () {
-	    $scope.lookingForAWebsite.options.push("");
+	    num++;
+	    let opt = "New Option " + num;
+	    $scope.lookingForAWebsite.options.push(opt);
 	  }
 	  $scope.removeOption = function (index) {
 	    $scope.lookingForAWebsite.options.splice(index, 1);
@@ -4832,7 +4846,9 @@ webpackJsonp([0],[
 	  }
 	  // Detail (step 6)
 	  $scope.addOptionDetails = function () {
-	    $scope.lookingForAWebsite.details.push("");
+	    num++;
+	    let opt = "New Detail " + num;
+	    $scope.lookingForAWebsite.details.push(opt);
 	  }
 	  $scope.removeOptionDetails = function (index) {
 	    $scope.lookingForAWebsite.details.splice(index, 1);

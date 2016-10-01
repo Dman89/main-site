@@ -61,11 +61,10 @@
   position: absolute;
 }
 #sizeThisTextBoxForServices {
-  margin: 5%;
-  width: 75%;
+  width: 100%;
 }
 .addOption {
-  position: absolute;
+  float: right;
   right: 5%;
 }
 .removeOption {
@@ -83,4 +82,20 @@
 }
 .successTab label {
   padding-left: 2%;
+}
+.spacerForMinus {
+  margin: 3% auto;
+}
+.spacerForHome {
+  margin: 5% auto;
+}
+.imageSuccess {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-height: -webkit-calc(500px * 1.5967px);
+  max-height: -moz-calc(500px * 1.5967px);
+  max-height: calc(500px * 1.5967px);
+  max-width: 500px;
+  border-radius: 5px;
 }

@@ -25,19 +25,30 @@
             Non-Profit</h3>
             <h3><input type="checkbox" ng-model="typeOfSite.other.isTrue">
             Other: <input type="text" ng-model="typeOfSite.other.content" class="optionInput"></h3>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(0, typeOfSite)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(1, typeOfSite)">Next</button>
           </div>
         </div>
         <!-- Step 3 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepTwo">
           <div class="centerBox">
-            <button class="addOption btn btn-success" ng-click="addOption()">+</button>
-            <h2>Options:</h2>
-            <div ng-repeat="option in lookingForAWebsite.options track by $index" class="optionContainer">
-              <input type="text" id="sizeThisTextBoxForServices" ng-model="option" ng-change="saveOnInput(option, $index)"/>
-                <button class="removeOption btn btn-danger" ng-click="removeOption($index)">-</button>
+            <div class="container-fluid">
+              <div class="row">
+                <button class="addOption btn btn-success" ng-click="addOption()">+</button>
+                <div class="col-xs-12">
+                  <h2>Options:</h2>
+                </div>
+              <div ng-repeat="option in lookingForAWebsite.options track by $index" class="optionContainer">
+                  <div class="col-xs-12">
+                  <input type="text" id="sizeThisTextBoxForServices" ng-model="option" ng-change="saveOnInput(option, $index)"/>
+                  </div>
+                  <div class="col-xs-12 spacerForMinus">
+                    <button class="removeOption btn btn-danger" ng-click="removeOption($index)">-</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, option)">Back</button>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(1)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(2)">Next</button>
           </div>
         </div>
@@ -53,7 +64,7 @@
               16+</h3>
               <h3><input type="checkbox" ng-model="numOfPagesArr.dynamic">
               Dynamic</h3>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, numOfPages)">Back</button>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, numOfPagesArr)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(3, numOfPagesArr)">Next</button>
           </div>
         </div>
@@ -73,20 +84,30 @@
               Other: <input type="text" ng-model="timeFrame.other.other" class="optionInput"></h3>
               <h3><input type="checkbox" ng-model="timeFrame.employement.isTrue">
               Employement: <input type="text" ng-model="timeFrame.employement.employement" class="optionInput"></h3>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2)">Back</button>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(3)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(4, timeFrame)">Next</button>
           </div>
         </div>
         <!-- Step 6 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepFive">
           <div class="centerBox">
-            <button class="addOption btn btn-success" ng-click="addOptionDetails()">+</button>
-            <h2>Details:</h2>
-            <div ng-repeat="detail in lookingForAWebsite.details track by $index" class="optionContainer">
-              <input type="text" id="sizeThisTextBoxForServices" ng-model="detail" ng-change="saveOnInputDetails(detail, $index)"/>
-                <button class="removeOption btn btn-danger" ng-click="removeOptionDetails($index)">-</button>
+            <div class="row">
+              <div class="col-xs-12">
+                <button class="addOption btn btn-success" ng-click="addOptionDetails()">+</button>
+              </div>
+              <div class="col-xs-12">
+                <h2>Details:</h2>
+              </div>
+              <div class="col-xs-12">
+                <div ng-repeat="detail in lookingForAWebsite.details track by $index" class="optionContainer">
+                  <input type="text" id="sizeThisTextBoxForServices" ng-model="detail" ng-change="saveOnInputDetails(detail, $index)"/>
+                </div>
+                  <div class="col-xs-12 spacerForMinus">
+                    <button class="removeOption btn btn-danger" ng-click="removeOptionDetails($index)">-</button>
+                </div>
+              </div>
             </div>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, option)">Back</button>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(4)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(5)">Next</button>
           </div>
         </div>
@@ -126,14 +147,17 @@
                 <label ng-show="lookingForAWebsite.details">{{detail}}</label><br ng-show="lookingForAWebsite.details"/>
               </div>
 
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, option)">Back</button>
+            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(5)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(6)">Send</button>
           </div>
         </div>
-        <!-- FIN -->
-        <div ng-show="finishedWalkthrough">
-
-        </div>
+      </div>
+      <!-- FIN -->
+      <div ng-show="finishedWalkthrough" class="col-xs-12 text-center">
+        <img src="images/success.jpg" alt="" class="imageSuccess">
+        <h1>Success!</h1>
+        <h3>We will be contacting you shortly.</h3>
+        <button ui-sref="home" class="spacerForHome btn btn-success">Home</button>
       </div>
     </div>
   </div>

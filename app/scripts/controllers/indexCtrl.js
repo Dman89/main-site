@@ -28,8 +28,12 @@ angular.module("mainSite")
     readjust += .1;
     document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
   }
+  var movingBG;
   var backgroundResize = function() {
     if ($location.path() === '/') {
+      if (docElemOrBody.clientWidth >= 700 && docElemOrBody.clientHeight >= 700) {
+        movingBG = setInterval(moveBackground, 1);
+      }
       document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
       let elem = document.getElementById("bg");
       let widthForBG = elem.offsetHeight * 1.669133771929825;
@@ -48,8 +52,5 @@ angular.module("mainSite")
   };
   backgroundResize();
   windowResize(window, "resize", backgroundResize);
-  if (docElemOrBody.clientWidth >= 768 && docElemOrBody.clientHeight >= 768) {
-    var movingBG = setInterval(moveBackground, 1);
-  }
         $scope.portfolio = portfolioService.portfolio;
 });
