@@ -2,8 +2,24 @@
 angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
   let mainBody = document.documentElement || document.body;
-  mainBody.style.overflow = "visble";
-  mainBody.style.overflowY = "visble";
+  mainBody.style.overflow = "auto";
+  mainBody.style.overflowY = "auto";
+  $scope.times = {
+    'times': [9,10,11,12,1,2,3,4,5,6,7,8],
+    'amPm': ['PM', 'AM'],
+    'timezone': ['EST', 'MST', 'PST']
+  }
+  $scope.contact = {
+    'name': '',
+    'email': '',
+    'phone': '',
+    'company': '',
+    'time': {
+      'number': '',
+      'amPm': '',
+      'timezone': ''
+    }
+  }
   $scope.numOfPagesArr = {
     "one": false,
     "six": false,
@@ -87,6 +103,10 @@ angular.module("mainSite")
       num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
       num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+  }
+  $scope.employementYes = function() {
+    $scope.hideFirstPanelOfSales = true;
+    $scope.contactDiv = true;
   }
   // Options (Step 2)
   var num = 0;
