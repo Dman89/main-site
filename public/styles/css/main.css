@@ -85,7 +85,6 @@ p {
   padding: 5% 0;
   vertical-align: middle;
   min-height: 100vh;
-  height: 100%;
   background-color: white; }
 
 .profileImageMain {
@@ -307,11 +306,12 @@ h4.smallHeadlineMain {
     .imgPortfolio {
       max-width: 300px;
       max-height: 500px;
-      margin: auto; } }
+      margin: 5% auto; } }
   @media (max-width: 480px), (max-height: 480px) {
     .imgPortfolio {
       max-width: 275px;
-      max-height: 275px; } }
+      max-height: 275px;
+      margin: 10% auto; } }
 
 .bioProfile span {
   color: #cfa757; }
@@ -329,8 +329,8 @@ h4.smallHeadlineMain {
 .containerForPortfolio {
   margin: 5% auto; }
 
-.imgPortfolio {
-  margin-bottom: 5%; }
+#PUTBACKGROUNDHERE3 .description {
+  color: #000; }
 
 .goldenkey {
   color: #cfa757; }
@@ -345,6 +345,15 @@ h4.smallHeadlineMain {
 .btnBlockOfLock button {
   margin: 3% auto;
   border-radius: 4px; }
+
+#keyBox, #contantImages, #contactButton {
+  margin-bottom: 5%; }
+  @media (max-width: 600px), (max-height: 600px) {
+    #keyBox, #contantImages, #contactButton {
+      margin-bottom: 10%; } }
+
+.contactBoxDiv {
+  color: black; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }

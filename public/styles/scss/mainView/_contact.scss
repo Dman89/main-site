@@ -12,3 +12,12 @@
   margin: 3% auto;
   border-radius: 4px;
 }
+#keyBox, #contantImages, #contactButton {
+  margin-bottom: 5%;
+  @media (max-width: 600px), (max-height: 600px) {
+    margin-bottom: 10%;
+  }
+}
+.contactBoxDiv {
+  color: black;
+}

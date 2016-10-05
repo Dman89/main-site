@@ -4664,13 +4664,14 @@ webpackJsonp([0],[
 	  var movingBG;
 	  var backgroundResize = function() {
 	    if ($location.path() === '/') {
-	      if (docElemOrBody.clientWidth >= 700 && docElemOrBody.clientHeight >= 700) {
+	      if (docElemOrBody.clientWidth >= 600 && docElemOrBody.clientHeight >= 600) {
 	        movingBG = setInterval(moveBackground, 1);
 	      }
 	      document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
 	      let elem = document.getElementById("bg");
 	      let widthForBG = elem.offsetHeight * 1.669133771929825;
 	      document.getElementById("bg").style.backgroundSize = "cover";
+	      document.getElementById("PUTBACKGROUNDHERE").style.minHeight = docElemOrBody.clientHeight;
 	    }
 	  }
 	  var windowResize = function(object, type, callback) {
@@ -4700,6 +4701,7 @@ webpackJsonp([0],[
 
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
+	  var justLoaded = 1;
 	  $scope.home = function() {
 	    window.scrollTo(0,0);
 	    menuService.removeOtherActivesOnClick("bg");
@@ -4710,24 +4712,48 @@ webpackJsonp([0],[
 	    window.scrollTo(0, yCord);
 	  }
 	  $scope.skills = function() {
-	    scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
-	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
-	    menuCollapseService.collapseMenu();
+	    if (justLoaded == 1) {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
+	      justLoaded = 0;
+	    }
+	    else {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
+	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
+	      menuCollapseService.collapseMenu();
+	    }
 	  }
 	  $scope.bio = function() {
-	    scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
-	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
-	    menuCollapseService.collapseMenu();
+	    if (justLoaded == 1) {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
+	      justLoaded = 0;
+	    }
+	    else {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
+	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
+	      menuCollapseService.collapseMenu();
+	    }
 	  }
 	  $scope.port = function() {
-	    scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
-	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
-	    menuCollapseService.collapseMenu();
+	    if (justLoaded == 1) {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
+	      justLoaded = 0;
+	    }
+	    else {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
+	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
+	      menuCollapseService.collapseMenu();
+	    }
 	  }
 	  $scope.contact = function() {
-	    scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
-	    menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
-	    menuCollapseService.collapseMenu();
+	    if (justLoaded == 1) {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
+	      justLoaded = 0;
+	    }
+	    else {
+	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
+	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
+	      menuCollapseService.collapseMenu();
+	    }
 	  }
 
 	  $timeout(function() {
@@ -4744,8 +4770,24 @@ webpackJsonp([0],[
 	angular.module("mainSite")
 	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
 	  let mainBody = document.documentElement || document.body;
-	  mainBody.style.overflow = "visble";
-	  mainBody.style.overflowY = "visble";
+	  mainBody.style.overflow = "auto";
+	  mainBody.style.overflowY = "auto";
+	  $scope.times = {
+	    'times': [9,10,11,12,1,2,3,4,5,6,7,8],
+	    'amPm': ['PM', 'AM'],
+	    'timezone': ['EST', 'MST', 'PST']
+	  }
+	  $scope.contact = {
+	    'name': '',
+	    'email': '',
+	    'phone': '',
+	    'company': '',
+	    'time': {
+	      'number': '',
+	      'amPm': '',
+	      'timezone': ''
+	    }
+	  }
 	  $scope.numOfPagesArr = {
 	    "one": false,
 	    "six": false,
@@ -4829,6 +4871,10 @@ webpackJsonp([0],[
 	      num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
 	      num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
 	      num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+	  }
+	  $scope.employementYes = function() {
+	    $scope.hideFirstPanelOfSales = true;
+	    $scope.contactDiv = true;
 	  }
 	  // Options (Step 2)
 	  var num = 0;
@@ -5216,15 +5262,15 @@ webpackJsonp([0],[
 	    }
 	    var checkLock = function(elem) {
 	      let element = elem.className;
-	      let checkLock = (element.indexOf('fa-lock') > -1);
-	      let checkUnlock = (element.indexOf('fa-unlock') > -1);
+	      let checkLock = (element.indexOf('fa-phone') > -1);
+	      let checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
 	      if (checkLock) {
-	        elem.classList.remove('fa-lock');
-	        elem.classList.add('fa-unlock');
+	        elem.classList.remove('fa-phone');
+	        elem.classList.add('fa-volume-control-phone');
 	      }
 	      else if (checkUnlock) {
-	        elem.classList.add('fa-lock');
-	        elem.classList.remove('fa-unlock');
+	        elem.classList.add('fa-phone');
+	        elem.classList.remove('fa-volume-control-phone');
 	      }
 	    }
 
