@@ -31,13 +31,14 @@ angular.module("mainSite")
   var movingBG;
   var backgroundResize = function() {
     if ($location.path() === '/') {
-      if (docElemOrBody.clientWidth >= 700 && docElemOrBody.clientHeight >= 700) {
+      if (docElemOrBody.clientWidth >= 600 && docElemOrBody.clientHeight >= 600) {
         movingBG = setInterval(moveBackground, 1);
       }
       document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
       let elem = document.getElementById("bg");
       let widthForBG = elem.offsetHeight * 1.669133771929825;
       document.getElementById("bg").style.backgroundSize = "cover";
+      document.getElementById("PUTBACKGROUNDHERE").style.minHeight = docElemOrBody.clientHeight;
     }
   }
   var windowResize = function(object, type, callback) {
