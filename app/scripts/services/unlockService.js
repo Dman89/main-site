@@ -25,15 +25,15 @@ angular.module('mainSite')
     }
     var checkLock = function(elem) {
       let element = elem.className;
-      let checkLock = (element.indexOf('fa-lock') > -1);
-      let checkUnlock = (element.indexOf('fa-unlock') > -1);
+      let checkLock = (element.indexOf('fa-phone') > -1);
+      let checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
       if (checkLock) {
-        elem.classList.remove('fa-lock');
-        elem.classList.add('fa-unlock');
+        elem.classList.remove('fa-phone');
+        elem.classList.add('fa-volume-control-phone');
       }
       else if (checkUnlock) {
-        elem.classList.add('fa-lock');
-        elem.classList.remove('fa-unlock');
+        elem.classList.add('fa-phone');
+        elem.classList.remove('fa-volume-control-phone');
       }
     }
 
