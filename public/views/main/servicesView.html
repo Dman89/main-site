@@ -2,6 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Step 1 -->
+      <div class="boxForServices" ng-hide="hideFirstPanelOfSales">
+        <div class="boxForServicesTitle opener" ng-click="employementYes()">
+          Employement
+        </div>
+      </div>
       <div class="boxForServices" ng-repeat="data in newOrOldArr" ng-hide="hideFirstPanelOfSales">
         <div class="boxForServicesTitle opener"  ng-click="newNext(0, data.title)">
             {{data.title}}
@@ -149,6 +154,27 @@
 
             <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(5)">Back</button>
             <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(6)">Send</button>
+          </div>
+        </div>
+        <!-- Employment Contact Div -->
+        <div ng-show="contactDiv" class="boxForServicesTitle gotsAButton">
+          <div class="text-center contactBoxDiv">
+            <label>Name:</label><br/>
+            <input ng-model="contact.name"/><br/>
+            <label>Email:</label><br/>
+            <input ng-model="contact.email"/><br/>
+            <label>Phone:</label><br/>
+            <input ng-model="contact.phone"/><br/>
+            <label>Company:</label><br/>
+            <input ng-model="contact.company"/><br/>
+            <label>Best Time to Contact:</label><br/>
+            <label>Hour:</label><br/>
+            <select ng-options='time for time in times.times track by $index' ng-model="contact.time.number"/><br/>
+            <label>AM/PM:</label><br/>
+            <select ng-options='ampm for ampm in times.amPm track by $index' ng-model="contact.time.amPm"/><br/>
+            <label>Timezone:</label><br/>
+            <select ng-options='timezone for timezone in times.timezone track by $index' ng-model="contact.time.timezone"/>
+            <br/>{{contact}}
           </div>
         </div>
       </div>
