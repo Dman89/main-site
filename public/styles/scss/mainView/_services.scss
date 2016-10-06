@@ -22,6 +22,9 @@
     padding: 5% 10%;
   }
   &.gotsAButton {
+    padding-bottom: -webkit-calc(5% + 43px);
+    padding-bottom: -moz-calc(5% + 43px);
+    padding-bottom: calc(5% + 43px);
     @media (max-width: 760px) {
       padding-bottom: -webkit-calc(7.5% + 43px);
       padding-bottom: -moz-calc(7.5% + 43px);
@@ -44,11 +47,13 @@
   display: inline;
   right: 5%;
   position: absolute;
+  margin-bottom: 5%;
 }
 .btn-homemadeLeft {
   display: inline;
   left: 5%;
   position: absolute;
+  margin-bottom: 5%;
 }
 #sizeThisTextBoxForServices {
   width: 100%;

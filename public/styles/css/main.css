@@ -226,11 +226,15 @@ h4.smallHeadlineMain {
     .boxForServicesTitle {
       margin: 5%;
       padding: 5% 10%; } }
-  @media (max-width: 760px) {
-    .boxForServicesTitle.gotsAButton {
-      padding-bottom: -webkit-calc(7.5% + 43px);
-      padding-bottom: -moz-calc(7.5% + 43px);
-      padding-bottom: calc(7.5% + 43px); } }
+  .boxForServicesTitle.gotsAButton {
+    padding-bottom: -webkit-calc(5% + 43px);
+    padding-bottom: -moz-calc(5% + 43px);
+    padding-bottom: calc(5% + 43px); }
+    @media (max-width: 760px) {
+      .boxForServicesTitle.gotsAButton {
+        padding-bottom: -webkit-calc(7.5% + 43px);
+        padding-bottom: -moz-calc(7.5% + 43px);
+        padding-bottom: calc(7.5% + 43px); } }
 
 .centerBox {
   margin: auto;
@@ -246,12 +250,14 @@ h4.smallHeadlineMain {
 .btn-homemadeRight {
   display: inline;
   right: 5%;
-  position: absolute; }
+  position: absolute;
+  margin-bottom: 5%; }
 
 .btn-homemadeLeft {
   display: inline;
   left: 5%;
-  position: absolute; }
+  position: absolute;
+  margin-bottom: 5%; }
 
 #sizeThisTextBoxForServices {
   width: 100%; }

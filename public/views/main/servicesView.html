@@ -30,9 +30,9 @@
             Non-Profit</h3>
             <h3><input type="checkbox" ng-model="typeOfSite.other.isTrue">
             Other: <input type="text" ng-model="typeOfSite.other.content" class="optionInput"></h3>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(0, typeOfSite)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(1, typeOfSite)">Next</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(0, typeOfSite)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(1, typeOfSite)">Next</button>
         </div>
         <!-- Step 3 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepTwo">
@@ -53,9 +53,9 @@
                 </div>
               </div>
             </div>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(1)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(2)">Next</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(1)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(2)">Next</button>
         </div>
         <!-- STEP 4 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepThree">
@@ -69,9 +69,9 @@
               16+</h3>
               <h3><input type="checkbox" ng-model="numOfPagesArr.dynamic">
               Dynamic</h3>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, numOfPagesArr)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(3, numOfPagesArr)">Next</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, numOfPagesArr)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(3, numOfPagesArr)">Next</button>
         </div>
         <!-- STEP 5 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepFour">
@@ -89,9 +89,9 @@
               Other: <input type="text" ng-model="timeFrame.other.other" class="optionInput"></h3>
               <h3><input type="checkbox" ng-model="timeFrame.employement.isTrue">
               Employement: <input type="text" ng-model="timeFrame.employement.employement" class="optionInput"></h3>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(3)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(4, timeFrame)">Next</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(3)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(4, timeFrame)">Next</button>
         </div>
         <!-- Step 6 -->
         <div class="boxForServicesTitle gotsAButton" ng-show="stepFive">
@@ -112,9 +112,9 @@
                 </div>
               </div>
             </div>
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(4)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(5)">Next</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(4)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(5)">Next</button>
         </div>
         <!-- Step Success -->
         <div class="boxForServicesTitle gotsAButton" ng-show="success">
@@ -151,14 +151,13 @@
               <div ng-repeat="detail in lookingForAWebsite.details">
                 <label ng-show="lookingForAWebsite.details">{{detail}}</label><br ng-show="lookingForAWebsite.details"/>
               </div>
-
-            <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(5)">Back</button>
-            <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(6)">Send</button>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(5)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(6)">Send</button>
         </div>
         <!-- Employment Contact Div -->
         <div ng-show="contactDiv" class="boxForServicesTitle gotsAButton">
-          <div class="text-center contactBoxDiv">
+          <div class="contactBoxDiv centerBox">
             <label>Name:</label><br/>
             <input ng-model="contact.name"/><br/>
             <label>Email:</label><br/>
@@ -168,22 +167,31 @@
             <label>Company:</label><br/>
             <input ng-model="contact.company"/><br/>
             <label>Best Time to Contact:</label><br/>
-            <label>Hour:</label><br/>
-            <select ng-options='time for time in times.times track by $index' ng-model="contact.time.number"/><br/>
-            <label>AM/PM:</label><br/>
-            <select ng-options='ampm for ampm in times.amPm track by $index' ng-model="contact.time.amPm"/><br/>
-            <label>Timezone:</label><br/>
-            <select ng-options='timezone for timezone in times.timezone track by $index' ng-model="contact.time.timezone"/>
-            <br/>{{contact}}
+            <div class="row">
+              <div class="col-xs-12 col-md-4">
+                <label>Hour:</label><br/>
+                <select ng-options='time for time in times.times' ng-model="contact.time.number"/><br/>
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <label>AM/PM:</label><br/>
+                <select ng-options='ampm for ampm in times.amPm' ng-model="contact.time.amPm"/><br/>
+              </div>
+              <div class="col-xs-12 col-md-4">
+                <label>Timezone:</label><br/>
+                <select ng-options='timezone for timezone in times.timezone' ng-model="contact.time.timezone"/>
+              </div>
+            </div>
           </div>
+          <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(6)">Back</button>
+          <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(7)">Send</button>
         </div>
       </div>
       <!-- FIN -->
       <div ng-show="finishedWalkthrough" class="col-xs-12 text-center">
         <img src="images/success.jpg" alt="" class="imageSuccess">
         <h1>Success!</h1>
-        <h3>We will be contacting you shortly.</h3>
-        <button ui-sref="home" class="spacerForHome btn btn-success">Home</button>
+        <h3>You will be contacted shortly.</h3>
+        <button ng-click="homeBTN()" class="spacerForHome btn btn-success">Home</button>
       </div>
     </div>
   </div>
