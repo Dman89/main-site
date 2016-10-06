@@ -1,6 +1,7 @@
 'use strict';
 angular.module("mainSite")
 .controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
+
   let docElemOrBody = document.documentElement || document.body;
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
@@ -11,6 +12,11 @@ angular.module("mainSite")
     removeEventsAndGo('lockButton2');
     window.addEventListener('scroll', scrollService.scrolling)
   }, 1500);
+  setTimeout(function() {
+    docElemOrBody.style.overflowX = "hidden";
+    docElemOrBody.style.overflowY = "scroll";
+  }, 8000)
+
   var locationChangeContact = function() {
     $state.go('contact');
   }

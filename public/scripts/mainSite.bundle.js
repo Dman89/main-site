@@ -4634,6 +4634,7 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
+
 	  let docElemOrBody = document.documentElement || document.body;
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
@@ -4644,6 +4645,11 @@ webpackJsonp([0],[
 	    removeEventsAndGo('lockButton2');
 	    window.addEventListener('scroll', scrollService.scrolling)
 	  }, 1500);
+	  setTimeout(function() {
+	    docElemOrBody.style.overflowX = "hidden";
+	    docElemOrBody.style.overflowY = "scroll";
+	  }, 8000)
+
 	  var locationChangeContact = function() {
 	    $state.go('contact');
 	  }
@@ -4702,6 +4708,16 @@ webpackJsonp([0],[
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
 	  var justLoaded = 1;
+	  var justLoadedCheckFunct = function() {
+	    let checkIt = document.getElementById("bg").offsetHeight * .70;
+	    if (checkIt >= scrollPostition) {
+	      justLoaded = 0;
+	      clearInterval(checkingScollAnimation);
+	    }
+	  }
+	  var checkingScollAnimation = setInterval(function() {
+	    justLoadedCheckFunct()
+	  }, 1000)
 	  $scope.home = function() {
 	    window.scrollTo(0,0);
 	    menuService.removeOtherActivesOnClick("bg");
@@ -4719,8 +4735,8 @@ webpackJsonp([0],[
 	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
-	      menuCollapseService.collapseMenu();
 	    }
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.bio = function() {
 	    if (justLoaded == 1) {
@@ -4730,8 +4746,8 @@ webpackJsonp([0],[
 	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
-	      menuCollapseService.collapseMenu();
 	    }
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.port = function() {
 	    if (justLoaded == 1) {
@@ -4741,8 +4757,8 @@ webpackJsonp([0],[
 	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
-	      menuCollapseService.collapseMenu();
 	    }
+	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.contact = function() {
 	    if (justLoaded == 1) {
@@ -4752,8 +4768,8 @@ webpackJsonp([0],[
 	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
-	      menuCollapseService.collapseMenu();
 	    }
+	    menuCollapseService.collapseMenu();
 	  }
 
 	  $timeout(function() {
@@ -4768,10 +4784,9 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
+	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService) {
 	  let mainBody = document.documentElement || document.body;
-	  mainBody.style.overflow = "auto";
-	  mainBody.style.overflowY = "auto";
+	  mainBody.style.overflowY = "scroll";
 	  $scope.times = {
 	    'times': [9,10,11,12,1,2,3,4,5,6,7,8],
 	    'amPm': ['PM', 'AM'],
@@ -4783,9 +4798,9 @@ webpackJsonp([0],[
 	    'phone': '',
 	    'company': '',
 	    'time': {
-	      'number': '',
-	      'amPm': '',
-	      'timezone': ''
+	      'number': $scope.times.times[0],
+	      'amPm': $scope.times.amPm[1],
+	      'timezone': $scope.times.timezone[2]
 	    }
 	  }
 	  $scope.numOfPagesArr = {
@@ -4862,6 +4877,7 @@ webpackJsonp([0],[
 	      num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
 	      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
 	      num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
+	      num == "7" ? ($scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
 	  }
 	  $scope.newBack = function(num, data) {
 	      num == "0" ? ($scope.stepOne = false, $scope.lookingForAWebsite.typeOfSite = data, $scope.hideFirstPanelOfSales = false) : $scope.nextStepNew = false;
@@ -4870,7 +4886,7 @@ webpackJsonp([0],[
 	      num == "3" ? ($scope.stepThree = true, $scope.stepFour = false) : $scope.nextStepNew = false;
 	      num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
 	      num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
-	      num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+	      num == "6" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
 	  }
 	  $scope.employementYes = function() {
 	    $scope.hideFirstPanelOfSales = true;
@@ -4902,6 +4918,12 @@ webpackJsonp([0],[
 	  $scope.saveOnInputDetails = function(data, index) {
 	    $scope.lookingForAWebsite.details.splice(index, 1, data);
 	  }
+	  $scope.homeBTN = function() {
+	    mainBody.style.overflow = "hidden";
+	    mainBody.style.overflowY = "hidden";
+	    scrollService.scrollingReset();
+	    $state.go('home');
+	  }
 	});
 
 
@@ -4912,23 +4934,20 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module('mainSite')
 	  .service('scrollService', function(barGraphAnimationService, $location, menuService) {
+	    let docElemOrBody = document.documentElement || document.body;
 	    var randomSetVarForFalse = "";
 	    var runAnimation = true;
-	    var runAnimation2 = true;
-	    var runAnimation3 = true;
-	    var runAnimation4 = true;
 
 	      //Scroll From Section 1 to Section 2
-	    this.scrolling = function() {
+	    this.scrolling = function(cb) {
 	      let currentScrollPosition = window.pageYOffset;
 	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {});
 	      if ($location.path() == '/') {
 	        let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
 	        let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
-	        if (runAnimation == true) {
-	          if ( window.scrollY >= yRangeToCheck ) {
+	          if ( window.scrollY >= yRangeToCheck && runAnimation === true ) {
+	            docElemOrBody.style.overflowY = "scroll";
 	            window.scrollTo(0, tempNum);
-	            document.body.style.overflowY = "hidden";
 	            runAnimation = false
 	            let elem = document.getElementsByClassName('barGraph');
 	            for (var x = 0; x < elem.length; x++){
@@ -4940,19 +4959,14 @@ webpackJsonp([0],[
 	              elemInner[x].classList.add("animateGraph");
 	            }
 	            barGraphAnimationService.runGraphAnimation();
-	            //Second Slide
-	            setTimeout(function() {
-	              document.body.style.overflowY = "scroll";
-	            }, 2500)
 	          }
 	        }
-	      }
+	    }
+	    this.scrollingReset = function() {
+	       runAnimation = true;
 	    }
 
 
-	      setTimeout(function() {
-	        document.body.style.overflowY = "scroll";
-	      }, 8000)
 	  })
 
 

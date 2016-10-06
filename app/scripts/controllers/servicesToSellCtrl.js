@@ -1,9 +1,8 @@
 'use strict';
 angular.module("mainSite")
-.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location) {
+.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService) {
   let mainBody = document.documentElement || document.body;
-  mainBody.style.overflow = "auto";
-  mainBody.style.overflowY = "auto";
+  mainBody.style.overflowY = "scroll";
   $scope.times = {
     'times': [9,10,11,12,1,2,3,4,5,6,7,8],
     'amPm': ['PM', 'AM'],
@@ -15,9 +14,9 @@ angular.module("mainSite")
     'phone': '',
     'company': '',
     'time': {
-      'number': '',
-      'amPm': '',
-      'timezone': ''
+      'number': $scope.times.times[0],
+      'amPm': $scope.times.amPm[1],
+      'timezone': $scope.times.timezone[2]
     }
   }
   $scope.numOfPagesArr = {
@@ -94,6 +93,7 @@ angular.module("mainSite")
       num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
       num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
+      num == "7" ? ($scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
   }
   $scope.newBack = function(num, data) {
       num == "0" ? ($scope.stepOne = false, $scope.lookingForAWebsite.typeOfSite = data, $scope.hideFirstPanelOfSales = false) : $scope.nextStepNew = false;
@@ -102,7 +102,7 @@ angular.module("mainSite")
       num == "3" ? ($scope.stepThree = true, $scope.stepFour = false) : $scope.nextStepNew = false;
       num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
-      num == "6" ? ($scope.success = true, $scope.finishedWalkthrough = false) : $scope.nextStepNew = false;
+      num == "6" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
   }
   $scope.employementYes = function() {
     $scope.hideFirstPanelOfSales = true;
@@ -133,5 +133,11 @@ angular.module("mainSite")
   }
   $scope.saveOnInputDetails = function(data, index) {
     $scope.lookingForAWebsite.details.splice(index, 1, data);
+  }
+  $scope.homeBTN = function() {
+    mainBody.style.overflow = "hidden";
+    mainBody.style.overflowY = "hidden";
+    scrollService.scrollingReset();
+    $state.go('home');
   }
 });

@@ -6,6 +6,16 @@ angular.module("mainSite")
   var docElemOrBody = document.documentElement || document.body;
   var scrollPostition = window.pageYOffset;
   var justLoaded = 1;
+  var justLoadedCheckFunct = function() {
+    let checkIt = document.getElementById("bg").offsetHeight * .70;
+    if (checkIt >= scrollPostition) {
+      justLoaded = 0;
+      clearInterval(checkingScollAnimation);
+    }
+  }
+  var checkingScollAnimation = setInterval(function() {
+    justLoadedCheckFunct()
+  }, 1000)
   $scope.home = function() {
     window.scrollTo(0,0);
     menuService.removeOtherActivesOnClick("bg");
@@ -23,8 +33,8 @@ angular.module("mainSite")
     else {
       scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
       menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
-      menuCollapseService.collapseMenu();
     }
+    menuCollapseService.collapseMenu();
   }
   $scope.bio = function() {
     if (justLoaded == 1) {
@@ -34,8 +44,8 @@ angular.module("mainSite")
     else {
       scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
       menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
-      menuCollapseService.collapseMenu();
     }
+    menuCollapseService.collapseMenu();
   }
   $scope.port = function() {
     if (justLoaded == 1) {
@@ -45,8 +55,8 @@ angular.module("mainSite")
     else {
       scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
       menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
-      menuCollapseService.collapseMenu();
     }
+    menuCollapseService.collapseMenu();
   }
   $scope.contact = function() {
     if (justLoaded == 1) {
@@ -56,8 +66,8 @@ angular.module("mainSite")
     else {
       scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
       menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
-      menuCollapseService.collapseMenu();
     }
+    menuCollapseService.collapseMenu();
   }
 
   $timeout(function() {
