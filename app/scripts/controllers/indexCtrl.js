@@ -3,6 +3,8 @@ angular.module("mainSite")
 .controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
 
   let docElemOrBody = document.documentElement || document.body;
+  let firstLoadAnimationBG = true;
+  let fakeVar = 'fake';
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
   setTimeout(function() {
@@ -38,7 +40,7 @@ angular.module("mainSite")
   var backgroundResize = function() {
     if ($location.path() === '/') {
       if (docElemOrBody.clientWidth >= 600 && docElemOrBody.clientHeight >= 600) {
-        movingBG = setInterval(moveBackground, 1);
+        firstLoadAnimationBG == true ? (movingBG = setInterval(moveBackground, 1), firstLoadAnimationBG = false) : fakeVar = 'fake';
       }
       document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
       let elem = document.getElementById("bg");
