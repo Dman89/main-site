@@ -1,0 +1,18 @@
+
+  <div class="centerBox">
+      <h2>Time Frame</h2>
+      <h3><input type="checkbox" class="timeFrameInput" ng-model="timeFrame.flexible">
+      Flexible</h3>
+      <h3><input type="checkbox" class="timeFrameInput" ng-model="timeFrame.asap">
+      As Soon as Possible</h3>
+      <h3><input type="checkbox" class="timeFrameInput" ng-model="timeFrame.nextFewDays">
+      Next Few Days</h3>
+      <h3><input type="checkbox" class="timeFrameInput" ng-model="timeFrame.byDate.isTrue">
+      By Date:  <input type="text" class="timeFrameInput" ng-model="timeFrame.byDate.date" class="optionInput"></h3>
+      <h3><input type="checkbox" class="timeFrameInput" ng-model="timeFrame.other.isTrue">
+      Other: <input type="text" class="timeFrameInput" ng-model="timeFrame.other.other" class="optionInput"></h3>
+      <h3><input type="checkbox" ng-model="timeFrame.employement.isTrue">
+      Employement: <input type="text" ng-model="timeFrame.employement.employement" class="optionInput"></h3>
+  </div>
+  <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(3)">Back</button>
+  <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(4, timeFrame)">Next</button>

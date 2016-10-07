@@ -1,0 +1,32 @@
+
+  <div class="contactBoxDiv centerBox">
+    <label>Name:</label><br/>
+    <input class='contactInput' ng-model="contact.name"/><br/>
+    <label>Email:</label><br/>
+    <input class='contactInput' ng-model="contact.email"/><br/>
+    <label>Phone:</label><br/>
+    <input class='contactInput' ng-model="contact.phone"/><br/>
+    <label>Company:</label><br/>
+    <input class='contactInput' ng-model="contact.company"/><br/>
+    <label>Best Time to Contact:</label><br/>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <label>Hour:</label><br/>
+        <select ng-options='time for time in times.times' ng-model="contact.time.number"/><br/>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label>AM/PM:</label><br/>
+        <select ng-options='ampm for ampm in times.amPm' ng-model="contact.time.amPm"/><br/>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <label>Timezone:</label><br/>
+        <select ng-options='timezone for timezone in times.timezone' ng-model="contact.time.timezone"/>
+      </div>
+    </div>
+  </div>
+  <!-- walkthrough contact -->
+  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(6)">Back</button>
+  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(7)">Send</button>
+  <!-- employement contact -->
+  <button ng-show='contactDiv' type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(7)">Back</button>
+  <button ng-show='contactDiv' type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(8)">Send</button>

@@ -1,0 +1,14 @@
+
+  <div class="centerBox">
+      <h2>Number of Pages</h2>
+      <h3><input type="checkbox" class="pagesInputCheck" ng-model="numOfPagesArr.one">
+      1-5</h3>
+      <h3><input type="checkbox" class="pagesInputCheck" ng-model="numOfPagesArr.six">
+      6-15</h3>
+      <h3><input type="checkbox" class="pagesInputCheck" ng-model="numOfPagesArr.sixteen">
+      16+</h3>
+      <h3><input type="checkbox" class="pagesInputCheck" ng-model="numOfPagesArr.dynamic">
+      Dynamic</h3>
+  </div>
+  <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(2, numOfPagesArr)">Back</button>
+  <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(3, numOfPagesArr)">Next</button>

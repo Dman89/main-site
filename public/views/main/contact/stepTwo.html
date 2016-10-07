@@ -1,0 +1,19 @@
+
+  <div class="centerBox">
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.personal">
+    Personal Website</h3>
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.blog">
+    Blog</h3>
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.social">
+    Social Network / Community</h3>
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.eCommerce">
+    eCommerce</h3>
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.business">
+    Business</h3>
+    <h3><input type="checkbox" class="stepTwoInput" ng-model="typeOfSite.nonProfit">
+    Non-Profit</h3>
+    <h3><input type="checkbox" id="stepTwoOther" class="stepTwoInput" ng-model="typeOfSite.other.isTrue">
+    Other: <input type="text" id="stepTwoInputText" ng-model="typeOfSite.other.content" class="optionInput"></h3>
+  </div>
+  <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(0, typeOfSite)">Back</button>
+  <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(1, typeOfSite)">Next</button>

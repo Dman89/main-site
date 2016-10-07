@@ -1,0 +1,37 @@
+
+  <div class="centerBox successTab">
+    <h2 class="text-center">{{lookingForAWebsite.services}}</h2>
+    <h3>Type Of Site:</h3>
+    <label ng-show="lookingForAWebsite.typeOfSite.personal">Personal</label><br ng-show="lookingForAWebsite.typeOfSite.personal"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.blog">Blog</label><br ng-show="lookingForAWebsite.typeOfSite.blog"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.social">Social Media / Community</label><br ng-show="lookingForAWebsite.typeOfSite.social"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.eCommerce">eCommerce</label><br ng-show="lookingForAWebsite.typeOfSite.eCommerce"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.business">Business</label><br ng-show="lookingForAWebsite.typeOfSite.business"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.nonProfit">Nonprofit</label><br ng-show="lookingForAWebsite.typeOfSite.nonProfit"/>
+    <label ng-show="lookingForAWebsite.typeOfSite.other.isTrue">Other: {{lookingForAWebsite.typeOfSite.other.content}}</label><br ng-show="lookingForAWebsite.typeOfSite.other.isTrue"/>
+    <h3>Options:</h3>
+    <div ng-repeat="option in lookingForAWebsite.options">
+      <label ng-show="lookingForAWebsite.options">{{option}}</label><br ng-show="lookingForAWebsite.options"/>
+    </div>
+
+    <h3>Number of Pages:</h3>
+      <label ng-show="lookingForAWebsite.pagesTotal.one">1-5</label><br ng-show="lookingForAWebsite.pagesTotal.one"/>
+      <label ng-show="lookingForAWebsite.pagesTotal.six">6-15</label><br ng-show="lookingForAWebsite.pagesTotal.six"/>
+      <label ng-show="lookingForAWebsite.pagesTotal.sixteen">16+</label><br ng-show="lookingForAWebsite.pagesTotal.sixteen"/>
+      <label ng-show="lookingForAWebsite.pagesTotal.dynamic">Dynamic</label><br ng-show="lookingForAWebsite.pagesTotal.dynamic"/>
+
+      <h3>Time Frame:</h3>
+        <label ng-show="lookingForAWebsite.timeFrame.flexible">Flexible</label><br ng-show="lookingForAWebsite.timeFrame.flexible"/>
+        <label ng-show="lookingForAWebsite.timeFrame.asap">As Soon As Possible</label><br ng-show="lookingForAWebsite.timeFrame.asap"/>
+        <label ng-show="lookingForAWebsite.timeFrame.nextFewDays">In The Next Few Days</label><br ng-show="lookingForAWebsite.timeFrame.nextFewDays"/>
+        <label ng-show="lookingForAWebsite.timeFrame.byDate.isTrue">{{lookingForAWebsite.timeFrame.byDate.date}}</label><br ng-show="lookingForAWebsite.timeFrame.byDate.isTrue"/>
+        <label ng-show="lookingForAWebsite.timeFrame.other.isTrue">{{lookingForAWebsite.timeFrame.other.other}}</label><br ng-show="lookingForAWebsite.timeFrame.other.isTrue"/>
+        <label ng-show="lookingForAWebsite.timeFrame.employement.isTrue">{{lookingForAWebsite.timeFrame.employement.employement}}</label><br ng-show="lookingForAWebsite.pagesTotal.employement.isTrue"/>
+
+      <h3>Details:</h3>
+      <div ng-repeat="detail in lookingForAWebsite.details">
+        <label ng-show="lookingForAWebsite.details">{{detail}}</label><br ng-show="lookingForAWebsite.details"/>
+      </div>
+  </div>
+  <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(5)">Back</button>
+  <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(6)">Next</button>

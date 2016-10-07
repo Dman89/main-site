@@ -1,0 +1,21 @@
+
+  <div class="centerBox">
+    <div class="container-fluid">
+      <div class="row">
+        <button class="addOption btn btn-success" ng-click="addOption()">+</button>
+        <div class="col-xs-12">
+          <h2>Options:</h2>
+        </div>
+      <div ng-repeat="option in lookingForAWebsite.options track by $index" class="optionContainer">
+          <div class="col-xs-12">
+          <input type="text" id="sizeThisTextBoxForServices" ng-model="option" ng-change="saveOnInput(option, $index)"/>
+          </div>
+          <div class="col-xs-12 spacerForMinus">
+            <button class="removeOption btn btn-danger" ng-click="removeOption($index)">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(1)">Back</button>
+  <button type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(2)">Next</button>
