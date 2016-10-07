@@ -2,98 +2,39 @@
 angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService) {
   let mainBody = document.documentElement || document.body;
+
   mainBody.style.overflowY = "scroll";
-  $scope.times = {
-    'times': [9,10,11,12,1,2,3,4,5,6,7,8],
-    'amPm': ['PM', 'AM'],
-    'timezone': ['EST', 'MST', 'PST']
-  }
-  $scope.contact = {
-    'name': '',
-    'email': '',
-    'phone': '',
-    'company': '',
-    'time': {
-      'number': $scope.times.times[0],
-      'amPm': $scope.times.amPm[1],
-      'timezone': $scope.times.timezone[2]
-    }
-  }
-  $scope.numOfPagesArr = {
-    "one": false,
-    "six": false,
-    "sixteen": false,
-    "dynamic": false
-  };
-  $scope.timeFrame = {
-    "flexible": false,
-    "asap": false,
-    "nextFewDays": false,
-    "byDate": {
-      "isTrue": false,
-      "date": ""
-    },
-    "other": {
-      "isTrue": false,
-      "other": ""
-    },
-    "employement": {
-      "isTrue": false,
-      "employement": ""
-    }
-  }
-  $scope.lookingForAWebsite = {
-    "services": '',
-    "typeOfSite": {
-      'personal': false,
-      'blog': false,
-      'social': false,
-      'eCommerce': false,
-      'business': false,
-      'nonProfit': false,
-      'other': {
-          'isTrue': false,
-          'content': ''
-      }
-    },
-    "options": [""],
-    'pagesTotal': {},
-    'timeFrame': {
-      'flexible': false,
-      'asap': false,
-      'nextFewDays': false,
-      'byDate': {
-        'isTrue': false,
-        'date': ""
-      },
-      'other': {
-        'isTrue': false,
-        'other': ""
-      },
-      'employement': {
-        'isTrue': false,
-        'employement': ""
-      }
-    },
-    'details': ['']
-  };
-  $scope.typeOfSite = {'personal': false, 'blog': false, 'social': false, 'eCommerce': false, 'business': false, 'nonProfit': false, 'other': {'isTrue': false, 'content': ''}};
+  $scope.modalNull = false;
+  $scope.times = servicesForSaleService.times;
+  $scope.contact = servicesForSaleService.contact;
+  $scope.numOfPagesArr = servicesForSaleService.numOfPagesArr;
+  $scope.timeFrame = servicesForSaleService.timeFrame;
+  $scope.lookingForAWebsite = servicesForSaleService.lookingForAWebsite;
+  $scope.typeOfSite = servicesForSaleService.typeOfSite;
   $scope.nextStepNew = false, $scope.hideFirstPanelOfSales = false, $scope.stepOne = false, $scope.stepTwo = false, $scope.stepThree = false, $scope.stepFour = false, $scope.stepFive = false, $scope.finishedWalkthrough = false;
   $scope.newOrOldArr = servicesForSaleService.newOrOldArr;
-  $scope.serviceToSellPageOne = function(num) {
-      num == "0" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
-      num == "2" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepOld = false;
-      num == "1" ? ($scope.nextStepNew = true, $scope.hideFirstPanelOfSales = true) : $scope.nextStepUpdate = false;
-  }
   $scope.newNext = function(num, data) {
-      num == "0" ? ($scope.stepOne = true, $scope.lookingForAWebsite.services = data, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
-      num == "1" ? ($scope.stepOne = false, $scope.stepTwo = true, $scope.lookingForAWebsite.typeOfSite = data) : $scope.nextStepNew = false;
-      num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true) : $scope.nextStepNew = false;
-      num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
-      num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
-      num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
-      num == "6" ? ($scope.success = false, $scope.finishedWalkthrough = true) : $scope.nextStepNew = false;
-      num == "7" ? ($scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
+      checkForInput(num, function(res) {
+        if (res == true) {
+          num == "0" ? ($scope.stepOne = true, $scope.lookingForAWebsite.services = data, $scope.hideFirstPanelOfSales = true) : $scope.nextStepNew = false;
+          num == "1" ? ($scope.stepOne = false, $scope.stepTwo = true, $scope.lookingForAWebsite.typeOfSite = data) : $scope.nextStepNew = false;
+          num == "2" ? ($scope.stepTwo = false, $scope.stepThree = true) : $scope.nextStepNew = false;
+          num == "3" ? ($scope.stepThree = false, $scope.stepFour = true, $scope.lookingForAWebsite.pagesTotal = data) : $scope.nextStepNew = false;
+          num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
+          num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
+          num == "6" ? ($scope.success = false, $scope.contactForWalkthrough = true) : $scope.nextStepNew = false;
+          num == "7" ? ($scope.finishedWalkthrough = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
+          num == "8" ? ($scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
+        }
+        else if (num >= 7 && res == false) {
+          $scope.modalNullDivTextInScope = 'Please Enter Contact Info';
+          $scope.modalNull = true;
+        }
+        else {
+          $scope.modalNullDivTextInScope = 'Please Select An Input';
+          $scope.modalNull = true;
+        }
+      });
   }
   $scope.newBack = function(num, data) {
       num == "0" ? ($scope.stepOne = false, $scope.lookingForAWebsite.typeOfSite = data, $scope.hideFirstPanelOfSales = false) : $scope.nextStepNew = false;
@@ -102,7 +43,8 @@ angular.module("mainSite")
       num == "3" ? ($scope.stepThree = true, $scope.stepFour = false) : $scope.nextStepNew = false;
       num == "4" ? ($scope.stepFour = true, $scope.stepFive = false, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
       num == "5" ? ($scope.stepFive = true, $scope.success = false) : $scope.nextStepNew = false;
-      num == "6" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
+      num == "6" ? ($scope.success = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
+      num == "7" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
   }
   $scope.employementYes = function() {
     $scope.hideFirstPanelOfSales = true;
@@ -139,5 +81,66 @@ angular.module("mainSite")
     mainBody.style.overflowY = "hidden";
     scrollService.scrollingReset();
     $state.go('home');
+  }
+  function checkForInput(num, output) {
+    if (num == 1) {
+      addClassToDocumentTag('stepTwoInput', function (element) {
+        checkForChecked(element, function(res) {
+          output(res);
+        })
+      })
+    }
+    else if (num == 3) {
+      addClassToDocumentTag('pagesInputCheck', function (element) {
+        checkForChecked(element, function(res) {
+          output(res);
+        })
+      })
+    }
+    else if (num == 4) {
+      addClassToDocumentTag('timeFrameInput', function (element) {
+        checkForChecked(element, function(res) {
+          output(res);
+        })
+      })
+    }
+    else if (num == 7 || num == 8) {
+      addClassToDocumentTag('contactInput', function (element) {
+        checkForValue(element, function(res) {
+          output(res);
+        })
+      })
+    }
+    else if (num >= 0) {
+      output(true)
+    }
+    else {
+      output(false)
+    }
+  }
+  function addClassToDocumentTag(input, output) {
+    var element = document.getElementsByClassName(input);
+    output(element)
+  }
+  function checkForChecked(element, output) {
+      let checkBoxCheck = false;
+      for (var x = 0; x < element.length; x++) {
+        if (element[x].checked == true) {
+          checkBoxCheck = true;
+        }
+      }
+    output(checkBoxCheck);
+  }
+  function checkForValue(element, output) {
+      let inputBoxValue = false;
+      for (var x = 0; x < element.length; x++) {
+        if (element[x].value !== null && element[x].value !== "") {
+          inputBoxValue = true;
+        }
+      }
+    output(inputBoxValue);
+  }
+  $scope.modalNullCloseout = function() {
+    $scope.modalNull = false;
   }
 });
