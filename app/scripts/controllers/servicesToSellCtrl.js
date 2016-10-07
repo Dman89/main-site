@@ -1,6 +1,6 @@
 'use strict';
 angular.module("mainSite")
-.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService) {
+.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
   let mainBody = document.documentElement || document.body;
 
   mainBody.style.overflowY = "scroll";
@@ -46,7 +46,7 @@ angular.module("mainSite")
       num == "6" ? ($scope.success = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
       num == "7" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
   }
-  $scope.employementYes = function() {
+  $scope.employmentYes = function() {
     $scope.hideFirstPanelOfSales = true;
     $scope.contactDiv = true;
   }
@@ -142,5 +142,8 @@ angular.module("mainSite")
   }
   $scope.modalNullCloseout = function() {
     $scope.modalNull = false;
+  }
+  $scope.sendAjax = function(num, contact, work) {
+    sendDataViaEmailService.restCall(num,contact,work);
   }
 });

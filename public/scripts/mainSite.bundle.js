@@ -4787,7 +4787,7 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService) {
+	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
 	  let mainBody = document.documentElement || document.body;
 
 	  mainBody.style.overflowY = "scroll";
@@ -4833,7 +4833,7 @@ webpackJsonp([0],[
 	      num == "6" ? ($scope.success = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
 	      num == "7" ? ($scope.hideFirstPanelOfSales = false, $scope.contactDiv = false) : $scope.nextStepNew = false;
 	  }
-	  $scope.employementYes = function() {
+	  $scope.employmentYes = function() {
 	    $scope.hideFirstPanelOfSales = true;
 	    $scope.contactDiv = true;
 	  }
@@ -4930,6 +4930,9 @@ webpackJsonp([0],[
 	  $scope.modalNullCloseout = function() {
 	    $scope.modalNull = false;
 	  }
+	  $scope.sendAjax = function(num, contact, work) {
+	    sendDataViaEmailService.restCall(num,contact,work);
+	  }
 	});
 
 
@@ -4982,24 +4985,90 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module('mainSite')
-	  .service('sendDataViaEmailCtrl', function() {
-
-	    var ses = new AWS.SES();
-	      ses.cloneReceiptRuleSet(params, function (err, data) {
-	      if (err) {
-	        console.log(err, err.stack);
+	  .service('sendDataViaEmailService', function() {
+	    let ajax = new XMLHttpRequest();
+	    let url = 'https://mandrillapp.com/api/1.0/messages/send.json';
+	    this.restCall = function(num, contact, work) {
+	      makeAStringForContact(contact, function(contactString) {
+	        makeSubject(num, work, function(subjectString) {
+	          makeAStringForWork(num, work, function(workString) {
+	            combinedHTML(contactString, workString, function(htmlString) {
+	              composeData(subjectString, htmlString, function(dataObj) {
+	                ajaxCall(url, dataObj);
+	                console.log('Seems To Work: '+num);
+	              })
+	            })
+	          })
+	        })
+	      })
+	    }
+	    var ajaxCall = function(url, data) {
+	      ajax.open('post', url, true);
+	      ajax.onreadystatechange = function() {
+	        if (ajax.readyState != 4 || ajax.status != 200) {
+	          console.log(ajax.responseText);
+	          return
+	        }
 	      }
-	      else     {
-	        console.log(data);
+	      ajax.send(data);
+	    }
+	    var combinedHTML = function(contact, work, output) {
+	      let outputHTML = contact + work;
+	      output(outputHTML);
+	    }
+	    var makeAStringForWork = function(num, input, output) {
+	      if(num == 1) {
+	        let typeOfWork = input.typeOfSite;
+	        let options = input.options;
+	        let pageTotal = input.pagesTotal;
+	        let timeFrame = input.timeFrame;
+	        let details = input.details;
+	        let outputString = '<br/><p>Work Type:<br/>'+typeOfWork+'<br/>With Options:<br/>'+options+'<br/>Pages Total:<br/>'+pageTotal+'<br/>Time Frame:<br/>'+timeFrame+'<br/>Extra Details:<br/>'+details+'<br/></p>'
+	        output(outputString);
 	      }
-	    });
-
-
-
-
-
-
-
+	      else {
+	        let outputString = '<h1>Employment</h1>';
+	        output(outputString);
+	      }
+	    }
+	    var makeAStringForContact = function(input, output) {
+	        let name = input.name;
+	        let email = input.email;
+	        let phone = input.phone;
+	        let company = input.company;
+	        let time = input.time.number +' '+ input.time.amPm +' in the timezone of '+ input.time.timezone;
+	        let outputString = '<h2>'+name+'</h2><p>Company: '+company+'<br/>Email: '+email+'<br/>Phone: '+Phone+'<br/>Best Time to Call: '+time+'</p>'
+	        output(outputString);
+	    }
+	    var makeSubject = function(num, input, output) {
+	      let subject = 'YOUR SUBJECT HERE!';
+	      if (num == 0) {
+	        subject = 'Employment Opportunity';
+	      }
+	      else {
+	        subject = input.services;
+	      }
+	      output(subject);
+	    }
+	    var composeData = function(subject, html, output) {
+	      let data = {
+	        'key': 'p1MPv-GEtGCLpqhcgeuqLA',
+	        'message': {
+	          'from_email': 'admin@danielcudney.com',
+	          'to': [
+	              {
+	                'email': 'admin@danielcudney.com',
+	                'name': 'Daniel',
+	                'type': 'to'
+	              }
+	            ],
+	          'autotext': 'true',
+	          'subject': subject,
+	          'html': html
+	        }
+	      }
+	      output(data);
+	    }
 	  })
 
 
@@ -5151,15 +5220,15 @@ webpackJsonp([0],[
 	      "nextFewDays": false,
 	      "byDate": {
 	        "isTrue": false,
-	        "date": ""
+	        "content": ""
 	      },
 	      "other": {
 	        "isTrue": false,
-	        "other": ""
+	        "content": ""
 	      },
-	      "employement": {
+	      "employment": {
 	        "isTrue": false,
-	        "employement": ""
+	        "content": ""
 	      }
 	    };
 	    this.lookingForAWebsite = {
@@ -5184,15 +5253,15 @@ webpackJsonp([0],[
 	        'nextFewDays': false,
 	        'byDate': {
 	          'isTrue': false,
-	          'date': ""
+	          'content': ""
 	        },
 	        'other': {
 	          'isTrue': false,
-	          'other': ""
+	          'content': ""
 	        },
-	        'employement': {
+	        'employment': {
 	          'isTrue': false,
-	          'employement': ""
+	          'content': ""
 	        }
 	      },
 	      'details': ['']

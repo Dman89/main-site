@@ -30,15 +30,15 @@ angular.module('mainSite')
       "nextFewDays": false,
       "byDate": {
         "isTrue": false,
-        "date": ""
+        "content": ""
       },
       "other": {
         "isTrue": false,
-        "other": ""
+        "content": ""
       },
-      "employement": {
+      "employment": {
         "isTrue": false,
-        "employement": ""
+        "content": ""
       }
     };
     this.lookingForAWebsite = {
@@ -63,15 +63,15 @@ angular.module('mainSite')
         'nextFewDays': false,
         'byDate': {
           'isTrue': false,
-          'date': ""
+          'content': ""
         },
         'other': {
           'isTrue': false,
-          'other': ""
+          'content': ""
         },
-        'employement': {
+        'employment': {
           'isTrue': false,
-          'employement': ""
+          'content': ""
         }
       },
       'details': ['']
