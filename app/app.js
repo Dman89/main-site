@@ -9,6 +9,7 @@ require('./scripts/controllers/menuCtrl.js');
 require('./scripts/controllers/servicesToSellCtrl.js');
 //SERVICE
 require('./scripts/services/scrollService.js');
+require('./scripts/services/sendDataViaEmailCtrl.js');
 require('./scripts/services/barGraphAnimationService.js');
 require('./scripts/services/servicesForSaleService.js');
 require('./scripts/services/menuService.js');
