@@ -23,8 +23,8 @@ angular.module("mainSite")
           num == "4" ? ($scope.stepFour = false, $scope.stepFive = true, $scope.lookingForAWebsite.timeFrame = data) : $scope.nextStepNew = false;
           num == "5" ? ($scope.stepFive = false, $scope.success = true) : $scope.nextStepNew = false;
           num == "6" ? ($scope.success = false, $scope.contactForWalkthrough = true) : $scope.nextStepNew = false;
-          num == "7" ? ($scope.finishedWalkthrough = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
-          num == "8" ? ($scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
+          num == "7" ? (sendDataViaEmailService.restCall(1, $scope.contact, $scope.lookingForAWebsite), $scope.finishedWalkthrough = true, $scope.contactForWalkthrough = false) : $scope.nextStepNew = false;
+          num == "8" ? (sendDataViaEmailService.restCall(0, $scope.contact, $scope.lookingForAWebsite), $scope.success = false, $scope.finishedWalkthrough = true, $scope.contactDiv = false) : $scope.nextStepNew = false;
         }
         else if (num >= 7 && res == false) {
           $scope.modalNullDivTextInScope = 'Please Enter Contact Info';
