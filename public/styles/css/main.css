@@ -1,6 +1,5 @@
-#myNav123, #myNavbar, #navbar {
+#navbar {
   background-color: #323967;
-  background-image: linear-gradient(to right, #141402 0%, #242537 15%, #2f3342 40%, #2f3342 60%, #242537 85%, #141402 100%);
   color: white; }
 
 #navbar {
@@ -13,15 +12,13 @@ ul#myNav123 a:focus {
   background-color: #cfa757; }
 
 #navbar {
-  pointer-events: none;
   cursor: pointer; }
 
 /* BG */
 body {
   background-color: #323967;
   color: #323967;
-  overflow: hidden;
-  overflow-y: hidden; }
+  overflow-x: hidden; }
 
 p {
   color: #000; }
@@ -37,7 +34,6 @@ p {
   height: -webkit-calc(100vh - 43px);
   height: -moz-calc(100vh - 43px);
   height: calc(100vh - 43px);
-  overflow: hidden;
   background: #212121 url("../../../images/bg.jpg") repeat-x 5% 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -55,7 +51,7 @@ p {
   padding-top: calc(5% + 43px);
   background-color: #fff;
   display: block; }
-  @media (min-width: 280px) and (max-width: 600px) {
+  @media (min-width: 200px) and (max-width: 600px) {
     #PUTBACKGROUNDHERE, #PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
       padding: 2.5% 5%; } }
 
@@ -86,6 +82,10 @@ p {
   vertical-align: middle;
   min-height: 100vh;
   background-color: white; }
+
+#PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
+  padding-left: 5%;
+  padding-right: 5%; }
 
 .profileImageMain {
   display: block;
@@ -217,8 +217,8 @@ h4.smallHeadlineMain {
   position: relative;
   text-align: center;
   top: 50%;
-  border: #cfa757 5px solid;
-  background-color: #6574ad;
+  border: #6574ad 5px solid;
+  background-color: #323967;
   border-radius: 5px;
   margin: 3%;
   padding: 3% 10%; }
@@ -302,7 +302,7 @@ h4.smallHeadlineMain {
   border-radius: 5px;
   max-width: 500px;
   max-height: 500px;
-  border: 0.35em solid #6574ad; }
+  border: 0.35em solid #323967; }
   @media (max-width: 992px), (max-height: 992px) {
     .imgPortfolio {
       max-width: 400px;
@@ -320,13 +320,26 @@ h4.smallHeadlineMain {
       margin: 10% auto; } }
 
 .bioProfile {
-  padding: 5%; }
-  .bioProfile span {
-    color: #cfa757; }
+  padding-top: 1rem; }
+  .bioProfile p {
+    opacity: 1;
+    padding: 0 5%;
+    text-indent: 5rem;
+    text-align: left;
+    padding-top: 1rem; }
+    .bioProfile p.text-center {
+      opacity: 1;
+      padding-top: 2rem;
+      text-align: center; }
+    .bioProfile p span {
+      color: #cfa757; }
 
 .bottomTextBio {
   padding: 5%;
   margin: 2% auto; }
+  @media (min-width: 992px) {
+    .bottomTextBio {
+      padding: 0%; } }
 
 .imgResponsivePortfolio {
   height: 300px;
@@ -340,6 +353,10 @@ h4.smallHeadlineMain {
 
 .containerForPortfolio {
   margin: 5% auto; }
+  @media (min-width: 768px) {
+    .containerForPortfolio {
+      min-height: 700px;
+      margin: 2.5% auto; } }
 
 #PUTBACKGROUNDHERE3 .description {
   color: #000; }
@@ -348,7 +365,7 @@ h4.smallHeadlineMain {
   color: #cfa757; }
 
 #KEYS h2 {
-  color: #cfa757; }
+  color: #df691a; }
 
 .contactImg {
   height: 100%;
@@ -365,7 +382,40 @@ h4.smallHeadlineMain {
       margin-bottom: 10%; } }
 
 .contactBoxDiv {
-  color: black; }
+  color: white; }
+  .contactBoxDiv select {
+    margin: auto;
+    color: black;
+    width: 10rem;
+    text-align: center; }
+
+.contactButton {
+  min-height: 40px;
+  min-width: 445px; }
+
+.golden i {
+  color: #cfa757;
+  display: inline-block;
+  font-size: 3rem;
+  line-height: 3.5454rem; }
+
+h2.bestTimeToContact {
+  text-align: center;
+  margin-top: 40px; }
+  @media (min-width: 768px) {
+    h2.bestTimeToContact {
+      text-align: left; } }
+
+footer {
+  border-top: 3px #141402 solid;
+  width: 100%;
+  height: 100%; }
+  footer a:hover {
+    text-decoration: none; }
+  footer .col-xs-12 {
+    margin: 2% auto; }
+  footer .copy {
+    color: white; }
 
 .boxShadowLight {
   box-shadow: 0 3px 5px 0 gray; }
@@ -464,7 +514,7 @@ h4.smallHeadlineMain {
   color: #323967;
   position: absolute; }
   .innerBar.animateGraph {
-    animation: graphText 2.5s ease-in-out forwards; }
+    animation: graphText 1.15s ease-in-out forwards; }
 
 .graphTextBelow {
   color: #323967;
@@ -536,14 +586,15 @@ p {
         top: 40%; } }
 
 #htmlAnimate {
+  cursor: pointer;
   position: absolute;
   height: 90%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   bottom: 0;
   left: 7.5%; }
   #htmlAnimate.animateGraph {
-    animation: skillAnimate 2s ease-out; }
+    animation: skillAnimate 1s ease-out; }
   #htmlAnimate p.innerBar {
     padding-left: 10px; }
     @media (max-width: 767px) and (min-height: 601px) {
@@ -573,14 +624,15 @@ p {
         top: 1px; } }
 
 #cssAnimate {
+  cursor: pointer;
   position: absolute;
   height: 85%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   left: 22.5%;
   bottom: 0; }
   #cssAnimate.animateGraph {
-    animation: skillAnimate 1.75s ease-out; }
+    animation: skillAnimate .95s ease-out; }
   #cssAnimate p.innerBar {
     padding-left: 12px;
     padding-bottom: 10px; }
@@ -607,14 +659,15 @@ p {
         top: 1px; } }
 
 #javaScriptAnimate {
+  cursor: pointer;
   position: absolute;
   height: 80%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   left: 37.5%;
   bottom: 0; }
   #javaScriptAnimate.animateGraph {
-    animation: skillAnimate 1.5s ease-out; }
+    animation: skillAnimate .9s ease-out; }
   #javaScriptAnimate p.innerBar {
     padding-left: 15px; }
     @media (min-width: 992px) and (min-height: 601px) {
@@ -636,14 +689,15 @@ p {
         top: 1px; } }
 
 #uiAnimate {
+  cursor: pointer;
   position: absolute;
   height: 60%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   left: 67.5%;
   bottom: 0; }
   #uiAnimate.animateGraph {
-    animation: skillAnimate 1.25s ease-out; }
+    animation: skillAnimate .85s ease-out; }
   #uiAnimate p.innerBar {
     left: 8px;
     top: 15px; }
@@ -678,14 +732,15 @@ p {
         top: 10px; } }
 
 #sqlAnimate {
+  cursor: pointer;
   position: absolute;
   height: 30%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   left: 82.5%;
   bottom: 0; }
   #sqlAnimate.animateGraph {
-    animation: skillAnimate .5s ease-out; }
+    animation: skillAnimate .80s ease-out; }
   #sqlAnimate p.innerBar {
     left: 15px;
     top: 25px; }
@@ -720,14 +775,15 @@ p {
         top: 10px; } }
 
 #wordpressAnimate {
+  cursor: pointer;
   position: absolute;
   height: 70%;
   width: 7.5%;
-  background-color: #cfa757;
+  background-color: #323967;
   left: 52.5%;
   bottom: 0; }
   #wordpressAnimate.animateGraph {
-    animation: skillAnimate 1.5s ease-out; }
+    animation: skillAnimate .75s ease-out; }
   #wordpressAnimate p.innerBar {
     left: 5px;
     top: 25px; }
@@ -774,13 +830,16 @@ p {
     line-height: 2em; }
   .barGraph h3 {
     text-align: center;
-    color: #323967; }
+    color: #cfa757; }
 
 @media (max-height: 600px) {
   .innerTextOfDialog {
     height: 10%;
     line-height: 1em;
     font-size: .7em; } }
+
+.innerBar {
+  color: #cfa757; }
 
 @keyframes skillAnimate {
   from {
@@ -816,6 +875,69 @@ p {
 @media (min-width: 768px) {
   .xs-only {
     display: none; } }
+
+.btn-gold {
+  background: #f3d078;
+  background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-color: #be952c #a68226 #9b7924;
+  color: black; }
+  .btn-gold:hover {
+    background: #f1c860;
+    background: -webkit-linear-gradient(top, #f5d78e, #eeb933);
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+    color: #333; }
+  .btn-gold:active {
+    color: black;
+    background: #eeba37;
+    border-color: #a88734 #9c7e31 #9c7e31; }
+  .btn-gold:focus {
+    color: black; }
+
+.btn-plain {
+  background: #eff0f3;
+  background: -webkit-linear-gradient(top, #f7f8fa, #e7e9ec);
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  overflow: hidden;
+  color: black; }
+  .btn-plain:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+    background: #e0e3e8;
+    background: -webkit-linear-gradient(top, #e7eaf0, #d9dce1);
+    background: linear-gradient(to bottom, #e7eaf0, #d9dce1); }
+  .btn-plain:active {
+    background: #dcdfe3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; }
+
+.W2BButton, .btn-white {
+  font-size: 1.5em;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out, color 150ms ease-in-out;
+  color: #000;
+  background: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-top-color: #adb1b8;
+  border-right-color: #a2a6ac;
+  border-bottom-color: #8d9096;
+  border-left-color: #a2a6ac;
+  border-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px; }
+  .W2BButton:hover, .btn-white:hover {
+    background: #000;
+    color: #fff; }
 
 * {
   font-size: 11px;

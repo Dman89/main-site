@@ -14,10 +14,6 @@ angular.module("mainSite")
     removeEventsAndGo('lockButton2');
     window.addEventListener('scroll', scrollService.scrolling)
   }, 1500);
-  setTimeout(function() {
-    docElemOrBody.style.overflowX = "hidden";
-    docElemOrBody.style.overflowY = "scroll";
-  }, 8000)
 
   var locationChangeContact = function() {
     $state.go('contact');
@@ -27,8 +23,8 @@ angular.module("mainSite")
     element.addEventListener('click', function() {
       window.removeEventListener('resize', backgroundResize, true);
       clearInterval(movingBG);
-      window.removeEventListener('scroll', scrollService.scrolling)
       locationChangeContact();
+      window.removeEventListener('scroll', scrollService.scrolling)
     });
   }
   let readjust = 0;

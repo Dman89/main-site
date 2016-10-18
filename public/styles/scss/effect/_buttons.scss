@@ -1,0 +1,92 @@
+  // Buttons
+  $buttonB1: #f3d078;
+  $buttonB2: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+  $buttonB3: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  $buttonB1Hover: #f1c860;
+  $buttonB2Hover: -webkit-linear-gradient(top,#f5d78e,#eeb933);
+  $buttonB3Hover: linear-gradient(to bottom,#f5d78e,#eeb933);
+  $buttonBorder: #be952c #a68226 #9b7924;
+  $buttonBoarderActive: #a88734 #9c7e31 #9c7e31;
+  $buttonActive: #eeba37;
+  // Plain White
+$buttonPlainB1: #eff0f3;
+$buttonPlainB2: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
+$buttonPlainB3: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+$buttonPlainB1Hover: #e0e3e8;
+$buttonPlainB2Hover: -webkit-linear-gradient(top,#e7eaf0,#d9dce1);
+$buttonPlainB3Hover: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+$buttonPlainB1Active: #dcdfe3;
+$buttonPlainBorder: #adb1b8 #a2a6ac #8d9096;
+$buttonPlainBorderHover: #a2a6ac #979aa1 #82858a;
+//White To Black Button
+$W2BButtonTransition: background-color 150ms ease-in-out,border-color 150ms ease-in-out, color 150ms ease-in-out;
+
+.btn-gold {
+  background: $buttonB1;
+  background: $buttonB2;
+  background: $buttonB3;
+  border-color: $buttonBorder;
+  color: black;
+  &:hover {
+    background: $buttonB1Hover;
+    background: $buttonB2Hover;
+    background: $buttonB3Hover;
+    color: #333;
+  }
+  &:active {
+    color: black;
+    background: $buttonActive;
+    border-color: $buttonBoarderActive;
+  }
+  &:focus {
+    color: black;
+  }
+}
+.btn-plain {
+  background: $buttonPlainB1;
+  background: $buttonPlainB2;
+  background: $buttonPlainB3;
+  border-color: $buttonPlainBorder;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+  overflow: hidden;
+  color: black;
+  &:hover {
+    border-color: $buttonPlainBorderHover;
+    background: $buttonPlainB1Hover;
+    background: $buttonPlainB2Hover;
+    background: $buttonPlainB3Hover;
+  }
+  &:active {
+    background: $buttonPlainB1Active;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
+  }
+}
+.W2BButton, .btn-white {
+  font-size: 1.5em;
+  transition: $W2BButtonTransition;
+  color: #000;
+  background: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-top-color: rgb(173, 177, 184);
+  border-right-color: rgb(162, 166, 172);
+  border-bottom-color: rgb(141, 144, 150);
+  border-left-color: rgb(162, 166, 172);
+  border-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+}

@@ -30,9 +30,9 @@
       <div id="htmlAnimate" class="barGraph">
         <p class="innerBar">Expert</p>
       </div>
-      <div id="cssAnimate" class="barGraph"><p class="innerBar">Expert/Advance</p></div>
-      <div id="javaScriptAnimate" class="barGraph"><p class="innerBar">Advance</p></div>
-      <div id="wordpressAnimate" class="barGraph"><p class="innerBar">Advance/Intermediate</p></div>
+      <div id="cssAnimate" class="barGraph"><p class="innerBar">Expert/Advanced</p></div>
+      <div id="javaScriptAnimate" class="barGraph"><p class="innerBar">Advanced</p></div>
+      <div id="wordpressAnimate" class="barGraph"><p class="innerBar">Advanced/Intermediate</p></div>
       <div id="uiAnimate" class="barGraph"><p class="innerBar">Intermediate</p></div>
       <div id="sqlAnimate" class="barGraph"><p class="innerBar">Beginner</p></div>
 
@@ -44,19 +44,26 @@
   <div id="PUTBACKGROUNDHERE2">
     <div class="container-fluid">
       <div class="row text-center">
-          <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
-            <img class="imgPortfolio" src="https://scontent.xx.fbcdn.net/v/t1.0-9/6884_1028100597228487_5054053722041985316_n.jpg?oh=0756969e05528f772c851b129f5fe5c7&oe=583BC10E" alt=""></div>
-          <div class="col-xs-12 col-sm-6 col-lg-5 bioProfile">
-            I've worked as a caregiver, plumber and massage therapist before following my calling into web design. I learned a valuable lesson in each occupation...
-            <p/>
-  Caregiving taught small things often mean the most to the customer.
-  Plumbing introduced the idea of a solid infrastructure creates a stable project.
-  Massage Therapy hinged on making theoretical knowledge practical.<p/>
-  Contributing to DC Design values:<br/><br/>
-  <span>Quality</span>. <span>Simple</span>, yet <span>Solid</span>.
+          <div class="col-xs-12 col-sm-6">
+            <img class="imgPortfolio" src="https://scontent.xx.fbcdn.net/v/t1.0-9/6884_1028100597228487_5054053722041985316_n.jpg?oh=0756969e05528f772c851b129f5fe5c7&oe=583BC10E" alt="">
           </div>
-          <div class="col-xs-12 text-center bottomTextBio">
-            I love learning about programing and coding new creations I imagine. Nothing is more satisfying than manifesting an idea in JavaScript.
+          <div class="col-xs-12 col-sm-6 bioProfile">
+            <p>
+              I've worked as a caregiver, plumber and massage therapist before following my calling into web design. I learned a valuable lesson in each occupation.
+            </p>
+            <p>
+              Caregiving taught small things often mean the most to the customer.
+              Plumbing introduced the idea of a solid infrastructure creates a stable project.
+              Massage Therapy hinged on making theoretical knowledge practical.
+            </p>
+            <p>
+              I love learning about programing and coding new creations I imagine. Nothing is more satisfying than manifesting an idea in JavaScript.
+            </p>
+            <p class="text-center">
+              Contributing to DC Design values:
+              <br/><br/>
+              <span>Quality</span>. <span>Simple</span>, yet <span>Solid</span>.
+            </p>
           </div>
       </div>
     </div>
@@ -64,7 +71,7 @@
   <div id="PUTBACKGROUNDHERE3">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-4 text-center containerForPortfolio" ng-repeat="item in portfolio">
+      <div class="col-xs-12 col-md-6 col-lg-4 containerForPortfolio text-center" ng-repeat="item in portfolio">
         <img ng-src="{{item.image}}" alt="" class="imgResponsivePortfolio">
         <h3>{{item.title}}</h3>
         <p class="description">{{item.description}}</p>
@@ -80,55 +87,34 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 text-center" id="KEYS">
-                 <div class="row" id="keyBox">
-                    <div class="col-xs-12 col-lg-1 col-md-1">
-                       <h1><i class="fa fa-key goldenkey"></i></h1>
-                    </div>
-                    <div class="col-xs-12 col-lg-3 col-md-3">
-                       <div class="row">
-                          <div class="col-xs-12 col-lg-12">
-                             <h2>Quality</h2>
-                          </div>
-                          <div class="col-xs-12 col-lg-12">
-                             <p>Keeping the end user and the user expereince in mind at all times, during the creation process.</p>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="col-xs-12 col-lg-1 col-md-1">
-                       <h1><i class="fa fa-key goldenkey"></i></h1>
-                    </div>
-                    <div class="col-xs-12 col-lg-3 col-md-3">
-                       <div class="row">
-                          <div class="col-xs-12 col-lg-12">
-                             <h2>Simple</h2>
-                          </div>
-                          <div class="col-xs-12 col-lg-12">
-                             <p>Keeping the user interface to what is nessecary. Simple designs leads to more user interaction overall and tends to look better to the user.</p>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="col-xs-12 col-lg-1 col-md-1">
-                       <h1><i class="fa fa-key goldenkey"></i></h1>
-                    </div>
-                    <div class="col-xs-12 col-lg-3 col-md-3">
-                       <div class="row">
-                          <div class="col-xs-12 col-lg-12">
-                             <h2>Solid</h2>
-                          </div>
-                          <div class="col-xs-12 col-lg-12">
-                             <p>Well writen code is the cornor stone of any great foundation and makes the interactions stable.</p>
-                          </div>
-                    </div>
-                 </div>
+          <div class="row" id="keyBox">
+             <div class="col-xs-12">
+               <h1 class="golden"><i class="fa fa-key"></i> 3 Keys of Design <i class="fa fa-key"></i></h1>
+             </div>
+              <div class="col-xs-12 col-sm-4">
+                       <h2>Quality</h2>
+                       <p>Keeping the end user and the user expereince in mind at all times, during the creation process.</p>
               </div>
-              <div class="col-xs-12" id="contantImages">
-                <img src="images/portfolio/responsive.png" class="contactImg" alt=""/>
+              <div class="col-xs-12 col-sm-4">
+                       <h2>Simple</h2>
+                       <p>Keeping the user interface to what is nessecary. Simple designs leads to more user interaction overall and tends to look better to the user.</p>
               </div>
-              <div class="col-xs-12 text-center btnBlockOfLock" id="contactButton">
-                <button class="btn btn-success btn-block xs-only" id="lockButton">Conatct DC Design <i class="fa fa-phone" id="lock"></i></button>
-                <button class="btn btn-success hidden-xs" id="lockButton2">Conatct DC Design <i class="fa fa-phone" id="lock2"></i></button>
+              <div class="col-xs-12 col-sm-4">
+                       <h2>Solid</h2>
+                       <p>Well writen code is the cornor stone of any great foundation and makes the interactions stable.</p>
               </div>
+           </div>
+        </div>
+        <div class="col-xs-12" id="contantImages">
+          <img src="images/portfolio/responsive.png" class="contactImg" alt=""/>
+        </div>
+        <div class="col-xs-12 text-center btnBlockOfLock" id="contactButton">
+          <button class="btn btn-gold btn-block xs-only" id="lockButton">Contact DC Design <i class="fa fa-phone" id="lock"></i></button>
+          <button class="btn btn-gold hidden-xs contactButton" id="lockButton2">Contact DC Design <i class="fa fa-phone" id="lock2"></i></button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<footer ng-include="'views/main/footer.html'"></footer>

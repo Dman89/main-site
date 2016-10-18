@@ -2,8 +2,7 @@
 body {
   background-color: $black;
   color: $black;
-  overflow: hidden;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 p {
   color: #000;
@@ -20,7 +19,6 @@ p {
     height: -webkit-calc(100vh - 43px);
     height:    -moz-calc(100vh - 43px);
     height:         calc(100vh - 43px);
-    overflow: hidden;
     background: #212121 url("../../../images/bg.jpg") repeat-x 5% 0;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -38,7 +36,7 @@ p {
   padding-top:         calc(5% + 43px);
   background-color: #fff;
   display: block;
-  @media (min-width: 280px) and (max-width: 600px) {
+  @media (min-width: 200px) and (max-width: 600px) {
     padding: 2.5% 5%;
   }
 }
@@ -69,4 +67,8 @@ p {
   vertical-align: middle;
   min-height: 100vh;
   background-color: white;
+}
+#PUTBACKGROUNDHERE2, #PUTBACKGROUNDHERE3, #PUTBACKGROUNDHERE4 {
+  padding-left: 5%;
+  padding-right: 5%;
 }

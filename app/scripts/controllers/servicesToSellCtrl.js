@@ -3,7 +3,6 @@ angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
   let mainBody = document.documentElement || document.body;
 
-  mainBody.style.overflowY = "scroll";
   $scope.modalNull = false;
   $scope.times = servicesForSaleService.times;
   $scope.contact = servicesForSaleService.contact;
@@ -77,8 +76,6 @@ angular.module("mainSite")
     $scope.lookingForAWebsite.details.splice(index, 1, data);
   }
   $scope.homeBTN = function() {
-    mainBody.style.overflow = "hidden";
-    mainBody.style.overflowY = "hidden";
     scrollService.scrollingReset();
     $state.go('home');
   }

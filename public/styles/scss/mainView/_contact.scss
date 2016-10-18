@@ -2,7 +2,7 @@
   color: rgb(207,167,87);
 }
 #KEYS h2 {
-  color: $accent;
+  color: $realRed;
 }
 .contactImg {
   height: 100%;
@@ -19,5 +19,31 @@
   }
 }
 .contactBoxDiv {
-  color: black;
+  color: white;
+  & select {
+    margin: auto;
+    color: black;
+    width: 10rem;
+    text-align: center;
+  }
+}
+.contactButton {
+  min-height: 40px;
+  min-width: 445px;
+}
+.golden {
+  & i {
+    color: $gold;
+    display: inline-block;
+    font-size: 3rem;
+    line-height: 3.5454rem;
+  }
+}
+h2.bestTimeToContact {
+  text-align: center;
+  margin-top: 40px;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+
 }

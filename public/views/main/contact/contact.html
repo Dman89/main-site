@@ -1,32 +1,42 @@
 
-  <div class="contactBoxDiv centerBox">
-    <label>Name:</label><br/>
-    <input class='contactInput' ng-model="contact.name"/><br/>
-    <label>Email:</label><br/>
-    <input class='contactInput' ng-model="contact.email"/><br/>
-    <label>Phone:</label><br/>
-    <input class='contactInput' ng-model="contact.phone"/><br/>
-    <label>Company:</label><br/>
-    <input class='contactInput' ng-model="contact.company"/><br/>
-    <label>Best Time to Contact:</label><br/>
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <label>Hour:</label><br/>
-        <select ng-options='time for time in times.times' ng-model="contact.time.number"/><br/>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <label>AM/PM:</label><br/>
-        <select ng-options='ampm for ampm in times.amPm' ng-model="contact.time.amPm"/><br/>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <label>Timezone:</label><br/>
-        <select ng-options='timezone for timezone in times.timezone' ng-model="contact.time.timezone"/>
+  <div class="contactBoxDiv centerBox row">
+    <div class="col-xs-12 col-sm-6 text-center">
+      <h2 class="text-left">Name:</h2>
+      <input class='contactInput' ng-model="contact.name"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 text-center">
+      <h2 class="text-left">Email:</h2>
+      <input class='contactInput' ng-model="contact.email"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 text-center">
+      <h2 class="text-left">Phone:</h2>
+      <input class='contactInput' ng-model="contact.phone"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 text-center">
+      <h2 class="text-left">Company:</h2>
+      <input class='contactInput' ng-model="contact.company"/>
+    </div>
+    <div class="col-xs-12">
+      <h2 class="bestTimeToContact">Best Time to Contact:</h2>
+      <div class="row text-center">
+        <div class="col-xs-12 col-md-4">
+          <h2>Hour:</h2>
+          <h3><select ng-options='time for time in times.times' ng-model="contact.time.number"/></h3>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h2>AM/PM:</h2>
+          <h3><select ng-options='ampm for ampm in times.amPm' ng-model="contact.time.amPm"/></h3>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h2>Timezone:</h2>
+          <h3><select ng-options='timezone for timezone in times.timezone' ng-model="contact.time.timezone"/></h3>
+        </div>
       </div>
     </div>
   </div>
   <!-- walkthrough contact -->
-  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(6)">Back</button>
-  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(7)">Send</button>
+  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeLeft btn-white" ng-click="newBack(6)">Back</button>
+  <button ng-show='contactForWalkthrough' type="button" class="btn btn-homemadeRight btn-gold" ng-click="newNext(7)">Send</button>
   <!-- employment contact -->
-  <button ng-show='contactDiv' type="button" class="btn btn-homemadeLeft btn-success" ng-click="newBack(7)">Back</button>
-  <button ng-show='contactDiv' type="button" class="btn btn-homemadeRight btn-success" ng-click="newNext(8)">Send</button>
+  <button ng-show='contactDiv' type="button" class="btn btn-homemadeLeft btn-white" ng-click="newBack(7)">Back</button>
+  <button ng-show='contactDiv' type="button" class="btn btn-homemadeRight btn-gold" ng-click="newNext(8)">Send</button>

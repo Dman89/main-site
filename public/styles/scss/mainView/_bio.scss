@@ -2,7 +2,7 @@
   border-radius: 5px;
   max-width: 500px;
   max-height: 500px;
-  border: .35em solid $secondary;
+  border: .35em solid $black;
   @media (max-width: 992px), (max-height: 992px) {
       max-width:400px;
       max-height: 700px;
@@ -20,12 +20,27 @@
   }
 }
 .bioProfile {
-  padding: 5%;
-  & span {
-    color: $highlight;
+  padding-top: 1rem;
+  & p {
+    opacity: 1;
+    padding:  0 5%;
+    text-indent: 5rem;
+    text-align: left;
+    padding-top: 1rem;
+    &.text-center {
+      opacity: 1;
+      padding-top: 2rem;
+      text-align: center;
+    }
+    & span {
+      color: $highlight;
+    }
   }
 }
 .bottomTextBio {
   padding: 5%;
   margin: 2% auto;
+  @media (min-width: 992px) {
+    padding: 0%;
+  }
 }

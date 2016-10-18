@@ -8,11 +8,11 @@ this.runGraphAnimation = function() {
   var idArray = [
 {"div":"htmlAnimate", "height": 90, "left": 7.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert</h3><p class='animateGraphInnerText innerTextOfDialog'>HTML</p><p class='animateGraphInnerText innerTextOfDialog'>Responsive Web Design</p><p class='animateGraphInnerText innerTextOfDialog'>Webpack</p><p class='animateGraphInnerText innerTextOfDialog'>NPM</p><p class='animateGraphInnerText innerTextOfDialog'>Bootstrap</p>", "barContent": '<p class="innerBar">Expert</p>'},
 
-{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advance</p>'},
+{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advanced</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advanced</p>'},
 
-{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>(Google/Facebook/Twitter/Flickr)</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advance</p>'},
+{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advanced</h3><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>(Google/Facebook/Twitter/Flickr)</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advanced</p>'},
 
-{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
+{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advanced/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advanced/Intermediate</p>'},
 
 {"div":"uiAnimate", "height": 60, "left": 67.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>Linux</p><p class='animateGraphInnerText innerTextOfDialog'>Agile</p><p class='animateGraphInnerText innerTextOfDialog'>Wordpress</p>", "barContent": '<p class="innerBar">Intermediate</p>'},
 
@@ -58,7 +58,7 @@ this.runGraphAnimation = function() {
               element.innerHTML = content;
             }, 100)
           }
-        }, 10);
+        }, 5);
       }
       else {
         let y = 100;
@@ -98,7 +98,7 @@ this.runGraphAnimation = function() {
               element.innerHTML = barContent;
             }, 100)
           }
-        }, 10);
+        }, 5);
       }
     }
   }

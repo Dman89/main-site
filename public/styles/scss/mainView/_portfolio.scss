@@ -11,6 +11,10 @@
 }
 .containerForPortfolio {
   margin: 5% auto;
+  @media (min-width: 768px) {
+    min-height: 700px;
+    margin: 2.5% auto;
+  }
 }
 #PUTBACKGROUNDHERE3 .description {
   color: #000;

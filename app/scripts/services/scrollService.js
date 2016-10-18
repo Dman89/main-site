@@ -11,21 +11,22 @@ angular.module('mainSite')
       menuService.checkScrollPosition(currentScrollPosition, function(id, res) {});
       if ($location.path() == '/') {
         let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
+        let yRangeToCheckPastDiv = document.getElementById("PUTBACKGROUNDHERE2").offsetTop  * .70;
         let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
           if ( window.scrollY >= yRangeToCheck && runAnimation === true ) {
-            docElemOrBody.style.overflowY = "scroll";
-            window.scrollTo(0, tempNum);
-            runAnimation = false
-            let elem = document.getElementsByClassName('barGraph');
-            for (var x = 0; x < elem.length; x++){
-              elem[x].style.opacity = 1;
-              elem[x].classList.add("animateGraph");
+            if (window.scrollY < yRangeToCheckPastDiv) {
+              runAnimation = false
+              let elem = document.getElementsByClassName('barGraph');
+              for (var x = 0; x < elem.length; x++){
+                elem[x].style.opacity = 1;
+                elem[x].classList.add("animateGraph");
+              }
+              let elemInner = document.getElementsByClassName('innerBar');
+              for (var x = 0; x < elemInner.length; x++){
+                elemInner[x].classList.add("animateGraph");
+              }
+              barGraphAnimationService.runGraphAnimation();
             }
-            let elemInner = document.getElementsByClassName('innerBar');
-            for (var x = 0; x < elemInner.length; x++){
-              elemInner[x].classList.add("animateGraph");
-            }
-            barGraphAnimationService.runGraphAnimation();
           }
         }
     }

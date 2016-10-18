@@ -1,0 +1,14 @@
+footer {
+  & a:hover {
+    text-decoration: none;
+  }
+  border-top: 3px #141402 solid;
+  width: 100%;
+  height: 100%;
+  & .col-xs-12 {
+    margin: 2% auto;
+  }
+  & .copy {
+    color: white;
+  }
+}

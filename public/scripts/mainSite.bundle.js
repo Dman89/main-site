@@ -4648,10 +4648,6 @@ webpackJsonp([0],[
 	    removeEventsAndGo('lockButton2');
 	    window.addEventListener('scroll', scrollService.scrolling)
 	  }, 1500);
-	  setTimeout(function() {
-	    docElemOrBody.style.overflowX = "hidden";
-	    docElemOrBody.style.overflowY = "scroll";
-	  }, 8000)
 
 	  var locationChangeContact = function() {
 	    $state.go('contact');
@@ -4661,8 +4657,8 @@ webpackJsonp([0],[
 	    element.addEventListener('click', function() {
 	      window.removeEventListener('resize', backgroundResize, true);
 	      clearInterval(movingBG);
-	      window.removeEventListener('scroll', scrollService.scrolling)
 	      locationChangeContact();
+	      window.removeEventListener('scroll', scrollService.scrolling)
 	    });
 	  }
 	  let readjust = 0;
@@ -4706,78 +4702,37 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("menuCtrl", function($scope, $interval, $timeout, menuService, menuCollapseService) {
-
-
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
-	  var justLoaded = 1;
-	  var justLoadedCheckFunct = function() {
-	    let checkIt = document.getElementById("bg").offsetHeight * .70;
-	    if (checkIt >= scrollPostition) {
-	      justLoaded = 0;
-	      clearInterval(checkingScollAnimation);
-	    }
+	  var scrollToFun = function(elem) {
+	    let yCord = elem.offsetTop;
+	    window.scrollTo(0, yCord);
 	  }
-	  var checkingScollAnimation = setInterval(function() {
-	    justLoadedCheckFunct()
-	  }, 1000)
 	  $scope.home = function() {
 	    window.scrollTo(0,0);
 	    menuService.removeOtherActivesOnClick("bg");
 	    menuCollapseService.collapseMenu();
 	  }
-	  var scrollToFun = function(elem) {
-	    let yCord = elem.offsetTop;
-	    window.scrollTo(0, yCord);
-	  }
 	  $scope.skills = function() {
-	    if (justLoaded == 1) {
-	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
-	      justLoaded = 0;
-	    }
-	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE");
-	    }
 	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.bio = function() {
-	    if (justLoaded == 1) {
-	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
-	      justLoaded = 0;
-	    }
-	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE2"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE2");
-	    }
 	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.port = function() {
-	    if (justLoaded == 1) {
-	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
-	      justLoaded = 0;
-	    }
-	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE3"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE3");
-	    }
 	    menuCollapseService.collapseMenu();
 	  }
 	  $scope.contact = function() {
-	    if (justLoaded == 1) {
-	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE"));
-	      justLoaded = 0;
-	    }
-	    else {
 	      scrollToFun(document.getElementById("PUTBACKGROUNDHERE4"));
 	      menuService.removeOtherActivesOnClick("PUTBACKGROUNDHERE4");
-	    }
 	    menuCollapseService.collapseMenu();
 	  }
-
-	  $timeout(function() {
-	    document.getElementById("navbar").style.pointerEvents = "auto";
-	  }, 8000)
 	});
 
 
@@ -4790,7 +4745,6 @@ webpackJsonp([0],[
 	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
 	  let mainBody = document.documentElement || document.body;
 
-	  mainBody.style.overflowY = "scroll";
 	  $scope.modalNull = false;
 	  $scope.times = servicesForSaleService.times;
 	  $scope.contact = servicesForSaleService.contact;
@@ -4864,8 +4818,6 @@ webpackJsonp([0],[
 	    $scope.lookingForAWebsite.details.splice(index, 1, data);
 	  }
 	  $scope.homeBTN = function() {
-	    mainBody.style.overflow = "hidden";
-	    mainBody.style.overflowY = "hidden";
 	    scrollService.scrollingReset();
 	    $state.go('home');
 	  }
@@ -4953,21 +4905,22 @@ webpackJsonp([0],[
 	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {});
 	      if ($location.path() == '/') {
 	        let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
+	        let yRangeToCheckPastDiv = document.getElementById("PUTBACKGROUNDHERE2").offsetTop  * .70;
 	        let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
 	          if ( window.scrollY >= yRangeToCheck && runAnimation === true ) {
-	            docElemOrBody.style.overflowY = "scroll";
-	            window.scrollTo(0, tempNum);
-	            runAnimation = false
-	            let elem = document.getElementsByClassName('barGraph');
-	            for (var x = 0; x < elem.length; x++){
-	              elem[x].style.opacity = 1;
-	              elem[x].classList.add("animateGraph");
+	            if (window.scrollY < yRangeToCheckPastDiv) {
+	              runAnimation = false
+	              let elem = document.getElementsByClassName('barGraph');
+	              for (var x = 0; x < elem.length; x++){
+	                elem[x].style.opacity = 1;
+	                elem[x].classList.add("animateGraph");
+	              }
+	              let elemInner = document.getElementsByClassName('innerBar');
+	              for (var x = 0; x < elemInner.length; x++){
+	                elemInner[x].classList.add("animateGraph");
+	              }
+	              barGraphAnimationService.runGraphAnimation();
 	            }
-	            let elemInner = document.getElementsByClassName('innerBar');
-	            for (var x = 0; x < elemInner.length; x++){
-	              elemInner[x].classList.add("animateGraph");
-	            }
-	            barGraphAnimationService.runGraphAnimation();
 	          }
 	        }
 	    }
@@ -5100,11 +5053,11 @@ webpackJsonp([0],[
 	  var idArray = [
 	{"div":"htmlAnimate", "height": 90, "left": 7.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert</h3><p class='animateGraphInnerText innerTextOfDialog'>HTML</p><p class='animateGraphInnerText innerTextOfDialog'>Responsive Web Design</p><p class='animateGraphInnerText innerTextOfDialog'>Webpack</p><p class='animateGraphInnerText innerTextOfDialog'>NPM</p><p class='animateGraphInnerText innerTextOfDialog'>Bootstrap</p>", "barContent": '<p class="innerBar">Expert</p>'},
 
-	{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advance</p>'},
+	{"div":"cssAnimate", "height": 85, "left": 22.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Expert/Advanced</h3><p class='animateGraphInnerText innerTextOfDialog'>Collaboration</p><p class='animateGraphInnerText innerTextOfDialog'>Leadship</p><p class='animateGraphInnerText innerTextOfDialog'>CSS</p><p class='animateGraphInnerText innerTextOfDialog'>Communication</p><p class='animateGraphInnerText innerTextOfDialog'>JavaScript</p>", "barContent": '<p class="innerBar">Expert/Advanced</p>'},
 
-	{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance</h3><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>(Google/Facebook/Twitter/Flickr)</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advance</p>'},
+	{"div":"javaScriptAnimate", "height": 80, "left": 37.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advanced</h3><p class='animateGraphInnerText innerTextOfDialog'>Angular</p><p class='animateGraphInnerText innerTextOfDialog'>RESTful API / Ajax</p><p class='animateGraphInnerText innerTextOfDialog hidden-xssm'>(Google/Facebook/Twitter/Flickr)</p><p class='animateGraphInnerText innerTextOfDialog'>Express.JS</p><p class='animateGraphInnerText innerTextOfDialog'>MongoDB</p><p class='animateGraphInnerText innerTextOfDialog'>Wireframing</p>", "barContent": '<p class="innerBar">Advanced</p>'},
 
-	{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advance/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advance/Intermediate</p>'},
+	{"div":"wordpressAnimate", "height": 70, "left": 52.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Advanced/Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>jQuery</p><p class='animateGraphInnerText innerTextOfDialog'>UI/UE</p><p class='animateGraphInnerText innerTextOfDialog'>Git</p><p class='animateGraphInnerText innerTextOfDialog'>Console</p><p class='animateGraphInnerText innerTextOfDialog'>Semantically Best Practice</p><p class='animateGraphInnerText innerTextOfDialog'>NodeJS</p><p class='animateGraphInnerText innerTextOfDialog'>SCSS</p>", "barContent": '<p class="innerBar">Advanced/Intermediate</p>'},
 
 	{"div":"uiAnimate", "height": 60, "left": 67.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Intermediate</h3><p class='animateGraphInnerText innerTextOfDialog'>Linux</p><p class='animateGraphInnerText innerTextOfDialog'>Agile</p><p class='animateGraphInnerText innerTextOfDialog'>Wordpress</p>", "barContent": '<p class="innerBar">Intermediate</p>'},
 
@@ -5150,7 +5103,7 @@ webpackJsonp([0],[
 	              element.innerHTML = content;
 	            }, 100)
 	          }
-	        }, 10);
+	        }, 5);
 	      }
 	      else {
 	        let y = 100;
@@ -5190,7 +5143,7 @@ webpackJsonp([0],[
 	              element.innerHTML = barContent;
 	            }, 100)
 	          }
-	        }, 10);
+	        }, 5);
 	      }
 	    }
 	  }
@@ -5489,6 +5442,40 @@ webpackJsonp([0],[
 	  .service('portfolioService', function() {
 	    this.portfolio = [
 	      {
+	        "image": "images/portfolio/store/fin.png",
+	        "title": "Store / Blog",
+	        "github": {
+	          "isTrue": true,
+	          "url": "https://github.com/Dman89/Store-Front-Api-Project"
+	        },
+	        "codepen": {
+	          "isTrue": false,
+	          "url": "http://linktochange.danielcudney.com"
+	        },
+	        "heroku": {
+	          "isTrue": true,
+	          "url": "http://storebydaniel.herokuapp.com/"
+	        },
+	        "description": "Need a website to sell your products and a blog to reach customers? Look no further with this beautiful site package. Add/edit/delete products, blog posts and portfolio pieces with this backend."
+	      },
+	      {
+	        "image": "images/portfolio/time/fin.png",
+	        "title": "Watchmen: Dr. Time",
+	        "github": {
+	          "isTrue": true,
+	          "url": "https://github.com/Dman89/WatchMenDrTime"
+	        },
+	        "codepen": {
+	          "isTrue": false,
+	          "url": "http://drtime.danielcudney.com"
+	        },
+	        "heroku": {
+	          "isTrue": true,
+	          "url": "http://drtime.herokuapp.com/"
+	        },
+	        "description": "Working in an AGILE environment? Here is a timer that uploads to google calendar as you complete tasks to be reviewed later. Dr. Time's features include a sprint mode and the storing of activities for projects."
+	      },
+	      {
 	        "image": "images/portfolio/product/fin.png",
 	        "title": "Product Display",
 	        "github": {
@@ -5524,7 +5511,7 @@ webpackJsonp([0],[
 	      },
 	      {
 	        "image": "images/portfolio/encryption/fin.png",
-	        "title": "Encrptytion",
+	        "title": "Encryption",
 	        "github": {
 	          "isTrue": true,
 	          "url": "https://github.com/Dman89/SimpleEncryption"
@@ -5555,40 +5542,6 @@ webpackJsonp([0],[
 	          "url": "url"
 	        },
 	        "description": "Get the current weather report for you IP or at a click of a button, the report for your current location via latitude and longitude."
-	      },
-	      {
-	        "image": "images/portfolio/store/fin.png",
-	        "title": "Store / Blog",
-	        "github": {
-	          "isTrue": true,
-	          "url": "https://github.com/Dman89/Store-Front-Api-Project"
-	        },
-	        "codepen": {
-	          "isTrue": false,
-	          "url": "http://linktochange.danielcudney.com"
-	        },
-	        "heroku": {
-	          "isTrue": true,
-	          "url": "http://caleapi.herokuapp.com/"
-	        },
-	        "description": "Need a website to sell your products and a blog to reach customers? Look no further with this beautiful site package. Add/edit/delete products, blog posts and portfolio pieces with this backend."
-	      },
-	      {
-	        "image": "images/portfolio/time/fin.png",
-	        "title": "Watchmen: Dr. Time",
-	        "github": {
-	          "isTrue": true,
-	          "url": "https://github.com/Dman89/WatchMenDrTime"
-	        },
-	        "codepen": {
-	          "isTrue": false,
-	          "url": "http://drtime.danielcudney.com"
-	        },
-	        "heroku": {
-	          "isTrue": true,
-	          "url": "http://drtime.herokuapp.com/"
-	        },
-	        "description": "Working in an AGILE environment? Here is a timer that uploads to google calendar as you complete tasks to be reviewed later. Dr. Time's features include a sprint mode and the storing of activities for projects."
 	      }
 	    ]
 
