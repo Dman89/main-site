@@ -5529,7 +5529,7 @@ webpackJsonp([0],[
 	          "isTrue": false,
 	          "url": "url"
 	        },
-	        "description": "Got a message you want to keep secret? Use this simple encrption app to keep your top secret message private."
+	        "description": "Got a message you want to keep a secret? Use this simple encryption app to keep your top secret message private."
 	      },
 	      {
 	        "image": "images/portfolio/weather/fin.png",
