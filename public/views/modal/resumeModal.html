@@ -1,0 +1,11 @@
+<div id="modalBlackout">
+  <div id="modalNullDiv" class="text-center">
+    <div id="modalResume">
+      <div class="col-xs-12 col-sm-6" ng-repeat="resume in resumeArray">
+        <a ng-href="{{resume.url}}" target="_blank"><i class="fa fa-file-pdf-o"></i><p>{{resume.text}}</p>
+        </a>
+      </div>
+    </div>
+    <i class="fa fa-times" ng-click="modalResumeCloseout()"></i>
+  </div>
+</div>

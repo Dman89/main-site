@@ -16,3 +16,4 @@ require('./scripts/services/menuService.js');
 require('./scripts/services/menuCollapseService.js');
 require('./scripts/services/unlockService.js');
 require('./scripts/services/portfolioService.js');
+require('./scripts/services/resumeService.js');

@@ -1,7 +1,7 @@
 'use strict';
 angular.module("mainSite")
-.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
-
+.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService, resumeService) {
+  $scope.resumeArray = resumeService.resumeArray;
   let docElemOrBody = document.documentElement || document.body;
   let firstLoadAnimationBG = true;
   let fakeVar = 'fake';
@@ -57,5 +57,9 @@ angular.module("mainSite")
   };
   backgroundResize();
   windowResize(window, "resize", backgroundResize);
-        $scope.portfolio = portfolioService.portfolio;
+  $scope.portfolio = portfolioService.portfolio;
+  $scope.modalResumeCloseout = function() {
+    window.scrollTo(0, 0);
+    $scope.modalResumeOpen = false;
+  }
 });

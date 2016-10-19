@@ -20,6 +20,7 @@ webpackJsonp([0],[
 	__webpack_require__(13);
 	__webpack_require__(14);
 	__webpack_require__(15);
+	__webpack_require__(16);
 
 
 /***/ },
@@ -4634,8 +4635,8 @@ webpackJsonp([0],[
 
 	'use strict';
 	angular.module("mainSite")
-	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService) {
-
+	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService, resumeService) {
+	  $scope.resumeArray = resumeService.resumeArray;
 	  let docElemOrBody = document.documentElement || document.body;
 	  let firstLoadAnimationBG = true;
 	  let fakeVar = 'fake';
@@ -4691,7 +4692,11 @@ webpackJsonp([0],[
 	  };
 	  backgroundResize();
 	  windowResize(window, "resize", backgroundResize);
-	        $scope.portfolio = portfolioService.portfolio;
+	  $scope.portfolio = portfolioService.portfolio;
+	  $scope.modalResumeCloseout = function() {
+	    window.scrollTo(0, 0);
+	    $scope.modalResumeOpen = false;
+	  }
 	});
 
 
@@ -5561,6 +5566,17 @@ webpackJsonp([0],[
 
 
 
+	  })
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+	angular.module('mainSite')
+	  .service('resumeService', function() {
+	    this.resumeArray = [{"url": "resumes/DanielCudneyFullStackResume.pdf", "text": "Full Stack Engineer Resume"},{"url": "resumes/DanielCudneyWorkHistoryResume.pdf", "text": "Work History Resume"}]
 	  })
 
 
