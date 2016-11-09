@@ -2,10 +2,10 @@
 angular.module('mainSite')
   .service('unlockService', function() {
     this.runEventListener = function(funcPassed) {
-      let lockElem = document.getElementById('lock');
-      let lockElem2 = document.getElementById('lock2');
-      let lockButton = document.getElementById('lockButton');
-      let lockButton2 = document.getElementById('lockButton2');
+      var lockElem = document.getElementById('lock');
+      var lockElem2 = document.getElementById('lock2');
+      var lockButton = document.getElementById('lockButton');
+      var lockButton2 = document.getElementById('lockButton2');
       lockButton.addEventListener('mouseover', function() {
         unlockButton(lockElem);
       });
@@ -24,9 +24,9 @@ angular.module('mainSite')
       checkLock(elem);
     }
     var checkLock = function(elem) {
-      let element = elem.className;
-      let checkLock = (element.indexOf('fa-phone') > -1);
-      let checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
+      var element = elem.className;
+      var checkLock = (element.indexOf('fa-phone') > -1);
+      var checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
       if (checkLock) {
         elem.classList.remove('fa-phone');
         elem.classList.add('fa-volume-control-phone');

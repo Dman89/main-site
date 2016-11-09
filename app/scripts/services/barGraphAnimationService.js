@@ -19,17 +19,17 @@ this.runGraphAnimation = function() {
 {"div":"sqlAnimate", "height": 30, "left": 82.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Beginner</h3><p class='animateGraphInnerText innerTextOfDialog'>SQL</p><p class='animateGraphInnerText innerTextOfDialog'>PHP</p>", "barContent": '<p class="innerBar">Beginner</p>'}
 ];
   for (var x = 0; x < idArray.length; x++) {
-    let open = false;
-    let OrigLeft = idArray[x].left;
-    let left = OrigLeft;
-    let element = document.getElementById(idArray[x].div);
-    let setHeight = idArray[x].height;
-    let content = idArray[x].content;
-    let barContent = idArray[x].barContent;
+    var open = false;
+    var OrigLeft = idArray[x].left;
+    var left = OrigLeft;
+    var element = document.getElementById(idArray[x].div);
+    var setHeight = idArray[x].height;
+    var content = idArray[x].content;
+    var barContent = idArray[x].barContent;
     document.getElementById(idArray[x].div).onclick = function() {
       if (open == false) {
-        let y = 0;
-        let h = setHeight;
+        var y = 0;
+        var h = setHeight;
         var refreshInterval = setInterval(function() {
           element.innerHTML = "";
           y += 1;
@@ -61,9 +61,9 @@ this.runGraphAnimation = function() {
         }, 5);
       }
       else {
-        let y = 100;
-        let leftRewind = 0;
-        let h = 100;
+        var y = 100;
+        var leftRewind = 0;
+        var h = 100;
         var refreshInterval2 = setInterval(function() {
           element.innerHTML = "";
           y -= 1;

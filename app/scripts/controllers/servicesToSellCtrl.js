@@ -1,7 +1,7 @@
 'use strict';
 angular.module("mainSite")
 .controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
-  let mainBody = document.documentElement || document.body;
+  var mainBody = document.documentElement || document.body;
 
   $scope.modalNull = false;
   $scope.times = servicesForSaleService.times;
@@ -54,7 +54,7 @@ angular.module("mainSite")
   var num2 = 0;
   $scope.addOption = function () {
     num++;
-    let opt = "New Option " + num;
+    var opt = "New Option " + num;
     $scope.lookingForAWebsite.options.push(opt);
   }
   $scope.removeOption = function (index) {
@@ -66,7 +66,7 @@ angular.module("mainSite")
   // Detail (step 6)
   $scope.addOptionDetails = function () {
     num++;
-    let opt = "New Detail " + num;
+    var opt = "New Detail " + num;
     $scope.lookingForAWebsite.details.push(opt);
   }
   $scope.removeOptionDetails = function (index) {
@@ -120,7 +120,7 @@ angular.module("mainSite")
     output(element)
   }
   function checkForChecked(element, output) {
-      let checkBoxCheck = false;
+      var checkBoxCheck = false;
       for (var x = 0; x < element.length; x++) {
         if (element[x].checked == true) {
           checkBoxCheck = true;
@@ -129,7 +129,7 @@ angular.module("mainSite")
     output(checkBoxCheck);
   }
   function checkForValue(element, output) {
-      let inputBoxValue = false;
+      var inputBoxValue = false;
       for (var x = 0; x < element.length; x++) {
         if (element[x].value !== null && element[x].value !== "") {
           inputBoxValue = true;

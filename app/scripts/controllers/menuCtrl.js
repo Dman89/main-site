@@ -4,7 +4,7 @@ angular.module("mainSite")
   var docElemOrBody = document.documentElement || document.body;
   var scrollPostition = window.pageYOffset;
   var scrollToFun = function(elem) {
-    let yCord = elem.offsetTop;
+    var yCord = elem.offsetTop;
     window.scrollTo(0, yCord);
   }
   $scope.home = function() {

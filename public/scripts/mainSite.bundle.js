@@ -4637,9 +4637,9 @@ webpackJsonp([0],[
 	angular.module("mainSite")
 	.controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService, resumeService) {
 	  $scope.resumeArray = resumeService.resumeArray;
-	  let docElemOrBody = document.documentElement || document.body;
-	  let firstLoadAnimationBG = true;
-	  let fakeVar = 'fake';
+	  var docElemOrBody = document.documentElement || document.body;
+	  var firstLoadAnimationBG = true;
+	  var fakeVar = 'fake';
 	  setTimeout(function() {window.scrollTo(0, 0)}, 1000)
 
 	  setTimeout(function() {
@@ -4654,7 +4654,7 @@ webpackJsonp([0],[
 	    $state.go('contact');
 	  }
 	  var removeEventsAndGo = function(elem) {
-	    let element = document.getElementById(elem);
+	    var element = document.getElementById(elem);
 	    element.addEventListener('click', function() {
 	      window.removeEventListener('resize', backgroundResize, true);
 	      clearInterval(movingBG);
@@ -4662,7 +4662,7 @@ webpackJsonp([0],[
 	      window.removeEventListener('scroll', scrollService.scrolling)
 	    });
 	  }
-	  let readjust = 0;
+	  var readjust = 0;
 	  var moveBackground = function () {
 	    readjust += .1;
 	    document.getElementById("bg").style.backgroundPosition = readjust + "px 0px";
@@ -4674,8 +4674,8 @@ webpackJsonp([0],[
 	        firstLoadAnimationBG == true ? (movingBG = setInterval(moveBackground, 1), firstLoadAnimationBG = false) : fakeVar = 'fake';
 	      }
 	      document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
-	      let elem = document.getElementById("bg");
-	      let widthForBG = elem.offsetHeight * 1.669133771929825;
+	      var elem = document.getElementById("bg");
+	      var widthForBG = elem.offsetHeight * 1.669133771929825;
 	      document.getElementById("bg").style.backgroundSize = "cover";
 	      document.getElementById("PUTBACKGROUNDHERE").style.minHeight = docElemOrBody.clientHeight;
 	    }
@@ -4710,7 +4710,7 @@ webpackJsonp([0],[
 	  var docElemOrBody = document.documentElement || document.body;
 	  var scrollPostition = window.pageYOffset;
 	  var scrollToFun = function(elem) {
-	    let yCord = elem.offsetTop;
+	    var yCord = elem.offsetTop;
 	    window.scrollTo(0, yCord);
 	  }
 	  $scope.home = function() {
@@ -4748,7 +4748,7 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module("mainSite")
 	.controller("servicesToSellCtrl", function($scope, $state, $interval, $timeout, servicesForSaleService, $location, scrollService, sendDataViaEmailService) {
-	  let mainBody = document.documentElement || document.body;
+	  var mainBody = document.documentElement || document.body;
 
 	  $scope.modalNull = false;
 	  $scope.times = servicesForSaleService.times;
@@ -4801,7 +4801,7 @@ webpackJsonp([0],[
 	  var num2 = 0;
 	  $scope.addOption = function () {
 	    num++;
-	    let opt = "New Option " + num;
+	    var opt = "New Option " + num;
 	    $scope.lookingForAWebsite.options.push(opt);
 	  }
 	  $scope.removeOption = function (index) {
@@ -4813,7 +4813,7 @@ webpackJsonp([0],[
 	  // Detail (step 6)
 	  $scope.addOptionDetails = function () {
 	    num++;
-	    let opt = "New Detail " + num;
+	    var opt = "New Detail " + num;
 	    $scope.lookingForAWebsite.details.push(opt);
 	  }
 	  $scope.removeOptionDetails = function (index) {
@@ -4867,7 +4867,7 @@ webpackJsonp([0],[
 	    output(element)
 	  }
 	  function checkForChecked(element, output) {
-	      let checkBoxCheck = false;
+	      var checkBoxCheck = false;
 	      for (var x = 0; x < element.length; x++) {
 	        if (element[x].checked == true) {
 	          checkBoxCheck = true;
@@ -4876,7 +4876,7 @@ webpackJsonp([0],[
 	    output(checkBoxCheck);
 	  }
 	  function checkForValue(element, output) {
-	      let inputBoxValue = false;
+	      var inputBoxValue = false;
 	      for (var x = 0; x < element.length; x++) {
 	        if (element[x].value !== null && element[x].value !== "") {
 	          inputBoxValue = true;
@@ -4900,27 +4900,27 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module('mainSite')
 	  .service('scrollService', function(barGraphAnimationService, $location, menuService) {
-	    let docElemOrBody = document.documentElement || document.body;
+	    var docElemOrBody = document.documentElement || document.body;
 	    var randomSetVarForFalse = "";
 	    var runAnimation = true;
 
 	      //Scroll From Section 1 to Section 2
 	    this.scrolling = function(cb) {
-	      let currentScrollPosition = window.pageYOffset;
+	      var currentScrollPosition = window.pageYOffset;
 	      menuService.checkScrollPosition(currentScrollPosition, function(id, res) {});
 	      if ($location.path() == '/') {
-	        let yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
-	        let yRangeToCheckPastDiv = document.getElementById("PUTBACKGROUNDHERE2").offsetTop  * .70;
-	        let tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
+	        var yRangeToCheck = document.getElementById("bg").offsetHeight * .70;
+	        var yRangeToCheckPastDiv = document.getElementById("PUTBACKGROUNDHERE2").offsetTop  * .70;
+	        var tempNum = document.getElementById('PUTBACKGROUNDHERE').offsetTop;
 	          if ( window.scrollY >= yRangeToCheck && runAnimation === true ) {
 	            if (window.scrollY < yRangeToCheckPastDiv) {
 	              runAnimation = false
-	              let elem = document.getElementsByClassName('barGraph');
+	              var elem = document.getElementsByClassName('barGraph');
 	              for (var x = 0; x < elem.length; x++){
 	                elem[x].style.opacity = 1;
 	                elem[x].classList.add("animateGraph");
 	              }
-	              let elemInner = document.getElementsByClassName('innerBar');
+	              var elemInner = document.getElementsByClassName('innerBar');
 	              for (var x = 0; x < elemInner.length; x++){
 	                elemInner[x].classList.add("animateGraph");
 	              }
@@ -4944,7 +4944,7 @@ webpackJsonp([0],[
 	'use strict';
 	angular.module('mainSite')
 	  .service('sendDataViaEmailService', function() {
-	    let url = "https://mandrillapp.com/api/1.0/messages/send.json";
+	    var url = "https://mandrillapp.com/api/1.0/messages/send.json";
 	    this.restCall = function(num, contact, work) {
 	      makeAStringForContact(contact, function(contactString) {
 	        makeSubject(num, work, function(subjectString) {
@@ -4970,49 +4970,49 @@ webpackJsonp([0],[
 	      })
 	    }
 	    var combinedHTML = function(contact, work, output) {
-	      let outputHTML = contact + work;
+	      var outputHTML = contact + work;
 	      output(outputHTML);
 	    }
 	    var makeAStringForWork = function(num, input, output) {
 	      if(num == 1) {
 	        optionsToStr(input.options, function(optionsResponse) {
 	          optionsToStr(input.details, function(detailsReponse) {
-	            let typeOfWork2 = "<br/>Non-Profit: " + input.typeOfSite.nonProfit + "<br/>Other: " + input.typeOfSite.other.isTrue+" : " + input.typeOfSite.other.content;
-	            let typeOfWork = "Personal: " + input.typeOfSite.personal + "<br/>Blog: " + input.typeOfSite.blog + "<br/>Social: " + input.typeOfSite.social + "<br/>eCommerce: " + input.typeOfSite.eCommerce + "<br/>Business: " + input.typeOfSite.business + typeOfWork2;
-	            let options = optionsResponse;
-	            let details = detailsReponse;
-	            let pageTotal = "1-5: " + input.pagesTotal.one + "<br/>6-15: " + input.pagesTotal.six +"<br/>16+:" + input.pagesTotal.sixteen + "<br/>Dynamic: " + input.pagesTotal.dynamic;
-	            let timeFrame2 = "<br/>By Date: " + input.timeFrame.byDate.isTrue + ": " + input.timeFrame.byDate.content + "<br/>Other: " + input.timeFrame.other.isTrue + ": " + input.timeFrame.other.content + "<br/>Employment: " + input.timeFrame.employment.isTrue + ": " + input.timeFrame.employment.content;
-	            let timeFrame = "Flexible: " + input.timeFrame.flexible + "<br/>Asap: " + input.timeFrame.asap + "<br/>Next Few Days:" + input.timeFrame.nextFewDays + timeFrame2;
-	            let outputString = "<br/><p>Work Type:<br/>"+typeOfWork+"<p/>With Options:<br/>"+options+"<p/>Pages Total:<br/>"+pageTotal+"<p/>Time Frame:<br/>"+timeFrame+"<p/>Extra Details:<br/>"+details+"<p/></p>"
+	            var typeOfWork2 = "<br/>Non-Profit: " + input.typeOfSite.nonProfit + "<br/>Other: " + input.typeOfSite.other.isTrue+" : " + input.typeOfSite.other.content;
+	            var typeOfWork = "Personal: " + input.typeOfSite.personal + "<br/>Blog: " + input.typeOfSite.blog + "<br/>Social: " + input.typeOfSite.social + "<br/>eCommerce: " + input.typeOfSite.eCommerce + "<br/>Business: " + input.typeOfSite.business + typeOfWork2;
+	            var options = optionsResponse;
+	            var details = detailsReponse;
+	            var pageTotal = "1-5: " + input.pagesTotal.one + "<br/>6-15: " + input.pagesTotal.six +"<br/>16+:" + input.pagesTotal.sixteen + "<br/>Dynamic: " + input.pagesTotal.dynamic;
+	            var timeFrame2 = "<br/>By Date: " + input.timeFrame.byDate.isTrue + ": " + input.timeFrame.byDate.content + "<br/>Other: " + input.timeFrame.other.isTrue + ": " + input.timeFrame.other.content + "<br/>Employment: " + input.timeFrame.employment.isTrue + ": " + input.timeFrame.employment.content;
+	            var timeFrame = "Flexible: " + input.timeFrame.flexible + "<br/>Asap: " + input.timeFrame.asap + "<br/>Next Few Days:" + input.timeFrame.nextFewDays + timeFrame2;
+	            var outputString = "<br/><p>Work Type:<br/>"+typeOfWork+"<p/>With Options:<br/>"+options+"<p/>Pages Total:<br/>"+pageTotal+"<p/>Time Frame:<br/>"+timeFrame+"<p/>Extra Details:<br/>"+details+"<p/></p>"
 	            output(outputString);
 	          })
 	        })
 	      }
 	      else {
-	        let outputString = "<h1>Employment</h1>";
+	        var outputString = "<h1>Employment</h1>";
 	        output(outputString);
 	      }
 	    }
 	    var optionsToStr = function(input, out) {
-	      let outArr = '';
+	      var outArr = '';
 	      for (var x = 0; x < input.length; x++) {
-	        let tempArr = outArr;
+	        var tempArr = outArr;
 	        outArr = tempArr +"<br/>"+ input[x];
 	      }
 	      out(outArr);
 	    }
 	    var makeAStringForContact = function(input, output) {
-	        let name = input.name;
-	        let email = input.email;
-	        let phone = input.phone;
-	        let company = input.company;
-	        let time = input.time.number +" "+ input.time.amPm +" in the timezone of "+ input.time.timezone;
-	        let outputString = "<h2>"+name+"</h2><p>Company: "+company+"<br/>Email: "+email+"<br/>Phone: "+phone+"<br/>Best Time to Call: "+time+"</p>"
+	        var name = input.name;
+	        var email = input.email;
+	        var phone = input.phone;
+	        var company = input.company;
+	        var time = input.time.number +" "+ input.time.amPm +" in the timezone of "+ input.time.timezone;
+	        var outputString = "<h2>"+name+"</h2><p>Company: "+company+"<br/>Email: "+email+"<br/>Phone: "+phone+"<br/>Best Time to Call: "+time+"</p>"
 	        output(outputString);
 	    }
 	    var makeSubject = function(num, input, output) {
-	      let subject = "YOUR SUBJECT HERE!";
+	      var subject = "YOUR SUBJECT HERE!";
 	      if (num == 0) {
 	        subject = "Employment Opportunity";
 	      }
@@ -5022,7 +5022,7 @@ webpackJsonp([0],[
 	      output(subject);
 	    }
 	    var composeData = function(subject, html, output) {
-	      let data = {
+	      var data = {
 	        "key": "p1MPv-GEtGCLpqhcgeuqLA",
 	        "message": {
 	          "from_email": "admin@danielcudney.com",
@@ -5069,17 +5069,17 @@ webpackJsonp([0],[
 	{"div":"sqlAnimate", "height": 30, "left": 82.5, "content": "<h3 class='animateGraphInnerText innerTextOfDialog'>Beginner</h3><p class='animateGraphInnerText innerTextOfDialog'>SQL</p><p class='animateGraphInnerText innerTextOfDialog'>PHP</p>", "barContent": '<p class="innerBar">Beginner</p>'}
 	];
 	  for (var x = 0; x < idArray.length; x++) {
-	    let open = false;
-	    let OrigLeft = idArray[x].left;
-	    let left = OrigLeft;
-	    let element = document.getElementById(idArray[x].div);
-	    let setHeight = idArray[x].height;
-	    let content = idArray[x].content;
-	    let barContent = idArray[x].barContent;
+	    var open = false;
+	    var OrigLeft = idArray[x].left;
+	    var left = OrigLeft;
+	    var element = document.getElementById(idArray[x].div);
+	    var setHeight = idArray[x].height;
+	    var content = idArray[x].content;
+	    var barContent = idArray[x].barContent;
 	    document.getElementById(idArray[x].div).onclick = function() {
 	      if (open == false) {
-	        let y = 0;
-	        let h = setHeight;
+	        var y = 0;
+	        var h = setHeight;
 	        var refreshInterval = setInterval(function() {
 	          element.innerHTML = "";
 	          y += 1;
@@ -5111,9 +5111,9 @@ webpackJsonp([0],[
 	        }, 5);
 	      }
 	      else {
-	        let y = 100;
-	        let leftRewind = 0;
-	        let h = 100;
+	        var y = 100;
+	        var leftRewind = 0;
+	        var h = 100;
 	        var refreshInterval2 = setInterval(function() {
 	          element.innerHTML = "";
 	          y -= 1;
@@ -5266,10 +5266,10 @@ webpackJsonp([0],[
 	angular.module('mainSite')
 	  .service('menuService', function() {
 	    // Clears Active Classes on Click
-	    let idArray = ['bg', 'PUTBACKGROUNDHERE', 'PUTBACKGROUNDHERE2', 'PUTBACKGROUNDHERE3', 'PUTBACKGROUNDHERE4'];
+	    var idArray = ['bg', 'PUTBACKGROUNDHERE', 'PUTBACKGROUNDHERE2', 'PUTBACKGROUNDHERE3', 'PUTBACKGROUNDHERE4'];
 	    this.removeOtherActivesOnClick = function(id) {
-	      let ids = idArray;
-	      let len = idArray.length;
+	      var ids = idArray;
+	      var len = idArray.length;
 	      for (var x = 0; x < len; x++) {
 	        if (ids[x] != id) {
 	          clearActive(ids[x]);
@@ -5279,9 +5279,9 @@ webpackJsonp([0],[
 	    }
 	    // CHECKS for active class
 	    var gotActive = function(id2) {
-	      let id = id2 + 'menu';
-	      let element = document.getElementById(id);
-	      let check = (" "+element.className+" ").indexOf(' active ');
+	      var id = id2 + 'menu';
+	      var element = document.getElementById(id);
+	      var check = (" "+element.className+" ").indexOf(' active ');
 	      if (check > -1) {
 	        return true;
 	      }
@@ -5291,24 +5291,24 @@ webpackJsonp([0],[
 	    }
 	    // Clears Active Class
 	    var clearActive = function(id2) {
-	      let id = id2 + 'menu';
+	      var id = id2 + 'menu';
 	      document.getElementById(id).classList.remove('active');
 	    }
 	    // Checks for Element Position and Compares to ScrollY Position of Window (Return Boolean)
 	    var checkOffsetTopElement = function(id, nextId, lastId, cb) {
-	      let position = document.getElementById(id).offsetTop;
-	      let nextPosition;
+	      var position = document.getElementById(id).offsetTop;
+	      var nextPosition;
 	      if (nextId != 'none') {
 	        nextPosition = document.getElementById(nextId).offsetTop;
 	      }
 	      else {
 	        nextPosition = document.getElementById(lastId).offsetTop;
-	        let scrollPostition = window.pageYOffset;
+	        var scrollPostition = window.pageYOffset;
 	        if (scrollPostition > nextPosition) {
 	          cb(true);
 	        }
 	      }
-	      let scrollPostition = window.pageYOffset;
+	      var scrollPostition = window.pageYOffset;
 	      if (scrollPostition < nextPosition) {
 	        cb(true);
 	      }
@@ -5318,11 +5318,11 @@ webpackJsonp([0],[
 	    }
 	    // Sets the Active Class for the Menu Buttons
 	    var setActiveClass = function(menuBtn, next, last, res) {
-	      let idToUse = menuBtn + 'menu';
-	      let active = 'active';
-	      let div = document.getElementById(idToUse);
+	      var idToUse = menuBtn + 'menu';
+	      var active = 'active';
+	      var div = document.getElementById(idToUse);
 	      if (res == true) {
-	        let checkForClassActive = gotActive(menuBtn);
+	        var checkForClassActive = gotActive(menuBtn);
 	        if (checkForClassActive != true) {
 	          div.className += 'active';
 	        }
@@ -5331,18 +5331,18 @@ webpackJsonp([0],[
 	    }
 	    // Searches Element for Active Class
 	    var checkForClass = function(next, last, clss) {
-	      let nextId = next + 'menu';
-	      let lastId = last + 'menu';
-	      let elementOne = document.getElementById(nextId);
-	      let elementTwo = document.getElementById(lastId);
+	      var nextId = next + 'menu';
+	      var lastId = last + 'menu';
+	      var elementOne = document.getElementById(nextId);
+	      var elementTwo = document.getElementById(lastId);
 	      if (elementOne != "nonemenu" && elementOne != null) {
-	        let check = (elementOne.className).indexOf(clss);
+	        var check = (elementOne.className).indexOf(clss);
 	        if (check > -1) {
 	          clearActive(next);
 	        }
 	      }
 	      if (elementTwo != "nonemenu" && elementTwo != null) {
-	        let check = (elementTwo.className).indexOf(clss);
+	        var check = (elementTwo.className).indexOf(clss);
 	        if (check > -1) {
 	          clearActive(last);
 	        }
@@ -5350,12 +5350,12 @@ webpackJsonp([0],[
 	    }
 	    // Uses Position to Find Current Elements (In View, Above and Below)
 	    var elementInView = function(scrollPostition, cb) {
-	      let id, nextId, lastId, nothing;
-	      let one = (document.getElementById('bg').offsetTop * .90);
-	      let two = (document.getElementById('PUTBACKGROUNDHERE').offsetTop * .90);
-	      let three = (document.getElementById('PUTBACKGROUNDHERE2').offsetTop * .90);
-	      let four = (document.getElementById('PUTBACKGROUNDHERE3').offsetTop * .90);
-	      let five = (document.getElementById('PUTBACKGROUNDHERE4').offsetTop * .90);
+	      var id, nextId, lastId, nothing;
+	      var one = (document.getElementById('bg').offsetTop * .90);
+	      var two = (document.getElementById('PUTBACKGROUNDHERE').offsetTop * .90);
+	      var three = (document.getElementById('PUTBACKGROUNDHERE2').offsetTop * .90);
+	      var four = (document.getElementById('PUTBACKGROUNDHERE3').offsetTop * .90);
+	      var five = (document.getElementById('PUTBACKGROUNDHERE4').offsetTop * .90);
 	      scrollPostition < two ? (id = "bg", nextId = "PUTBACKGROUNDHERE", lastId = "none") : nothing = 'nada';
 	      scrollPostition >= two ? (id = "PUTBACKGROUNDHERE", nextId = "PUTBACKGROUNDHERE2", lastId = "bg") : nothing = 'nada';
 	      scrollPostition >= three ? (id = "PUTBACKGROUNDHERE2", nextId = "PUTBACKGROUNDHERE3", lastId = "PUTBACKGROUNDHERE") : nothing = 'nada';
@@ -5382,9 +5382,9 @@ webpackJsonp([0],[
 	angular.module('mainSite')
 	  .service('menuCollapseService', function() {
 	    this.collapseMenu = function() {
-	      let elem = document.getElementById('myNavbar');
-	      let element = elem.className;
-	      let check = (element.indexOf('in') > -1)
+	      var elem = document.getElementById('myNavbar');
+	      var element = elem.className;
+	      var check = (element.indexOf('in') > -1)
 	      if (check == true) {
 	        elem.classList.remove('in');
 	      }
@@ -5400,10 +5400,10 @@ webpackJsonp([0],[
 	angular.module('mainSite')
 	  .service('unlockService', function() {
 	    this.runEventListener = function(funcPassed) {
-	      let lockElem = document.getElementById('lock');
-	      let lockElem2 = document.getElementById('lock2');
-	      let lockButton = document.getElementById('lockButton');
-	      let lockButton2 = document.getElementById('lockButton2');
+	      var lockElem = document.getElementById('lock');
+	      var lockElem2 = document.getElementById('lock2');
+	      var lockButton = document.getElementById('lockButton');
+	      var lockButton2 = document.getElementById('lockButton2');
 	      lockButton.addEventListener('mouseover', function() {
 	        unlockButton(lockElem);
 	      });
@@ -5422,9 +5422,9 @@ webpackJsonp([0],[
 	      checkLock(elem);
 	    }
 	    var checkLock = function(elem) {
-	      let element = elem.className;
-	      let checkLock = (element.indexOf('fa-phone') > -1);
-	      let checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
+	      var element = elem.className;
+	      var checkLock = (element.indexOf('fa-phone') > -1);
+	      var checkUnlock = (element.indexOf('fa-volume-control-phone') > -1);
 	      if (checkLock) {
 	        elem.classList.remove('fa-phone');
 	        elem.classList.add('fa-volume-control-phone');
