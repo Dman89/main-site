@@ -2,7 +2,7 @@
 angular.module("mainSite")
 .controller("indexCtrl", function($scope, $interval, $timeout, $location, scrollService, $state, barGraphAnimationService, servicesForSaleService, portfolioService, unlockService, resumeService) {
   $scope.resumeArray = resumeService.resumeArray;
-  var docElemOrBody = document.documentElement || document.body;
+  var docElemOrBodyForIndex = document.documentElement || document.body;
   var firstLoadAnimationBG = true;
   var fakeVar = 'fake';
   setTimeout(function() {window.scrollTo(0, 0)}, 1000)
@@ -35,14 +35,14 @@ angular.module("mainSite")
   var movingBG;
   var backgroundResize = function() {
     if ($location.path() === '/') {
-      if (docElemOrBody.clientWidth >= 600 && docElemOrBody.clientHeight >= 600) {
+      if (docElemOrBodyForIndex.clientWidth >= 600 && docElemOrBodyForIndex.clientHeight >= 600) {
         firstLoadAnimationBG == true ? (movingBG = setInterval(moveBackground, 1), firstLoadAnimationBG = false) : fakeVar = 'fake';
       }
       document.getElementById("bg").style.background = '#212121 url("../../../images/bg.jpg") repeat-x 0 0';
       var elem = document.getElementById("bg");
       var widthForBG = elem.offsetHeight * 1.669133771929825;
       document.getElementById("bg").style.backgroundSize = "cover";
-      document.getElementById("PUTBACKGROUNDHERE").style.minHeight = docElemOrBody.clientHeight;
+      document.getElementById("PUTBACKGROUNDHERE").style.minHeight = docElemOrBodyForIndex.clientHeight;
     }
   }
   var windowResize = function(object, type, callback) {

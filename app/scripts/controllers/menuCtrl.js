@@ -1,7 +1,7 @@
 'use strict';
 angular.module("mainSite")
 .controller("menuCtrl", function($scope, $interval, $timeout, menuService, menuCollapseService) {
-  var docElemOrBody = document.documentElement || document.body;
+  var docElemOrBodyForMenu = document.documentElement || document.body;
   var scrollPostition = window.pageYOffset;
   var scrollToFun = function(elem) {
     var yCord = elem.offsetTop;
