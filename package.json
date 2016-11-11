@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "dev": "webpack-dev-server --progress --content-base public"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +17,8 @@
   "devDependencies": {
     "connect-modrewrite": "^0.9.0",
     "json-loader": "^0.5.4",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "angular": "^1.5.8",

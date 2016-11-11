@@ -1,14 +1,23 @@
 
 .profileImageMain {
   display: block;
+  margin: 5% auto 0;
   margin: -webkit-calc(10vh + 43px) auto 0;
   margin:    -moz-calc(10vh + 43px) auto 0;
   margin:         calc(10vh + 43px) auto 0;
   border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
   position: relative;
   border: .35em solid $secondary;
+  height: 25%;
+  width: 25%;
   height: 25vh;
   width: 25vh;
+  max-width: 300px;
+  max-height: 300px;
+  min-height: 125px;
+  min-width: 125px;
   @media (max-height: 480px) {
     margin: 43px auto 0;
   }
@@ -17,16 +26,30 @@
 h3.titleHeadline {
   text-align: center;
   white-space: nowrap;
-  margin: 5vh auto 0;
+  margin: 5% auto 0;
+  -webkit-margin: 5vh auto 0;
+  -moz-overflow: hidden;
+  -ms-overflow: hidden;
+  -webkit-overflow: hidden;
   overflow: hidden;
   width: 0%;
   color: white;
   animation: type 5s 2s forwards steps(60, end);
+  -ms-animation: type 5s 2s forwards steps(60, end);
+  -moz-animation: type 5s 2s forwards steps(60, end);
+  -webkit-animation: type 5s 2s forwards steps(60, end);
   @media (max-width: 480px) {
+    margin: 1% auto 0;
     margin: 1vh auto 0;
+    -moz-animation: type 2s 2s forwards steps(60, end);
+    -ms-animation: type 2s 2s forwards steps(60, end);
+    -webkit-animation: type 2s 2s forwards steps(60, end);
     animation: type 2s 2s forwards steps(60, end);
   }
   @media (min-width: 481px) and (max-width: 767px) {
+    -ms-animation: type 3.5s 2s forwards steps(60, end);
+    -moz-animation: type 3.5s 2s forwards steps(60, end);
+    -webkit-animation: type 3.5s 2s forwards steps(60, end);
     animation: type 3.5s 2s forwards steps(60, end);
   }
 }
@@ -37,43 +60,75 @@ h4.smallHeadlineMain {
   overflow: hidden;
   width: 0%;
   color: white;
+  -ms-animation: type 7s 3.5s forwards steps(60, end);
+  -moz-animation: type 7s 3.5s forwards steps(60, end);
+  -webkit-animation: type 7s 3.5s forwards steps(60, end);
   animation: type 7s 3.5s forwards steps(60, end);
   @media (max-width: 480px) {
+    -ms-animation: type 4s 4s forwards steps(60, end);
+    -moz-animation: type 4s 4s forwards steps(60, end);
+    -webkit-animation: type 4s 4s forwards steps(60, end);
     animation: type 4s 4s forwards steps(60, end);
   }
   @media (min-width: 481px) and (max-width: 767px) {
+    -ms-animation: type 4s 3.75s forwards steps(60, end);
+    -moz-animation: type 4s 3.75s forwards steps(60, end);
+    -webkit-animation: type 4s 3.75s forwards steps(60, end);
     animation: type 4s 3.75s forwards steps(60, end);
   }
   @media (min-width: 768px) and (max-width: 1200px) {
+    -ms-animation: type 4.25s 3.75s forwards steps(60, end);
+    -moz-animation: type 4.25s 3.75s forwards steps(60, end);
+    -webkit-animation: type 4.25s 3.75s forwards steps(60, end);
     animation: type 4.25s 3.75s forwards steps(60, end);
   }
   & span {
+    -ms-webkit--animation: blink 1.5s infinite;
+    -moz-animation: blink 1.5s infinite;
+    -webkit-animation: blink 1.5s infinite;
     animation: blink 1.5s infinite;
   }
 }
 
 
 .dividerDiv {
+  width: 0%;
   width: 0vw;
   height: 5px;
   background-color: $black;
+  margin: 5% auto 0;
   margin: 5vh auto 0;
   border-radius: 10px;
+  -ms-animation: dividerDiv 1s ease-in-out 4.5s forwards;
+  -moz-animation: dividerDiv 1s ease-in-out 4.5s forwards;
+  -webkit-animation: dividerDiv 1s ease-in-out 4.5s forwards;
   animation: dividerDiv 1s ease-in-out 4.5s forwards;
   @media (max-width: 480px) {
-  animation: dividerDiv 1s ease-in-out 5.25s forwards;
+    -ms-animation: dividerDiv 1s ease-in-out 5.25s forwards;
+    -moz-animation: dividerDiv 1s ease-in-out 5.25s forwards;
+    -webkit-animation: dividerDiv 1s ease-in-out 5.25s forwards;
+    animation: dividerDiv 1s ease-in-out 5.25s forwards;
   }
   @media (min-width: 481px) and (max-width: 767px) {
-  animation: dividerDiv 1s ease-in-out 5s forwards;
+    -ms-animation: dividerDiv 1s ease-in-out 5s forwards;
+    -moz-animation: dividerDiv 1s ease-in-out 5s forwards;
+    -webkit-animation: dividerDiv 1s ease-in-out 5s forwards;
+    animation: dividerDiv 1s ease-in-out 5s forwards;
   }
   @media (min-width: 768px) and (max-width: 1200px) {
-  animation: dividerDiv 1s ease-in-out 4.75s forwards;
+    -ms-animation: dividerDiv 1s ease-in-out 4.75s forwards;
+    -moz-animation: dividerDiv 1s ease-in-out 4.75s forwards;
+    -webkit-animation: dividerDiv 1s ease-in-out 4.75s forwards;
+    animation: dividerDiv 1s ease-in-out 4.75s forwards;
   }
 }
 
 
 .hover:hover {
   color: white;
+  -moz-transition: .5s linear;
+  -ms-transition: .5s linear;
+  -webkit-transition: .5s linear;
   transition: .5s linear;
 }
 
@@ -81,21 +136,29 @@ h4.smallHeadlineMain {
 .mainTitleLinkDiv {
   color: white;
   text-align: center;
-  margin: 5vh auto 0;
+  margin: 5% auto 5%;
+  margin: 5vh auto 5vh;
   @media (max-width: 343px) and (orientation: portrait), (max-height: 360px) {
-  margin: auto;
+  margin: 5% auto;
   }
   @media (max-width: 343px) and (min-height: 260px) {
     margin-top: 5%;
   }
   & a {
+    -ms-animation: type 1s forwards;
+    -moz-animation: type 1s forwards;
+    -webkit-animation: type 1s forwards;
     animation: type 1s forwards;
     margin: auto;
+    margin-right: 10%;
     margin-right: 10vw;
     font-size: 50px;
 		top: -1em;
 		opacity: 0;
     color: $highlight;
+    -moz-transition: .5s linear;
+    -ms-transition: .5s linear;
+    -webkit-transition: .5s linear;
     transition: .5s linear;
     &:nth-child(3) {
 		-moz-animation: iconLoad 1s 6s forwards;

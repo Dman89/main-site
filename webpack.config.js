@@ -6,12 +6,13 @@ module.exports = {
         app: './app.js',
         vendor: ['angular']
     },
+    devServer: { inline: true },
     output: {
         path: __dirname + '/public/scripts',
         filename: 'mainSite.bundle.js'
     },
     plugins: [
     new webpack.OldWatchingPlugin(),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
     ]
 };

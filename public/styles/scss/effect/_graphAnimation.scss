@@ -1,6 +1,9 @@
 .hidden-xssm {
   &.animateGraphInnerText {
     animation: graphText2 .5s ease-in-out forwards;
+    -moz-animation: graphText2 .5s ease-in-out forwards;
+    -ms-animation: graphText2 .5s ease-in-out forwards;
+    -webkit-animation: graphText2 .5s ease-in-out forwards;
     @media (max-width: 480px), (max-height: 480px) {
         display: none;
     }
@@ -18,14 +21,21 @@
 .animateGraphInnerText {
   font-weight: 900;
   animation: graphText2 .5s ease-in-out forwards;
+  -moz-animation: graphText2 .5s ease-in-out forwards;
+  -ms-animation: graphText2 .5s ease-in-out forwards;
+  -webkit-animation: graphText2 .5s ease-in-out forwards;
 }
 .innerBar {
   transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
   background-color: transparent;
   color: $black;
   position: absolute;
   &.animateGraph {
     animation: graphText 1.15s ease-in-out forwards;
+    -ms-animation: graphText 1.15s ease-in-out forwards;
+    -moz-animation: graphText 1.15s ease-in-out forwards;
+    -webkit-animation: graphText 1.15s ease-in-out forwards;
   }
 }
 .graphTextBelow {
@@ -71,6 +81,9 @@ p {
   text-align: center;
   position: relative;
   animation: skillLevelAnimation 3s ease-in-out 3;
+  -moz-animation: skillLevelAnimation 3s ease-in-out 3;
+  -ms-animation: skillLevelAnimation 3s ease-in-out 3;
+  -webkit-animation: skillLevelAnimation 3s ease-in-out 3;
   &.a {
       top: 10%;
     @media (max-width: 480px), (max-height: 480px) {
@@ -116,6 +129,9 @@ p {
   left: 7.5%;
   &.animateGraph {
     animation: skillAnimate 1s ease-out;
+    -ms-animation: skillAnimate 1s ease-out;
+    -moz-animation: skillAnimate 1s ease-out;
+    -webkit-animation: skillAnimate 1s ease-out;
   }
   & p.innerBar {
     padding-left: 10px;
@@ -156,6 +172,9 @@ p {
   bottom: 0;
   &.animateGraph {
     animation: skillAnimate .95s ease-out;
+    -ms-animation: skillAnimate .95s ease-out;
+    -moz-animation: skillAnimate .95s ease-out;
+    -webkit-animation: skillAnimate .95s ease-out;
   }
   & p.innerBar {
     padding-left: 12px;
@@ -193,6 +212,9 @@ p {
   bottom: 0;
   &.animateGraph {
     animation: skillAnimate .9s ease-out;
+    -moz-animation: skillAnimate .9s ease-out;
+    -ms-animation: skillAnimate .9s ease-out;
+    -webkit-animation: skillAnimate .9s ease-out;
   }
   & p.innerBar {
     padding-left: 15px;
@@ -225,6 +247,9 @@ p {
   bottom: 0;
   &.animateGraph {
     animation: skillAnimate .85s ease-out;
+    -moz-animation: skillAnimate .85s ease-out;
+    -ms-animation: skillAnimate .85s ease-out;
+    -webkit-animation: skillAnimate .85s ease-out;
   }
   & p.innerBar {
     left: 8px;
@@ -270,6 +295,9 @@ p {
   bottom: 0;
   &.animateGraph {
     animation: skillAnimate .80s ease-out;
+    -ms-animation: skillAnimate .80s ease-out;
+    -moz-animation: skillAnimate .80s ease-out;
+    -webkit-animation: skillAnimate .80s ease-out;
   }
   & p.innerBar {
     left: 15px;
@@ -317,6 +345,9 @@ p {
   bottom: 0;
   &.animateGraph {
     animation: skillAnimate .75s ease-out;
+    -moz-animation: skillAnimate .75s ease-out;
+    -ms-animation: skillAnimate .75s ease-out;
+    -webkit-animation: skillAnimate .75s ease-out;
   }
   & p.innerBar {
     left: 5px;
@@ -397,6 +428,93 @@ p {
   100% {display: block ; opacity: 1;}
 }
 @keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+
+@-webkit-keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@-webkit-keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@-webkit-keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-webkit-keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-moz-keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@-moz-keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@-moz-keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-moz-keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-ms-keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@-ms-keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@-ms-keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-ms-keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@keyframes graphText2 {
+  0% {display:none ; opacity: 0;}
+  1% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+
+@-webkit-keyframes skillAnimate {
+  from {height: 0%;}
+}
+
+@-webkit-keyframes graphBarAnimation {
+  to {width: 100%; height: 100%; bottom: 0; left: 0; border-radius: 4px; z-index: 3;}
+}
+@-webkit-keyframes graphText {
+  0% {display:none ; opacity: 0;}
+  80% {display: block ; opacity: 0;}
+  100% {display: block ; opacity: 1;}
+}
+@-webkit-keyframes graphText2 {
   0% {display:none ; opacity: 0;}
   1% {display: block ; opacity: 0;}
   100% {display: block ; opacity: 1;}

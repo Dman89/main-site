@@ -1,5 +1,62 @@
 
 
+@-ms-keyframes blink{
+  to{opacity: .0;}
+}
+
+
+@-ms-keyframes type{
+  to { width: 100%;}
+}
+
+@-ms-keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100%; }
+}
+
+@-ms-keyframes dividerDiv {
+  to{opacity: 1; width: 75%; width: 75vw;}
+}
+
+@-moz-keyframes blink{
+  to{opacity: .0;}
+}
+
+
+@-moz-keyframes type{
+  to { width: 100%;}
+}
+
+@-moz-keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100%; }
+}
+
+@-moz-keyframes dividerDiv {
+  to{opacity: 1; width: 75%; width: 75vw;}
+}
+
+@-webkit-keyframes blink{
+  to{opacity: .0;}
+}
+
+
+@-webkit-keyframes type{
+  to { width: 100%;}
+}
+
+@-webkit-keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100%; }
+}
+
+@-webkit-keyframes dividerDiv {
+  to{opacity: 1; width: 75%; width: 75vw;}
+}
+
 @keyframes blink{
   to{opacity: .0;}
 }
@@ -16,7 +73,7 @@
 }
 
 @keyframes dividerDiv {
-  to{opacity: 1; width: 75vw;}
+  to{opacity: 1; width: 75%; width: 75vw;}
 }
 
 @-moz-keyframes iconLoad {
