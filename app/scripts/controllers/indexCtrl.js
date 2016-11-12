@@ -62,4 +62,9 @@ angular.module("mainSite")
     window.scrollTo(0, 0);
     $scope.modalResumeOpen = false;
   }
+
+  document.getElementById("stopButton").addEventListener('click', function() {
+    clearInterval(movingBG);
+    document.getElementById("stopButton").style.display = "none";
+  })
 });

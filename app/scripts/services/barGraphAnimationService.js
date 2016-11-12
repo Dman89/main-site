@@ -59,7 +59,7 @@ this.runGraphAnimation = function() {
               elementInForLoop.innerHTML = contentInForLoop;
             }, 100)
           }
-        }, 5);
+        }, 1);
       }
       else {
         var y = 100;
@@ -99,7 +99,7 @@ this.runGraphAnimation = function() {
               elementInForLoop.innerHTML = barContent;
             }, 100)
           }
-        }, 2.5);
+        }, 1);
       }
     }
   })

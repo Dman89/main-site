@@ -4697,6 +4697,11 @@ webpackJsonp([0],[
 	    window.scrollTo(0, 0);
 	    $scope.modalResumeOpen = false;
 	  }
+
+	  document.getElementById("stopButton").addEventListener('click', function() {
+	    clearInterval(movingBG);
+	    document.getElementById("stopButton").style.display = "none";
+	  })
 	});
 
 
@@ -5109,7 +5114,7 @@ webpackJsonp([0],[
 	              elementInForLoop.innerHTML = contentInForLoop;
 	            }, 100)
 	          }
-	        }, 5);
+	        }, 1);
 	      }
 	      else {
 	        var y = 100;
@@ -5149,7 +5154,7 @@ webpackJsonp([0],[
 	              elementInForLoop.innerHTML = barContent;
 	            }, 100)
 	          }
-	        }, 2.5);
+	        }, 1);
 	      }
 	    }
 	  })
